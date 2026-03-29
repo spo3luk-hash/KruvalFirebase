@@ -1,0 +1,153 @@
+/* css/pricna-ulice.css */
+
+body {
+    background-color: #f3eade; /* Světle pergamenová barva */
+    color: #4a3c31; /* Tmavě hnědá pro text */
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.world-container {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "left-panel main-content right-panel"
+        "left-panel main-content right-panel";
+    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* --- Panely --- */
+.left-panel {
+    grid-area: left-panel;
+}
+
+.main-content-panel {
+    grid-area: main-content;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+.right-panel {
+    grid-area: right-panel;
+}
+
+.panel-section {
+    background-color: #e9d8c8; /* Tmavší pergamen */
+    border: 1px solid #d3c2b1;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.panel-section h3 {
+    font-family: 'Cinzel', serif; /* Stejný font pro konzistenci */
+    color: #6b4f3a;
+    border-bottom: 2px solid #c5a98f;
+    padding-bottom: 10px;
+    margin: -20px -20px 20px -20px;
+    padding-left: 20px;
+    font-size: 1.4em;
+    text-align: center;
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* --- Hlavní obsah --- */
+.world-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3em;
+    color: #8a5a3c; /* Výrazná hnědá */
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+.world-description {
+    text-align: center;
+    font-style: italic;
+    color: #6a5a4e;
+    margin-bottom: 40px;
+}
+
+.location-content h2 {
+    font-family: 'Cinzel', serif;
+    color: #5c432e;
+    border-bottom: 1px solid #d3c2b1;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.location-content p {
+    line-height: 1.7;
+    font-size: 1.1em;
+}
+
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    background-color: #8a5a3c;
+    color: #f3eade;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-family: 'Cinzel', serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-btn:hover:not(:disabled) {
+    background-color: #6b4f3a;
+}
+
+.action-btn:disabled {
+    background-color: #ab9a8e;
+    cursor: not-allowed;
+}
+
+/* --- Menu Světa --- */
+#world-menu nav {
+    display: flex;
+    flex-direction: column;
+}
+
+#world-menu nav a {
+    color: #4a3c31;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#world-menu nav a:hover {
+    background-color: #8a5a3c;
+    color: #f3eade;
+}
+
+#world-menu nav a i {
+    margin-right: 10px;
+}
+
+/* --- Responzivita --- */
+@media (max-width: 1024px) {
+    .world-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main-content"
+            "left-panel"
+            "right-panel";
+    }
+
+    .left-panel, .right-panel {
+        width: 100%;
+    }
+}

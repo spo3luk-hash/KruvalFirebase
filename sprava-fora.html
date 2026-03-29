@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Správa Fóra - Kancelář Kancléře</title>
+    <link rel="stylesheet" href="css/sprava-fora.css">
+    <link rel="stylesheet" href="css/sprava-fora-sidebar.css">
+    <link rel="stylesheet" href="css/modalni-okna-forum.css">
+    <link rel="stylesheet" href="css/sprava-fora-tlacitka.css">
+    <link rel="stylesheet" href="css/spravce-kategorii.css">
+    <link rel="stylesheet" href="css/spravce-roli-forum.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="admin-view-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="sidebar-title">Kancelář Kancléře</h1>
+                <button id="sidebar-toggle-btn" class="sidebar-toggle-btn"><i class="fas fa-angle-left"></i></button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#manage-categories" id="nav-manage-categories-btn" class="active"><i class="fas fa-sitemap"></i><span class="nav-text">Správa Kategorií</span></a>
+                <a href="#manage-authors" id="nav-manage-authors-btn"><i class="fas fa-users"></i><span class="nav-text">Správa Autorů</span></a>
+                <a href="#manage-roles" id="nav-manage-roles-btn"><i class="fas fa-user-tag"></i><span class="nav-text">Správa Rolí</span></a>
+                <a href="#manage-followers" id="nav-manage-followers-btn"><i class="fas fa-binoculars"></i><span class="nav-text">Sledování Témat</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                 <a href="forum.html"><i class="fas fa-arrow-left"></i><span class="nav-text">Zpět na Fórum</span></a>
+                 <a href="index.html"><i class="fas fa-home"></i><span class="nav-text">Hlavní Stránka</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content" id="main-content">
+             <div id="admin-content" style="display: none;">
+                <div id="manage-categories-content">
+                    <section class="admin-list-section">
+                        <h2><i class="fas fa-sitemap"></i> Správa Kategorií</h2>
+                        <div id="category-manager-container"></div>
+                        <div class="admin-actions-container">
+                            <button class="admin-button" id="show-create-category-modal-btn"><i class="fas fa-plus-circle"></i> Vytvořit novou kategorii</button>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="manage-authors-content" style="display: none;">
+                    <section class="admin-list-section">
+                        <h2><i class="fas fa-users"></i> Správa Autorů</h2>
+                        <div id="authors-table-container"></div>
+                    </section>
+                </div>
+
+                <div id="manage-roles-content" style="display: none;">
+                    <section class="admin-form-section">
+                        <h2><i class="fas fa-user-shield"></i> Definice Rolí na Fóru</h2>
+                        <p class="section-description">Vytvořte a spravujte role, které lze přiřadit autorům na fóru. Tyto role jsou zcela nezávislé na herních rolích.</p>
+                        <div id="role-definition-container"></div>
+                    </section>
+                    <section class="admin-list-section" style="margin-top: 2rem;">
+                        <h2><i class="fas fa-users-cog"></i> Přiřazení Rolí Autorům</h2>
+                        <p class="section-description">Přiřaďte vytvořené role jednotlivým autorům fóra.</p>
+                        <div id="user-role-assignment-container"></div>
+                    </section>
+                </div>
+
+                <div id="manage-followers-content" style="display: none;'''"><section class="admin-list-section"><h2><i class="fas fa-binoculars"></i> Přehled Sledování Témat</h2><div id="followers-overview-container"></div></section></div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/modalniOknaForum.js"></script>
+    <script src="js/spravce-autoru.js"></script>
+    <script src="js/spravce-kategorii.js"></script>
+    <script src="js/spravce-for.js"></script>
+    <script src="js/editor-kategorii.js"></script>
+    <script src="js/editor-for.js"></script>
+    <script src="js/editor-prispevku.js"></script>
+    <script src="js/editor-temat.js"></script>
+    <script src="js/mazac-obsahu.js"></script>
+    <script src="js/spravce-roli-forum.js"></script>
+    <script src="js/sprava-fora.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=de-width, initial-scale=1.0">
+    <title>Fórum - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/forum.css">
+    <link rel="stylesheet" href="css/forum-profile.css">
+</head>
+<body>
+    <header>
+        <h1>Fórum</h1>
+        <nav>
+            <a href="index.html">Návrat na hlavní stránku</a>
+            <a href="sprava-fora.html" id="admin-forum-link" style="display: none;">Správa Fóra</a>
+        </nav>
+    </header>
+
+    <!-- Panel profilu fóra -->
+    <div id="forum-profile-panel">
+        <div class="profile-header">
+            <img src="images/silhouettes/placeholder.png" alt="Avatar" id="profile-avatar">
+            <div class="profile-name-line">
+                <h3 id="profile-name">Jméno identity</h3>
+                <div class="profile-icons">
+                    <a href="soukrome-zpravy-forum.html" id="private-messages-link" title="Soukromé zprávy" style="display: none;">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="upozorneni-forum.html" id="notification-bell" title="Nová upozornění" style="display: none;">
+                        <i class="fas fa-bell"></i>
+                        <span id="notification-count" class="notification-badge"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="profile-body">
+            <p><strong>Témata:</strong> <span id="profile-threads">0</span></p>
+            <p><strong>Příspěvky:</strong> <span id="profile-posts">0</span></p>
+            <p><strong>Odpovědi:</strong> <span id="profile-replies">0</span></p>
+            <p><strong>Reputace:</strong> <span id="profile-reputation">0</span></p>
+            <div class="profile-signature-container">
+                <p><strong>Podpis:</strong></p>
+                <blockquote id="profile-signature">Načítání...</blockquote>
+            </div>
+            <div id="profile-role-container" style="display: none;">
+                <p><strong>Role:</strong> <span id="profile-role"></span></p>
+            </div>
+        </div>
+        <div class="profile-footer">
+            <a href="upravit-profil-forum.html" id="edit-profile-btn">Upravit profil</a>
+        </div>
+    </div>
+
+    <!-- Tlačítko pro vytvoření identity -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="create-identity-btn" style="display: none; padding: 10px 20px; font-size: 1.1em;">Vytvořit si identitu na fóru</button>
+    </div>
+
+    <main id="forum-container">
+        <!-- Kategorie a fóra se budou načítat sem -->
+    </main>
+
+    <!-- Firebase a vlastní skripty -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/forum-utils.js"></script> <!-- Přidán nový pomocný skript -->
+    <script src="js/forum.js?v=1.3"></script>
+    <script src="js/forum-profile.js?v=1.3"></script>
+</body>
+</html>

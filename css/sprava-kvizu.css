@@ -1,0 +1,152 @@
+/* Základní styly */
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1f1f1f;
+    border-bottom: 2px solid #a87332;
+}
+
+.game-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.back-button {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+/* Nástrojová lišta a seznam */
+.toolbar {
+    margin-bottom: 20px;
+}
+
+#add-quiz-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+#add-quiz-btn:hover {
+    background-color: #66bb6a;
+}
+
+#quiz-admin-list-container {
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto; /* Pro případ, že by tabulka byla příliš široká */
+}
+
+table.quiz-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.quiz-admin-table th, table.quiz-admin-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #444;
+    text-align: left;
+}
+
+table.quiz-admin-table th {
+    background-color: #383838;
+    color: #a87332;
+}
+
+.action-buttons button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.manage-questions-btn { background-color: #2196F3; color: white; }
+.edit-quiz-btn { background-color: #FFC107; color: black; }
+.delete-quiz-btn { background-color: #F44336; color: white; }
+
+/* Styly pro modální okno */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #2c2c2c;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover, .close-button:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#quiz-form label {
+    display: block;
+    margin-top: 10px;
+    color: #a87332;
+}
+
+#quiz-form input, #quiz-form textarea, #quiz-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+#save-quiz-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #a87332;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}

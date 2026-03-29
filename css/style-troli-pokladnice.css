@@ -1,0 +1,389 @@
+/* === STYL TROLÍ POKLADNICE - DURMSTRANG UPDATE === */
+
+/* -- ZÁKLADNÍ TĚLO STRÁNKY -- */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #0a0a0a; /* Temnota jeskyně */
+    background-image: url('https://www.transparenttextures.com/patterns/dark-stone-wall.png'); /* Textura kamenné zdi */
+    color: #ccc; /* Základní barva textu */
+    line-height: 1.6;
+}
+
+
+/* -- ZÁKLADNÍ KONTEJNER A ATMOSFÉRA -- */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: rgba(15, 17, 20, 0.85); /* Tmavě šedé, poloprůhledné pozadí */
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Výraznější stín pro 3D efekt */
+    backdrop-filter: blur(5px); /* Efekt rozmazaného skla za kontejnerem */
+}
+
+.page-header h1 {
+    color: #c8a24c; /* Zlatá barva pro název banky */
+    text-shadow: 2px 2px 4px #000; /* Stín pro zvýraznění */
+}
+
+.g-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Větší mezera mezi přepážkami */
+}
+
+/* -- DESIGN PŘEPÁŽEK - MASIVNÍ KAMENNÉ BLOKY -- */
+.counter-section {
+    background: linear-gradient(145deg, #2a2d34, #212429);
+    border: 2px solid #1a1c20;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px; /* Přidána mezera mezi sekcemi */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.counter-title {
+    color: #b0c4de; /* Ledově modrá ocel */
+    font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #000, 0 0 10px #4a90e2, 0 0 15px #4a90e2;
+    border-bottom: 1px solid #4a90e2;
+    padding-bottom: 15px;
+}
+
+/* -- SEKCE UVNITŘ PŘEPÁŽEK -- */
+.account-subsection {
+    background-color: #1f2125;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+.account-subsection h3 {
+    color: #a0b4d0;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.subheading {
+    color: #7a8a9a;
+    font-size: 0.9em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* -- ZOBRAZENÍ FINANCÍ - RUNY V KÁMENI -- */
+.balance-display {
+    display: flex;
+    justify-content: space-around;
+    background-color: #111;
+    border-radius: 4px;
+    padding: 15px;
+    border: 1px solid #000;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
+}
+
+.balance-display p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #b0c4de;
+}
+
+.balance-display span {
+    font-weight: bold;
+    color: #e6b95c; /* Zlatavý nádech pro čísla */
+    text-shadow: 0 0 5px #c8a24c;
+}
+
+/* -- FORMULÁŘE A TLAČÍTKA - MAGICKÁ INTERAKCE -- */
+.transactions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.transaction-form {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.transaction-form h4 {
+    margin-top: 0;
+    text-align: center;
+    color: #a0b4d0;
+}
+
+.transaction-form input[type="number"] {
+    width: 100%;
+    background-color: #1a1c20;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.transaction-form input[type="number"]:focus {
+    border-color: #4a90e2; /* Ledově modrá při fokusu */
+    box-shadow: 0 0 10px #4a90e2;
+    outline: none;
+}
+
+button, .btn-primary, .btn-secondary {
+    width: auto; /* Změna pro flexibilní šířku */
+    min-width: 200px; /* Minimální šířka pro konzistenci */
+    background: linear-gradient(145deg, #3d4148, #2e3137);
+    color: #b0c4de;
+    border: 1px solid #1a1c20;
+    padding: 12px 25px; /* Více paddingu do stran */
+    font-weight: bold;
+    font-size: 1em; /* Sjednocení velikosti písma */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 5px; /* Malý margin pro oddělení tlačítek */
+    text-align: center;
+}
+
+.btn-secondary {
+    background: #555;
+    border-color: #444;
+}
+
+button:hover, .btn-primary:hover, .btn-secondary:hover {
+    color: #fff;
+    border-color: #4a90e2;
+    background: #4a90e2;
+    box-shadow: 0 0 15px #4a90e2, 0 0 5px #fff;
+    outline: none;
+}
+
+.btn-secondary:hover {
+    background: #6a9ed2;
+}
+
+
+/* === DYNAMICKÝ OBSAH === */
+
+.narrative-text {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    min-height: 100px; /* Zajistí, že se layout nerozpadne při psaní textu */
+    text-align: center;
+    white-space: pre-wrap; /* Zachová formátování a zalamování řádků */
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    min-height: 50px; /* Prostor pro tlačítka, i když se načítají */
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Fade-in animace pro tlačítka */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === SEZNAM TREZORŮ === */
+
+#vaults-list-container {
+    background: linear-gradient(145deg, #2a2d34, #212429);
+    border: 2px solid #1a1c20;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.vaults-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.vault-item {
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #1f2125;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.vault-item.locked {
+    opacity: 0.6;
+    background-color: #1a1c20;
+    border-color: #333;
+}
+
+.vault-number {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e6b95c;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.vault-owner {
+    font-size: 1em;
+    color: #a0b4d0;
+}
+
+.vault-status {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #c8a24c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vault-status .fas.fa-lock {
+    color: #ff5555;
+}
+
+.btn-unlock-vault {
+    padding: 8px 16px;
+    font-size: 0.9em;
+    min-width: 120px;
+}
+
+
+/* === NOVÉ STYLY PRO ÚSCHOVU PŘEDMĚTŮ === */
+
+.inventories-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.inventory-column {
+    width: 100%;
+    background-color: #1f2125;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.inventory-column h3 {
+    color: #a0b4d0;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.inventory-list {
+    min-height: 150px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inventory-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a2d34;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.inventory-item span {
+    color: #b0c4de;
+    font-size: 1.1em;
+}
+
+.btn-item-transfer {
+    padding: 5px 12px;
+    font-size: 0.8em;
+    min-width: 80px;
+    background: #4a90e2;
+    color: #fff;
+}
+
+.btn-item-transfer:hover {
+    background: #6a9ed2;
+    box-shadow: 0 0 10px #6a9ed2;
+}
+
+.page-footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.page-footer a.btn-secondary {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* === RESPONZIVNÍ DESIGN PRO MOBILNÍ ZAŘÍZENÍ === */
+@media (max-width: 768px) {
+
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        margin: 10px auto;
+        padding: 15px;
+        backdrop-filter: none; /* Úspora výkonu na mobilech */
+    }
+
+    .transactions, .inventories-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .balance-display {
+        flex-direction: column;
+        align-items: flex-start; /* Zarovnání doleva */
+        gap: 10px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .vaults-list {
+        grid-template-columns: 1fr; /* Jeden sloupec na malých obrazovkách */
+    }
+}

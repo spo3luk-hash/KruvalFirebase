@@ -1,0 +1,218 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
+/*
+ * CSS pro Fórum - Téma Durmstrang
+ * Písma: Cinzel pro nadpisy, Lora pro text
+ */
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #0c0c0f; /* Tmavě modro-šedé pozadí */
+    background-image: url('https://www.transparenttextures.com/patterns/black-felt.png'); /* Jemná, tmavá textura */
+    color: #c5c8d3; /* Světle šedá pro běžný text */
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #3a415a;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em; /* Zmenšeno pro lepší kompatibilitu s mobilními zařízeními */
+    color: #ebeef5;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(150, 180, 255, 0.3), 0 0 20px rgba(150, 180, 255, 0.2);
+}
+
+header nav a {
+    font-family: 'Cinzel', serif;
+    color: #98a2c2;
+    text-decoration: none;
+    margin: 0 10px; /* Zmenšený margin */
+    font-size: 1em; /* Zmenšeno pro mobilní zařízení */
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+header nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(200, 220, 255, 0.5);
+}
+
+#forum-container, main {
+    width: 95%; /* Zvětšena šířka pro mobilní zařízení */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category {
+    background-color: rgba(18, 20, 25, 0.6);
+    margin-bottom: 30px;
+    border: 1px solid #2a3045;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.category-header {
+    background-color: rgba(25, 28, 36, 0.8);
+    padding: 15px; /* Zmenšený padding */
+    border-bottom: 1px solid #3a415a;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.category-header h3 {
+    font-family: 'Cinzel', serif;
+    margin: 0;
+    font-size: 1.6em; /* Zmenšeno pro mobilní zařízení */
+    color: #dde1ea;
+}
+
+.category-header p {
+    margin: 5px 0 0;
+    font-style: italic;
+    color: #8b93b0;
+    font-size: 0.9em; /* Zmenšeno pro mobilní zařízení */
+}
+
+.forum-list, .thread-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.forum-item, .thread-item {
+    padding: 15px; /* Zmenšený padding */
+    border-top: 1px solid #2a3045;
+    display: flex;
+    flex-direction: column; /* Změna na sloupcové zobrazení pro mobilní zařízení */
+    align-items: flex-start; /* Zarovnání na začátek */
+    transition: background-color 0.3s;
+}
+
+.forum-item:hover, .thread-item:hover {
+    background-color: rgba(35, 40, 55, 0.5);
+}
+
+.forum-info, .thread-info {
+    width: 100%; /* Plná šířka */
+    margin-bottom: 10px; /* Přidán margin pro oddělení od statistik */
+}
+
+.forum-info a, .thread-info a {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2em; /* Zmenšeno pro mobilní zařízení */
+    font-weight: 700;
+    color: #a8b2d1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forum-info a:hover, .thread-info a:hover {
+    color: #ffffff;
+}
+
+.forum-info p, .thread-info p {
+    margin: 5px 0 0;
+    color: #767e99;
+    font-size: 0.8em; /* Zmenšeno pro mobilní zařízení */
+}
+
+.forum-stats, .thread-stats {
+    text-align: left; /* Zarovnání doleva */
+    color: #8b93b0;
+    font-size: 0.8em; /* Zmenšeno pro mobilní zařízení */
+    width: 100%; /* Plná šířka */
+    display: flex; /* Flex pro zobrazení vedle sebe */
+    justify-content: space-between; /* Rozdělení statistik */
+}
+
+.forum-stats span, .thread-stats span {
+    margin: 0;
+}
+
+.new-thread-controls {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#new-thread-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    color: #ebeef5;
+    background-color: #3a415a;
+    border: 1px solid #5c678c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#new-thread-btn:hover {
+    background-color: #4f5875;
+    box-shadow: 0 0 10px rgba(150, 180, 255, 0.3);
+}
+
+/* Media Query pro větší obrazovky */
+@media (min-width: 768px) {
+    header h1 {
+        font-size: 3em;
+    }
+
+    header nav a {
+        margin: 0 15px;
+        font-size: 1.1em;
+    }
+
+    #forum-container, main {
+        width: 90%;
+    }
+
+    .category-header {
+        padding: 20px;
+    }
+
+    .category-header h3 {
+        font-size: 1.8em;
+    }
+
+    .category-header p {
+        font-size: 1em;
+    }
+    
+    .forum-item, .thread-item {
+        flex-direction: row; /* Zpět na řádkové zobrazení */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .forum-info, .thread-info {
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    .forum-info a, .thread-info a {
+        font-size: 1.4em;
+    }
+    
+    .forum-info p, .thread-info p {
+        font-size: 0.9em;
+    }
+
+    .forum-stats, .thread-stats {
+        text-align: right;
+        width: auto;
+        display: block; /* Zpět na blokové zobrazení */
+    }
+
+    .forum-stats span, .thread-stats span {
+        display: block;
+        margin-bottom: 5px;
+    }
+}

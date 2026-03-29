@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Správa Upozornění - Kruval Online</title>
+    <link rel="stylesheet" href="css/admin-centrum.css?v=2.5">
+</head>
+<body>
+    <div class="admin-layout">
+        <main class="admin-content">
+            <header class="admin-header">
+                <h1>Správa Upozornění</h1>
+                <p>Vytvářejte a spravujte upozornění pro hráče.</p>
+            </header>
+
+            <section class="admin-section">
+                <h2 class="section-title">Vytvořit nové upozornění</h2>
+                <form id="new-notification-form" class="post-form">
+                    <div class="form-group">
+                        <label for="notification-title">Titulek</label>
+                        <input type="text" id="notification-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="notification-content">Obsah upozornění</label>
+                        <textarea id="notification-content" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Odeslat upozornění</button>
+                </form>
+            </section>
+
+            <section class="admin-section">
+                <h2 class="section-title">Existující upozornění</h2>
+                <div id="notification-list" class="table-container">
+                    <p>Načítám upozornění...</p>
+                </div>
+            </section>
+        </main>
+
+        <div class="menu-footer">
+             <a href="admin-centrum.html"><i class="fas fa-arrow-left"></i> Zpět do Admin Centra</a>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="js/firebase-config.js?v=1.3"></script>
+    <script src="js/sprava-upozorneni.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+/* ----- AVATARY A STATUSY ----- */
+
+.chat-avatar-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.chat-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #a58e70;
+}
+
+.status-bubble {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(20, 15, 10, 0.9);
+    color: #f0e6d6;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+    border: 1px solid #c8b59b;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    z-index: 10;
+    opacity: 1;
+    transition: top 0.2s ease-out;
+}
+
+/* ----- SEZNAM ONLINE UŽIVATELŮ ----- */
+
+#online-users-list .user-list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+#online-users-list .chat-avatar-container {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+#online-users-list .status-bubble {
+    font-size: 10px;
+    top: -10px;
+    padding: 2px 6px;
+}
+
+#online-users-list .online-user-name {
+    color: #e0d1b6;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* ----- STRUKTURA ZPRÁV V CHATU ----- */
+
+.message {
+    display: flex;
+    margin-bottom: 18px;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+
+.message-content {
+    background: rgba(10, 5, 2, 0.3);
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: calc(100% - 75px);
+}
+
+.message-sender {
+    font-weight: bold;
+    color: #c8b59b;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.message-sender .timestamp {
+    font-size: 11px;
+    color: #a58e70;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+.message-text {
+    color: #f0e6d6;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* ----- SPECIÁLNÍ TYPY ZPRÁV (EMOTE, NPC, ALERT) ----- */
+
+.message.type-emote {
+    padding-left: 20px;
+}
+
+.message.type-emote .message-text {
+    font-style: italic;
+    color: #c8b59b;
+}
+
+.message.type-npc {
+    justify-content: center; /* Centrovaná zpráva */
+}
+
+.message-content.npc-message {
+    background: rgba(10, 10, 10, 0.5);
+    border-left: 4px solid #8a6d3b;
+    max-width: 80%;
+}
+
+.npc-message .message-sender {
+    color: #f0ad4e; /* Zlatavá barva pro jméno NPC */
+    font-style: italic;
+}
+
+.message.type-system-alert {
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+}
+
+.system-alert-message {
+    width: 95%;
+    background: linear-gradient(145deg, #4a2c2c, #2b1a1a);
+    border: 2px solid #e74c3c;
+    color: #f1f1f1;
+    padding: 12px 18px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.system-alert-message .fa-bullhorn {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #e74c3c;
+}
+
+.system-alert-message .message-text {
+    font-size: 16px;
+    font-weight: bold;
+    flex-grow: 1;
+    color: #f1f1f1;
+}
+
+
+/* ----- STYLY PRO MODÁLNÍ OKNA (přidáno) ----- */
+
+.modal .modal-input, .modal .modal-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #a58e70;
+    background: #1c140d;
+    color: #f0e6d6;
+    border-radius: 4px;
+}
+
+.modal .modal-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.btn-primary.full-width {
+    width: 100%;
+}

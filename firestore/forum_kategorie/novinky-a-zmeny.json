@@ -1,0 +1,11 @@
+
+{
+  "nazev": "Novinky a změny",
+  "popis": "Oficiální oznámení, novinky a aktualizace týkající se hry a fóra.",
+  "vytvoreno": {
+    "__type__": "Timestamp",
+    "value": "2025-10-11T18:40:00.000Z"
+  },
+  "pocetVlaken": 0,
+  "pocetPrispevku": 0
+}

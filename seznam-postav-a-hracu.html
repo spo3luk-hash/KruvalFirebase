@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seznam Hráčů a Postav - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/seznam-postav-a-hracu.css">
+</head>
+<body>
+    <header class="game-header">
+        <div class="header-center">KRUVAL ONLINE</div>
+        <div class="header-right">
+            <a href="hra.html" class="back-button"><i class="fas fa-arrow-left"></i> Zpět do hry</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Seznam Hráčů</h1>
+        <div id="hraci-list" class="list-container">
+            <p>Načítám seznam hráčů...</p>
+        </div>
+
+        <h1>Seznam Postav</h1>
+        <div id="postavy-list" class="list-container">
+            <p>Načítám seznam postav...</p>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/seznam-postav-a-hracu.js"></script>
+</body>
+</html>

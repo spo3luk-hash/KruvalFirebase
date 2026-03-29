@@ -1,0 +1,105 @@
+/* CSS pro layout s postranním panelem - kompletní a opravená verze 2.0 */
+
+:root {
+    --sidebar-width: 280px;
+    --sidebar-width-collapsed: 80px;
+    --header-font: 'Cinzel Decorative', cursive;
+    --text-font: 'Sorts Mill Goudy', serif;
+    --gold-color: #f7d874;
+    --light-blue: #b0c4de;
+    --dark-bg: #080a0f;
+    --panel-bg: #10121a;
+    --border-color: #4a4a68;
+    --transition-speed: 0.3s;
+}
+
+#admin-view-container { display: flex; min-height: 100vh; }
+
+.sidebar {
+    width: var(--sidebar-width);
+    position: fixed; top: 0; left: 0; height: 100%;
+    background-color: var(--panel-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex; flex-direction: column;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    transition: width var(--transition-speed) ease;
+}
+
+.sidebar-header {
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.sidebar-title {
+    font-family: var(--header-font); font-size: 1.8em; color: var(--gold-color);
+    text-shadow: 0 0 10px rgba(247, 216, 116, 0.4); margin: 0;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar-nav { flex-grow: 1; padding: 20px 0; }
+
+.sidebar-nav a {
+    display: flex; align-items: center; padding: 15px 25px;
+    color: var(--light-blue); text-decoration: none; font-family: var(--text-font);
+    font-size: 1.2em; border-left: 4px solid transparent; white-space: nowrap;
+    overflow: hidden; transition: all 0.3s ease;
+}
+
+.sidebar-nav a i { margin-right: 15px; width: 20px; text-align: center; }
+.sidebar-nav a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+.sidebar-nav a.active {
+    color: var(--gold-color); border-left-color: var(--gold-color);
+    background-color: rgba(247, 216, 116, 0.1);
+    box-shadow: inset 3px 0 8px -2px rgba(247, 216, 116, 0.3);
+}
+
+.sidebar-footer { padding: 20px; border-top: 1px solid var(--border-color); }
+
+.sidebar-footer a {
+    color: var(--light-blue); text-decoration: none; font-size: 0.9em;
+    display: flex; align-items: center; margin-top: 10px; transition: color 0.3s ease;
+}
+.sidebar-footer a i { margin-right: 15px; width: 20px; text-align: center; }
+.sidebar-footer a:hover { color: var(--gold-color); }
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex-grow: 1; padding: 40px;
+    background-color: var(--dark-bg);
+    background-image: url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+    transition: margin-left var(--transition-speed) ease;
+}
+
+.sidebar-toggle-btn {
+    background: none; border: none; color: var(--light-blue); font-size: 1.5rem;
+    cursor: pointer; position: absolute; right: 15px; top: 50%;
+    transform: translateY(-50%); transition: color 0.3s, transform 0.3s;
+}
+.sidebar-toggle-btn:hover { color: var(--gold-color); }
+.sidebar-toggle-btn i { transition: transform var(--transition-speed) ease; }
+
+/* --- STAV: ZAVŘENÝ SIDEBAR --- */
+.sidebar.collapsed { width: var(--sidebar-width-collapsed); }
+.sidebar.collapsed .sidebar-title, .sidebar.collapsed .nav-text { display: none; }
+
+.sidebar.collapsed .sidebar-toggle-btn {
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+.sidebar.collapsed .sidebar-toggle-btn i { transform: rotate(180deg); }
+
+/* NOVÉ PRAVIDLO: Zarovnání ikon v zápatí při sbaleném menu */
+.sidebar.collapsed .sidebar-footer a {
+    justify-content: center;
+}
+.sidebar.collapsed .sidebar-footer a i {
+    margin-right: 0;
+}
+
+.sidebar.collapsed + .main-content { margin-left: var(--sidebar-width-collapsed); }
+
+/* Skrytí původního headeru */
+header { display: none; }

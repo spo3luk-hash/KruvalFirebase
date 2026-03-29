@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plnění Kvízu</title>
+    <link rel="stylesheet" href="/css/plneni-kvizu.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <header class="quiz-header">
+            <h1 id="quiz-title">Načítání kvízu...</h1>
+            <div id="quiz-timer">--:--</div>
+        </header>
+
+        <main id="quiz-main-content" style="display: none;">
+            <div id="progress-indicator"></div>
+            
+            <div class="question-area">
+                <p id="question-text"></p>
+            </div>
+
+            <div id="answers-area">
+                <!-- Odpovědi se načtou sem -->
+            </div>
+
+            <button id="next-question-btn">Další otázka</button>
+        </main>
+
+        <div id="loading-indicator">
+            <p>Připravuji otázky...</p>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/plneni-kvizu.js"></script>
+</body>
+</html>

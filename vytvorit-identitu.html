@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vytvořit identitu na fóru - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/vytvorit-identitu.css">
+</head>
+<body>
+    <div id="vytvorit-identitu-kontejner">
+        <h1>Vytvořte si identitu na fóru</h1>
+        <p>Zvolte si jméno, pod kterým budete vystupovat na fóru. Toto jméno bude viditelné pro ostatní uživatele u vašich příspěvků.</p>
+        
+        <form id="vytvorit-identitu-form">
+            <div class="form-skupina">
+                <label for="jmeno-identity">Jméno na fóru:</label>
+                <input type="text" id="jmeno-identity" name="jmeno-identity" required minlength="3">
+            </div>
+            <button type="submit">Vytvořit a vstoupit do fóra</button>
+        </form>
+
+        <p id="chybova-zprava" style="display:none;"></p>
+    </div>
+
+    <!-- Firebase a vlastní skripty -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/vytvorit-identitu.js"></script>
+</body>
+</html>

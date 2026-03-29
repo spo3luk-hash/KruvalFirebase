@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Postavy</title>
+    <link rel="stylesheet" href="css/profil-postavy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="game-header">
+        <div class="header-left"></div>
+        <div class="header-center">Profil Postavy</div>
+        <div class="header-right">
+            <a href="seznam-postav-a-hracu.html" class="back-button"><i class="fas fa-arrow-left"></i> Zpět</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="profil-loading">
+            <p class="error-message">Načítání profilu...</p>
+        </div>
+        
+        <div id="profil-container" style="display: none;">
+            <div class="profile-tabs">
+                <button class="tab-link active" data-tab="overview">Přehled</button>
+                <button class="tab-link" data-tab="inventory">Inventář</button>
+                <button class="tab-link" data-tab="study">Studium</button>
+                <button class="tab-link" data-tab="achievements">Úspěchy</button>
+                <button class="tab-link" data-tab="relationships">Vztahy</button>
+            </div>
+
+            <div id="overview" class="tab-pane active">
+                <div class="overview-grid">
+                    <div class="avatar-rect-container">
+                        <div class="avatar-rect" id="character-avatar-rect">
+                            <span class="avatar-initial-rect" id="character-avatar-initial">?</span>
+                        </div>
+                    </div>
+                    <div class="main-info-column">
+                        <h1 id="character-name"></h1>
+                        <p class="character-title" id="character-title"></p>
+                        <div class="info-blocks">
+                            <div class="info-block">
+                                <h3>Věk</h3>
+                                <p id="character-age"></p>
+                            </div>
+                            <div class="info-block">
+                                <h3>Herní Role</h3>
+                                <p id="character-role"></p>
+                            </div>
+                            <div class="info-block">
+                                <h3>Původ</h3>
+                                <p id="character-origin"></p>
+                            </div>
+                        </div>
+                        <div class="info-block">
+                            <h3>Popis</h3>
+                            <p id="character-description"></p>
+                        </div>
+                        <div id="character-pet" class="info-block pet-block" style="display: none;">
+                            <h3>Mazlíček</h3>
+                            <img id="pet-image" src="" alt="Mazlíček"/>
+                            <p id="pet-name"></p>
+                        </div>
+                        <div class="friends-list">
+                            <h2>Přátelé</h2>
+                            <p><i>Systém přátel bude dostupný v budoucích aktualizacích.</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="inventory" class="tab-pane">
+                <div class="placeholder-content">
+                    <h2>Inventář</h2>
+                    <div id="inventory-grid" class="inventory-grid-profile"></div>
+                    <button id="open-inventory-btn" class="action-btn primary">Otevřít inventář</button>
+                </div>
+            </div>
+
+            <div id="study" class="tab-pane">
+                <div class="placeholder-content"><h2>Studijní záznamy</h2><p>...</p></div>
+            </div>
+            <div id="achievements" class="tab-pane">
+                <div class="placeholder-content"><h2>Síň úspěchů</h2><p>...</p></div>
+            </div>
+            <div id="relationships" class="tab-pane">
+                <div class="placeholder-content"><h2>Deník vztahů</h2><p>...</p></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/profil-postavy.js"></script> 
+</body>
+</html>

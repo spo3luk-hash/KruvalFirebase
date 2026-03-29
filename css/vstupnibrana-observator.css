@@ -1,0 +1,148 @@
+/* Styly pro Vstupní bránu - Vzhled "Admin Center 2.0" */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh; /* Zajistí, že gradient pokryje celou výšku */
+    font-family: 'Lato', sans-serif;
+    background-color: #0D1117; /* Tmavý základ z GitHubu */
+    background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 25%);
+    color: #c9d1d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.gate-container {
+    display: flex;
+    justify-content: center; /* Centrované sloupce */
+    align-items: stretch;
+    width: 100%;
+    max-width: 1100px;
+    background: transparent; /* Žádné pozadí, je součástí stránky */
+    border: none;
+    flex-wrap: wrap;
+    gap: 40px; /* Mezera mezi kartami */
+}
+
+.entry-option {
+    flex: 1; /* Růst, aby vyplnil prostor */
+    min-width: 320px;
+    padding: 35px 40px;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #161b22; /* Barva panelů */
+    transition: border-color 0.3s, background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.entry-option:hover {
+    background-color: #1a2028;
+    border-color: #8b949e;
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8em;
+    color: #f0f6fc;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-shadow: none;
+}
+
+.btn-main-action {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 30px;
+    background-color: #238636; /* Zelená akční barva */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    transition: background-color 0.2s;
+}
+
+.btn-main-action:hover {
+    background-color: #2ea043;
+}
+
+.player-info p {
+    margin: 8px 0;
+    font-size: 1em;
+    color: #8b949e; /* Mírně ztlumený text */
+}
+.player-info strong {
+    color: #c9d1d9;
+    font-weight: 500;
+}
+
+.avatar-container {
+    width: 110px;
+    height: 110px;
+    margin: 15px auto 25px auto;
+    position: relative;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #30363d;
+    background-color: #0D1117;
+}
+
+.observatory-role {
+    margin-top: 25px;
+    padding: 6px 14px;
+    background-color: rgba(35, 134, 54, 0.15);
+    color: #3fb950;
+    border-radius: 20px;
+    font-size: 0.9em;
+    border: 1px solid rgba(35, 134, 54, 0.4);
+    align-self: center; /* Centrovaná role */
+}
+
+.anonymous-entry p {
+    color: #8b949e;
+    line-height: 1.6;
+}
+
+.anonymous-entry input[type="text"] {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    border-radius: 6px;
+    font-size: 1em;
+}
+.anonymous-entry input[type="text"]:focus {
+    outline: none;
+    border-color: #2f81f7;
+    box-shadow: 0 0 0 3px rgba(47, 129, 247, 0.3);
+}
+
+
+/* --- Media Queries pro Mobily --- */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding: 10px;
+    }
+    .gate-container {
+        gap: 20px; /* Menší mezera na mobilu */
+    }
+    .entry-option {
+        min-width: unset;
+        width: 100%;
+        padding: 25px;
+    }
+}

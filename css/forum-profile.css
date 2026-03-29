@@ -1,0 +1,121 @@
+/* Základní kontejner pro profilový panel */
+#forum-profile-panel {
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    color: #f0f0f0;
+    display: none; /* Skryto ve výchozím stavu */
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hlavička panelu s avatarem a jménem */
+.profile-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #f0f0f0;
+    margin-right: 15px;
+}
+
+.profile-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* Kontejner pro jméno a ikony */
+.profile-name-line {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Kontejner pro ikony (upozornění, zprávy) */
+.profile-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Mezera mezi ikonami */
+}
+
+/* Společný styl pro ikony odkazů */
+#notification-bell,
+#private-messages-link {
+    color: #f0f0f0;
+    font-size: 1.2em;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#notification-bell:hover,
+#private-messages-link:hover {
+    color: #ffd700; /* Zlatá barva při najetí */
+}
+
+/* Odznak pro počet upozornění */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    font-weight: bold;
+    display: none;
+}
+
+/* Tělo panelu s informacemi */
+.profile-body p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+.profile-body strong {
+    color: #c0c0c0;
+}
+
+/* Patička s tlačítky */
+.profile-footer {
+    margin-top: 15px;
+    text-align: right;
+}
+
+#edit-profile-btn {
+    background-color: #3a3a3a;
+    color: #f0f0f0;
+    border: 1px solid #555;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#edit-profile-btn:hover {
+    background-color: #5a5a5a;
+    border-color: #777;
+}
+
+#create-identity-btn {
+    background-color: #005f5f;
+}
+
+#create-identity-btn:hover {
+    background-color: #007f7f;
+}

@@ -1,0 +1,68 @@
+/* --- Vlastní Alert pro Správu Fóra --- */
+
+/* Překryvná vrstva (pozadí) */
+.sprava-fora-alert-overlay {
+    position: fixed; /* Zůstane na místě i při skrolování */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Tmavé průhledné pozadí */
+    display: flex; /* Vycentrování obsahu */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Bude nad vším ostatním */
+    opacity: 0; /* Začíná jako neviditelný */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.sprava-fora-alert-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+/* Samotný box s hláškou */
+.sprava-fora-alert-box {
+    background-color: #2a2a38; /* Tmavě modrošedá */
+    color: #f0f0f0;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    transform: translateY(-20px); /* Pro animaci */
+    transition: transform 0.3s ease;
+}
+
+.sprava-fora-alert-overlay.visible .sprava-fora-alert-box {
+    transform: translateY(0);
+}
+
+/* Text zprávy */
+.sprava-fora-alert-zprava {
+    font-size: 1.15em;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Tlačítko pro zavření */
+.sprava-fora-alert-tlacitko {
+    background-color: #007bff; /* Modrá barva */
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.sprava-fora-alert-tlacitko:hover {
+    background-color: #0056b3; /* Tmavší modrá při najetí */
+    transform: translateY(-2px);
+}

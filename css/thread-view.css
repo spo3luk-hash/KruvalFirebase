@@ -1,0 +1,419 @@
+
+.post {
+    background-color: rgba(22, 25, 32, 0.7);
+    border: 1px solid #2a3045;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row; 
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.author-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(30, 34, 45, 0.6);
+    border-right: 1px solid #3a415a;
+    flex-shrink: 0; 
+    width: 180px; 
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #5c678c;
+    margin-bottom: 15px;
+    object-fit: cover; 
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-author {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: #dde1ea;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.post-author-role {
+    font-family: 'Lora', serif;
+    font-size: 0.9em;
+    color: #8b93b0;
+    margin-top: 5px;
+}
+
+.post-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+
+.post-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: rgba(30, 34, 45, 0.8);
+    padding: 10px 15px;
+    border-bottom: 1px solid #3a415a;
+    border-top-right-radius: 7px;
+}
+
+.post-timestamp {
+    font-size: 0.8em;
+    color: #8b93b0;
+}
+
+.post-content {
+    padding: 20px;
+    line-height: 1.7;
+    color: #c5c8d3;
+    font-size: 1em;
+    flex-grow: 1; 
+}
+
+/* Styly pro úpravy */
+.post-controls {
+    display: flex;
+    align-items: center;
+}
+
+.edit-post-btn, .delete-post-btn, .quote-post-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    margin-left: 5px;
+}
+
+.edit-post-btn svg, .delete-post-btn svg, .quote-post-btn svg {
+    stroke: #8b93b0;
+    transition: stroke 0.2s;
+}
+
+.edit-post-btn:hover, .delete-post-btn:hover, .quote-post-btn:hover {
+    background-color: rgba(92, 103, 140, 0.3);
+}
+
+.edit-post-btn:hover svg, .quote-post-btn:hover svg {
+    stroke: #e0e2ec;
+}
+
+.delete-post-btn:hover svg {
+    stroke: #ff6b6b; /* Červená pro smazání */
+}
+
+.save-edit-btn, .cancel-edit-btn {
+    background: none;
+    border: 1px solid #5c678c;
+    color: #a9b1d6;
+    padding: 5px 12px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 5px;
+    transition: all 0.2s;
+}
+.save-edit-btn:hover, .cancel-edit-btn:hover {
+    background-color: #4f5875;
+    border-color: #7a85a9;
+    color: #e0e2ec;
+}
+
+.edit-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    border: 1px solid #3a415a;
+    border-radius: 5px;
+    background-color: rgba(25, 28, 36, 0.9);
+    color: #c5c8d3;
+    font-family: 'Lora', serif;
+    font-size: 1em;
+    resize: vertical;
+}
+.post-footer {
+    padding: 0 20px 10px;
+    text-align: right;
+}
+.edited-timestamp {
+    font-size: 0.8em;
+    color: #8b93b0;
+    font-style: italic;
+}
+
+/* Nové styly pro oddělovač */
+.oddelovac-sekce {
+    text-align: center;
+    margin: 40px 0;
+    font-family: 'Cinzel', serif;
+    color: #a9b1d6;
+}
+
+.oddelovac-sekce h2 {
+    display: inline-block;
+    position: relative;
+    font-size: 1.6em;
+    padding: 0 20px;
+}
+
+.oddelovac-sekce h2::before,
+.oddelovac-sekce h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100px; /* Šířka čar */
+    height: 1px;
+    background: linear-gradient(to right, transparent, #5c678c, transparent);
+}
+
+.oddelovac-sekce h2::before {
+    left: -100px;
+}
+
+.oddelovac-sekce h2::after {
+    right: -100px;
+}
+
+/* Styly pro formulář pro odpověď */
+#reply-form {
+    background-color: rgba(22, 25, 32, 0.7);
+    border: 1px solid #2a3045;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#reply-form h3 {
+    font-family: 'Cinzel', serif;
+    color: #ebeef5;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3a415a;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#reply-content {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    border: 1px solid #3a415a;
+    border-radius: 5px;
+    background-color: rgba(25, 28, 36, 0.8);
+    color: #c5c8d3;
+    font-family: 'Lora', serif;
+    font-size: 1em;
+    resize: vertical;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#reply-content:focus {
+    outline: none;
+    border-color: #5c678c;
+    box-shadow: 0 0 8px rgba(150, 180, 255, 0.2);
+}
+
+#reply-form button {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    color: #ebeef5;
+    background-color: #3a415a;
+    border: 1px solid #5c678c;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 15px;
+}
+
+#reply-form button:hover {
+    background-color: #4f5875;
+    box-shadow: 0 0 10px rgba(150, 180, 255, 0.3);
+}
+
+#reply-form .error-message {
+    margin-top: 10px;
+    color: #ff6b6b;
+    text-align: center;
+}
+
+/* Media query pro lepší zobrazení na mobilu */
+@media (max-width: 768px) {
+    .post {
+        flex-direction: column; 
+    }
+
+    .author-profile {
+        width: auto; 
+        border-right: none; 
+        border-bottom: 1px solid #3a415a; 
+        padding: 15px;
+        flex-direction: row; 
+        align-items: center;
+    }
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px; 
+        margin-bottom: 0;
+    }
+
+    .post-header {
+        border-top-right-radius: 0;
+    }
+
+    .oddelovac-sekce h2 {
+        text-align: center;
+    }
+}
+
+
+/* Styly pro podpis autora */
+.post-signature {
+    margin-top: 20px;
+    padding: 15px 20px 5px 20px;
+}
+
+.post-signature hr {
+    border: none;
+    border-top: 1px solid #3a415a;
+    margin-bottom: 15px;
+}
+
+.post-signature p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #8b93b0;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Styly pro tlačítka v hlavičce */
+#thread-controls-container {
+    display: flex;
+    gap: 10px; /* Mezera mezi tlačítky */
+    margin-top: 15px;
+}
+
+.custom-button {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    color: #ebeef5;
+    background-color: #3a415a;
+    border: 1px solid #5c678c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-button:hover {
+    background-color: #4f5875;
+    box-shadow: 0 0 10px rgba(150, 180, 255, 0.3);
+}
+
+#sledovani-stav {
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-family: 'Lora', serif;
+    text-align: center;
+}
+
+.status-sledovano {
+    color: #28a745; /* Zelená */
+}
+
+.status-nesledovano {
+    color: #dc3545; /* Červená */
+}
+
+/* Styly pro zamykání témat */
+.lock-icon {
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+.locked-thread-message {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(30, 34, 45, 0.6);
+    border: 1px solid #3a415a;
+    border-radius: 8px;
+    color: #a9b1d6;
+    font-family: 'Lora', serif;
+}
+
+/* === ŠTÍTEK PRO ÚVODNÍ PŘÍSPĚVEK === */
+.initial-post-badge {
+    background-color: #b8860b; /* Zlatavá barva */
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 0.75em;
+    border-radius: 4px;
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 15px; /* Mezera od časové značky */
+}
+
+/* === CITACE === */
+.forum-quote {
+    background-color: rgba(25, 28, 36, 0.7);
+    border: 1px solid #3a415a;
+    border-left: 4px solid #5c678c;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 15px 0;
+}
+
+.forum-quote cite {
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    color: #a9b1d6;
+    margin-bottom: 5px;
+    font-family: 'Lora', serif;
+}
+
+.forum-quote p {
+    margin: 0;
+    padding: 0;
+    color: #c5c8d3;
+}
+
+/* Vnořené citace */
+.forum-quote .forum-quote {
+    margin-left: 20px;
+    border-color: #4a536b; /* Mírně odlišná barva pro vnořený okraj */
+    background-color: rgba(25, 28, 36, 0.4);
+}
+
+.thread-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Mezera mezi tlačítky */
+}

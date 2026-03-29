@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Centrum - Kruval Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-centrum.css?v=2.6">
+    <link rel="stylesheet" href="css/uzivatelske-nastaveni.css?v=2.1">
+    <link rel="stylesheet" href="css/admin-modal.css?v=2.0">
+    <link rel="stylesheet" href="css/custom-select.css?v=1.0">
+    <link rel="stylesheet" href="css/sprava-roli.css?v=1.0">
+    <link rel="stylesheet" href="css/sprava-penez.css?v=1.0">
+</head>
+<body>
+    <div class="admin-layout">
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+        
+        <nav class="admin-menu" id="admin-menu">
+            <div class="menu-header">
+                <h2 class="menu-title">Admin Centrum</h2>
+                <button class="mobile-menu-close" id="mobile-menu-close"><i class="fas fa-times"></i></button>
+            </div>
+            <ul>
+                <li class="menu-item active" data-target="prehled"><i class="fas fa-tachometer-alt fa-fw"></i> Přehled</li>
+                <li class="menu-item" data-target="seznam-postav"><i class="fas fa-users fa-fw"></i> Seznam postav</li>
+                <li class="menu-item" data-target="sprava-penez"><i class="fas fa-money-bill-wave fa-fw"></i> Správa Peněz</li>
+                <li class="menu-item" data-target="sprava-upozorneni"><i class="fas fa-bell fa-fw"></i> Správa upozornění</li>
+                <li class="menu-item" data-target="sprava-zakazek"><i class="fas fa-briefcase fa-fw"></i> Správa Zakázek</li>
+                <li class="menu-item" data-target="audit"><i class="fas fa-clipboard-list fa-fw"></i> Audit Log</li>
+                <li class="menu-item" data-target="opravneni"><i class="fas fa-user-shield fa-fw"></i> Oprávnění</li>
+                <hr>
+                <li class="menu-subheader">Správa obsahu</li>
+                <li class="menu-item" onclick="window.location.href='sprava-predmetu.html'"><i class="fas fa-box-open fa-fw"></i> Správa Předmětů</li>
+                <li class="menu-item" onclick="window.location.href='hulky-sprava.html'"><i class="fa-solid fa-wand-magic-sparkles"></i> Správa Hůlek</li>
+                <li class="menu-item" onclick="window.location.href='sprava-svitku.html'"><i class="fa-solid fa-scroll fa-fw"></i> Odeslání svitku</li>
+                <li class="menu-item" onclick="window.location.href='sprava-sablon.html'"><i class="fas fa-file-alt fa-fw"></i> Šablony a Oběžníky</li>
+                <li class="menu-item" data-target="sprava-kouzel"><i class="fas fa-magic fa-fw"></i> Správa kouzel</li>
+                <li class="menu-item" onclick="window.location.href='sprava-obchodu.html'"><i class="fas fa-store fa-fw"></i> Správa Obchodů</li>
+                <li class="menu-item" data-target="sprava-nastenky"><i class="fas fa-newspaper fa-fw"></i> Správa Nástěnky</li>
+                <li class="menu-item" data-target="sprava-fora"><i class="fas fa-comments fa-fw"></i> Správa Fóra</li>
+                <li class="menu-item" onclick="window.location.href='sprava-chatu.html'"><i class="fas fa-comments-dollar fa-fw"></i> Správa Chatů</li>
+            </ul>
+            <div class="menu-footer">
+                 <a href="vyber-postavy.html"><i class="fas fa-arrow-left"></i> Zpět do hry</a>
+            </div>
+        </nav>
+
+        <main class="admin-content">
+            <header class="admin-header">
+                <h1 id="admin-header-title">Přehled Systému</h1>
+                <p id="admin-header-subtitle">Centrální správa hráčů, postav a herního světa.</p>
+            </header>
+
+            <div id="prehled" class="content-section active">
+                 <div class="legenda">
+                    <h3 class="legenda-title">Vysvětlivky Ikon</h3>
+                    <div class="legenda-group">
+                        <span class="legenda-header">Status Hráče:</span>
+                        <div class="legenda-item"><i class="fas fa-circle status-icon status-online"></i> Online</div>
+                        <div class="legenda-item"><i class="fas fa-circle status-icon status-away"></i> Neaktivní</div>
+                        <div class="legenda-item"><i class="fas fa-circle status-icon status-offline"></i> Offline</div>
+                    </div>
+                    <div class="legenda-group">
+                        <span class="legenda-header">Stav Účtu:</span>
+                        <div class="legenda-item"><i class="fas fa-circle status-icon status-ok"></i> V pořádku</div>
+                        <div class="legenda-item"><i class="fas fa-circle status-icon status-danger"></i> Zablokován</div>
+                    </div>
+                </div>
+                
+                <section class="admin-section">
+                    <h2 class="section-title">Seznam Hráčů</h2>
+                    <div id="player-list-container" class="table-container"><p>Načítám data hráčů...</p></div>
+                </section>
+            </div>
+
+            <div id="seznam-postav" class="content-section">
+                <section class="admin-section">
+                    <h2 class="section-title">Kompletní Seznam Postav</h2>
+                    <div id="character-list-container" class="table-container"><p>Načítám data postav...</p></div>
+                </section>
+            </div>
+            <div id="sprava-kouzel" class="content-section">
+                <section class="admin-section">
+                    <h2 class="section-title">Správa Kouzel</h2>
+                    <div class="toolbar">
+                        <button id="add-spell-btn" class="submit-btn"><i class="fas fa-plus"></i> Přidat nové kouzlo</button>
+                    </div>
+                    <div id="spell-form-container" class="hidden">
+                        <h3 id="spell-form-title">Nové kouzlo</h3>
+                        <form id="spell-form">
+                            <input type="hidden" id="spell-id">
+                            <div class="form-group">
+                                <label for="spell-name">Jméno kouzla</label>
+                                <input type="text" id="spell-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="spell-type">Typ kouzla</label>
+                                <input type="text" id="spell-type" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="spell-year">Ročník</label>
+                                <input type="number" id="spell-year" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="spell-description">Popis</label>
+                                <textarea id="spell-description" rows="3" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="submit-btn">Uložit kouzlo</button>
+                                <button type="button" id="cancel-spell-edit" class="cancel-btn">Zrušit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="spells-list-container" class="table-container">
+                        <p>Načítám data kouzel...</p>
+                    </div>
+                </section>
+            </div>
+
+
+            <div id="sprava-penez" class="content-section">
+                <section class="admin-section">
+                    <h2 class="section-title">Správa Financí Postav</h2>
+                    <div id="finance-list-container" class="table-container">
+                        <p>Načítám finanční data postav...</p>
+                    </div>
+                </section>
+            </div>
+
+            <div id="sprava-upozorneni" class="content-section">
+                 <h2 class="section-title">Správa Upozornění</h2>
+                 <div class="placeholder-content">
+                    <p>Pro komplexní správu upozornění přejděte na dedikovanou stránku.</p>
+                     <a href="sprava-upozorneni.html" class="submit-btn" style="display: inline-block; text-align: center;"><i class="fas fa-bell"></i> Přejít na správu upozornění</a>
+                </div>
+            </div>
+
+            <div id="sprava-zakazek" class="content-section">
+                <h2 class="section-title">Správa Zakázek</h2>
+                <div class="placeholder-content">
+                   <p>Pro komplexní správu zakázek přejděte na dedikovanou stránku.</p>
+                    <a href="admin-zakazky.html" class="submit-btn" style="display: inline-block; text-align: center;"><i class="fas fa-briefcase"></i> Přejít na správu zakázek</a>
+               </div>
+           </div>
+
+            <div id="audit" class="content-section">
+                 <h2 class="section-title">Audit Log</h2>
+                <div class="placeholder-content">
+                    <i class="fas fa-file-invoice"></i>
+                    <p>Tato sekce bude brzy obsahovat detailní záznamy o všech důležitých událostech v systému.</p>
+                </div>
+            </div>
+
+            <div id="opravneni" class="content-section">
+                <section class="admin-section">
+                    <h2 class="section-title">Správa Herních Rolí</h2>
+                    <div class="roles-management-container">
+                        <div class="roles-list-container">
+                            <h3>Existující Role</h3>
+                            <div id="roles-list" class="table-container">
+                                <p>Načítám role...</p>
+                            </div>
+                        </div>
+                        <div class="roles-form-container">
+                            <h3>Vytvořit Novou Roli</h3>
+                            <form id="add-role-form">
+                                <div class="form-group">
+                                    <label for="role-name">Název Role</label>
+                                    <input type="text" id="role-name" placeholder="Např. Student" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="role-description">Popis</label>
+                                    <textarea id="role-description" rows="3" placeholder="Stručný popis role..."></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn">Vytvořit Roli</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section class="admin-section">
+                    <h2 class="section-title">Přiřazení Rolí Postavám</h2>
+                    <div id="character-roles-list" class="table-container">
+                        <p>Načítání postav pro přiřazení rolí...</p>
+                    </div>
+                </section>
+            </div>
+            
+            <div id="sprava-fora" class="content-section">
+                <section class="admin-section">
+                    <h2 class="section-title">Správa Fóra</h2>
+                     <div class="placeholder-content">
+                        <p>Pro komplexní správu fóra přejděte na dedikovanou stránku.</p>
+                        <a href="forum.html" class="submit-btn" style="display: inline-block; text-align: center;"><i class="fas fa-external-link-alt"></i> Přejít na správu fóra</a>
+                    </div>
+                </section>
+            </div>
+
+            <div id="sprava-nastenky" class="content-section">
+                <section class="admin-section">
+                    <h2 class="section-title">Správa Nástěnky</h2>
+                    <div class="toolbar">
+                        <button id="add-post-btn" class="submit-btn"><i class="fas fa-plus"></i> Přidat nový příspěvek</button>
+                    </div>
+                    <div id="post-form-container" class="hidden">
+                        <h3 id="post-form-title">Nový příspěvek</h3>
+                        <form id="post-form">
+                            <input type="hidden" id="post-id">
+                            <div class="form-group">
+                                <label for="post-title">Titulek</label>
+                                <input type="text" id="post-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="post-content">Obsah</label>
+                                <textarea id="post-content" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="post-category">Kategorie</label>
+                                <select id="post-category" required>
+                                    <option value="novinky">Novinky</option>
+                                    <option value="nonrp">Non-RP Informace</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="submit-btn">Uložit příspěvek</button>
+                                <button type="button" id="cancel-post-edit" class="cancel-btn">Zrušit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="nastenka-posts-list" class="table-container">
+                        <p>Načítám příspěvky...</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="js/firebase-config.js?v=1.3"></script>
+    <script src="js/avatar-renderer.js?v=1.1"></script> 
+    <script src="js/admin-modal.js?v=1.1"></script>
+    <script src="js/custom-select.js?v=1.0"></script>
+    <script src="js/admin-centrum.js?v=2.8"></script>
+    <script src="js/sprava-kouzel.js?v=1.0"></script>
+    <script src="js/sprava-nastenka-novinky.js?v=1.0"></script>
+    <script src="js/sprava-roli.js?v=1.0"></script>
+    <script src="js/sprava-prirazeni-roli.js?v=1.0"></script>
+    <script src="js/sprava-penez.js?v=1.0"></script>
+</body>
+</html>

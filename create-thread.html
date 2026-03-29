@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nové téma - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/forum.css"> 
+    <link rel="stylesheet" href="css/create-thread.css">
+</head>
+<body>
+    <header>
+        <h1>Nové téma</h1>
+        <nav>
+            <a id="back-to-forum-link" href="#">Zpět do fóra</a>
+        </nav>
+    </header>
+
+    <main>
+        <form id="create-thread-form" class="form-container">
+            <div class="form-group" id="thread-type-selector">
+                <label>Typ tématu:</label>
+                <label><input type="radio" name="thread-type" value="tema" checked> Běžné téma</label>
+                <label><input type="radio" name="thread-type" value="anketa"> Anketa</label>
+            </div>
+
+            <div class="form-group">
+                <label for="thread-title">Název tématu</label>
+                <input type="text" id="thread-title" name="thread-title" required>
+            </div>
+
+            <!-- Kontejner pro tvorbu ankety -->
+            <div id="poll-creation-container" class="hidden">
+                <div class="form-group">
+                    <label for="poll-question">Anketní otázka</label>
+                    <input type="text" id="poll-question" name="poll-question">
+                </div>
+                <div class="form-group">
+                    <label>Možnosti odpovědí</label>
+                    <div id="poll-options-container">
+                        <input type="text" name="poll-option" class="poll-option-input">
+                        <input type="text" name="poll-option" class="poll-option-input">
+                    </div>
+                    <button type="button" id="add-poll-option-btn" class="forum-button-secondary">Přidat další možnost</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="thread-content">První příspěvek</label>
+                <textarea id="thread-content" name="thread-content" rows="10" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" id="submit-thread-btn">Založit téma</button>
+            </div>
+            <p id="error-message" class="error-message"></p>
+        </form>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/create-thread.js"></script>
+</body>
+</html>

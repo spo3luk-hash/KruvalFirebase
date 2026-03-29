@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Správa mazlíčků</title>
+    <link rel="stylesheet" href="css/sprava-mazlicku.css">
+    <link rel="stylesheet" href="css/admin-modal.css">
+</head>
+<body>
+    <header class="game-header">
+        <a href="/hra.html" class="back-button">Zpět do hry</a>
+        <h1>Správa mazlíčků</h1>
+    </header>
+
+    <main class="container">
+        <div id="pet-management-container">
+            <div id="no-pet-message" style="display: none;">
+                <p>Zatím nevlastníš žádného mazlíčka. Můžeš si ho pořídit v Příčné ulici!</p>
+            </div>
+
+            <div id="pet-details-container" style="display: none;">
+                <div class="pet-display">
+                    <h2 id="pet-name-display"></h2>
+                    <div id="havran-status-container" style="display: none;">
+                        <p id="havran-status-text"></p>
+                    </div>
+                    <img id="pet-image" src="" alt="Obrázek mazlíčka">
+                </div>
+
+                <div class="pet-stats">
+                    <h3>Potřeby</h3>
+                    <div class="stat-bar-container">
+                        <span>Hlad:</span>
+                        <div class="stat-bar"><div id="hunger-bar" class="bar-fill"></div></div>
+                    </div>
+                    <div class="stat-bar-container">
+                        <span>Žízeň:</span>
+                        <div class="stat-bar"><div id="thirst-bar" class="bar-fill"></div></div>
+                    </div>
+                     <div class="stat-bar-container">
+                        <span>Spokojenost:</span>
+                        <div class="stat-bar"><div id="happiness-bar" class="bar-fill"></div></div>
+                    </div>
+                </div>
+
+                <div class="pet-actions">
+                    <h3>Akce</h3>
+                    <button id="feed-pet-btn">Nakrmit</button>
+                    <button id="water-pet-btn">Dát napít</button>
+                    <button id="pet-pet-btn">Pohladit</button>
+                </div>
+
+                <div class="pet-rename">
+                    <h3>Přejmenovat mazlíčka</h3>
+                    <input type="text" id="new-pet-name" placeholder="Nové jméno">
+                    <button id="rename-pet-btn">Přejmenovat</button>
+                </div>
+
+                <div id="havran-messaging" class="pet-messaging" style="display: none;">
+                    <h3>Havraní pošta</h3>
+                    <button id="open-havran-modal-btn">Napsat novou zprávu</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/admin-modal.js"></script>
+    <script src="/js/sprava-mazlicku.js"></script>
+</body>
+</html>

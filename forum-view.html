@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zobrazení Fóra - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/forum.css">
+</head>
+<body>
+    <header>
+        <h1 id="forum-name">Název Fóra</h1>
+        <nav>
+            <a href="forum.html">Zpět na přehled fór</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="new-thread-controls">
+            <button id="new-thread-btn">Nové téma</button>
+        </div>
+        <div id="thread-list-container">
+            <!-- Témata se budou načítat sem -->
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/forum-view.js"></script>
+</body>
+</html>

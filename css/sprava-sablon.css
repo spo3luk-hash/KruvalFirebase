@@ -1,0 +1,128 @@
+/* Styly pro modul správy šablon a oběžníků */
+
+/* Základní rozložení sekcí */
+.module-section {
+    background-color: var(--secondary-bg-color, #1a1622);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #403858);
+}
+
+.section-title {
+    font-family: var(--font-headings, 'Cinzel', serif);
+    color: var(--accent-color, #a484e9);
+    border-bottom: 2px solid var(--border-color, #403858);
+    padding-bottom: 0.75rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* Formulářový kontejner a pergamenový vzhled */
+.form-container.parchment-bg {
+    background-image: url('../img/pergamen-background.png');
+    background-size: cover;
+    background-position: center;
+    color: #4a4a4a;
+    padding: 2rem;
+    border: 1px solid #c9a877;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+}
+
+.form-container.parchment-bg .form-group label {
+    color: #5a3a1a;
+    font-weight: bold;
+}
+
+.form-container.parchment-bg input[type="text"],
+.form-container.parchment-bg textarea,
+.form-container.parchment-bg .select-selected {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #c9a877;
+}
+
+.placeholder-info {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 5px;
+    color: #6a4a2a;
+}
+
+.placeholder-info code {
+    background-color: rgba(0,0,0,0.1);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Seznam šablon */
+.template-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color, #403858);
+}
+
+.template-item:last-child {
+    border-bottom: none;
+}
+
+.template-name {
+    font-weight: bold;
+    font-family: var(--font-headings, 'Cinzel', serif);
+}
+
+.template-actions .action-btn {
+    margin-left: 0.5rem;
+}
+
+/* Nástroj pro hromadné rozeslání */
+#mass-send-tool .form-container {
+     background-color: var(--primary-bg-color, #0c0a10);
+     padding: 1.5rem;
+}
+
+.recipient-selection h4 {
+    margin-top: 0;
+}
+
+.recipient-actions {
+    margin-bottom: 1rem;
+}
+
+.character-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color, #403858);
+    padding: 1rem;
+    background-color: var(--secondary-bg-color, #1a1622);
+    border-radius: 4px;
+}
+
+.character-item {
+    display: block; /* Aby label zabíral celou šířku */
+    padding: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.character-item:hover {
+    background-color: var(--tertiary-bg-color, #2a2438);
+}
+
+.character-item input {
+    margin-right: 10px;
+}
+
+/* Tlačítka */
+.action-btn.secondary {
+    background-color: #6c757d;
+}
+
+.action-btn.danger {
+    background-color: #dc3545;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,119 @@
+/* === MODAL SYSTEM - KRUVAL ONLINE === */
+
+/* -- Overlay -- */
+/* Překryvná vrstva, která ztmaví pozadí a zachytává kliknutí mimo okno */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Používáme min-height a jednotku vh pro lepší kompatibilitu s mobilními prohlížeči */
+    min-height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Toto zajistí vertikální centrování */
+    z-index: 1000; /* Vysoký z-index zajistí, že je okno vždy navrchu */
+    padding: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+    backdrop-filter: blur(4px);
+}
+
+/* Třída pro zobrazení okna */
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+/* -- Obsah modálního okna -- */
+.modal-content {
+    background-color: #282a36; /* Tmavě fialovo-šedý podklad */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #44475a; /* Fialový okraj */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
+}
+
+/* -- Hlavička okna -- */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #44475a;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-family: 'Cinzel Decorative', cursive;
+    color: #e0c283; /* Zlatá barva pro titulky */
+    font-size: 1.6em;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #e0c283;
+}
+
+/* -- Tělo okna -- */
+.modal-body .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-body label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.modal-body input[type="text"],
+.modal-body textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #1e1f28;
+    border: 1px solid #44475a;
+    border-radius: 4px;
+    color: #f8f8f2;
+    font-size: 1em;
+}
+
+.modal-body textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* --- RESPONZIVNÍ DESIGN --- */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-header h3 {
+        font-size: 1.3em;
+    }
+}

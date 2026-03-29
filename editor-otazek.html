@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Otázek</title>
+    <link rel="stylesheet" href="/css/editor-otazek.css">
+</head>
+<body>
+    <header class="game-header">
+        <a href="/sprava-kvizu.html" class="back-button">Zpět na správu kvízů</a>
+        <h1 id="quiz-name-header">Editor Otázek</h1>
+    </header>
+
+    <main class="container">
+        <section class="question-editor">
+            <h2>Přidat / Upravit otázku</h2>
+            <form id="question-form">
+                <input type="hidden" id="question-id">
+                
+                <label for="question-text">Text otázky:</label>
+                <textarea id="question-text" rows="3" required></textarea>
+                
+                <div id="answers-container">
+                    <!-- Odpovědi budou zde -->
+                    <div class="answer-input-group">
+                        <input type="text" placeholder="Text odpovědi 1" class="answer-text" required>
+                        <label><input type="radio" name="correct-answer" class="correct-answer-radio" value="0"> Správná</label>
+                    </div>
+                    <div class="answer-input-group">
+                        <input type="text" placeholder="Text odpovědi 2" class="answer-text" required>
+                        <label><input type="radio" name="correct-answer" class="correct-answer-radio" value="1"> Správná</label>
+                    </div>
+                </div>
+                
+                <button type="button" id="add-answer-btn">Přidat další odpověď</button>
+                <button type="submit" id="save-question-btn">Uložit otázku</button>
+            </form>
+        </section>
+
+        <section class="question-list">
+            <h2>Seznam otázek</h2>
+            <div id="question-list-container">
+                <!-- Seznam otázek se načte sem -->
+            </div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/editor-otazek.js"></script>
+</body>
+</html>

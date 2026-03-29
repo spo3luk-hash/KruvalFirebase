@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soukromé zprávy - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/soukrome-zpravy-forum.css">
+    <link rel="stylesheet" href="css/modalni-okna-forum.css">
+    <link rel="stylesheet" href="css/skupinove-zpravy-forum.css">
+</head>
+<body>
+    <header>
+        <h1>Soukromé zprávy</h1>
+        <nav>
+            <a href="forum.html">Zpět na hlavní stránku fóra</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="conversations-header">
+            <h2>Vaše konverzace</h2>
+            <button id="new-message-btn" class="custom-button">Nová zpráva</button>
+        </div>
+
+        <div id="messages-layout-container">
+            <div id="conversations-list-container">
+                <!-- Seznam konverzací se načte sem -->
+            </div>
+            
+            <div id="message-view-container" style="display: none;">
+                <!-- Zobrazení konkrétní konverzace se načte sem -->
+            </div>
+        </div>
+        
+        <div id="no-conversations-message" style="display: none;">
+            <p>Zatím nemáte žádné soukromé zprávy. Můžete začít novou konverzaci s kterýmkoliv členem fóra.</p>
+        </div>
+    </main>
+
+    <!-- === MODÁLNÍ OKNO PRO NOVOU ZPRÁVU / SKUPINU === -->
+    <div id="new-message-modal" class="modal-backdrop" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nová zpráva nebo skupina</h2>
+                <button id="close-modal-btn" class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="new-message-form">
+                    <div class="form-group">
+                        <label for="recipient-search">Adresáti:</label>
+                        <div id="recipient-input-container">
+                            <div id="recipient-pills-container">
+                                <!-- Pills pro vybrané adresáty se vloží sem -->
+                            </div>
+                            <input type="text" id="recipient-search" placeholder="Začněte psát jméno hráče...">
+                        </div>
+                        <div id="search-results-container"></div>
+                    </div>
+
+                    <div id="group-name-input-container" class="form-group" style="display: none;">
+                        <label for="group-name">Název skupiny:</label>
+                        <input type="text" id="group-name" placeholder="Zadejte název pro vaši skupinu...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="new-message-content">Zpráva:</label>
+                        <textarea id="new-message-content" rows="6" placeholder="Napište svou první zprávu..."></textarea>
+                    </div>
+                    <button type="submit" class="custom-button">Odeslat zprávu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/forum-utils.js"></script>
+    <script src="js/modalniOknaForum.js"></script>
+    <!-- NEJPRVE DEFINUJEME FUNKCE PRO SKUPINY -->
+    <script src="js/skupinove-zpravy-forum.js"></script> 
+    <!-- POTÉ JE POUŽIJEME VE SKIPTU PRO ZPRÁVY -->
+    <script src="js/soukrome-zpravy-forum.js"></script>
+</body>
+</html>

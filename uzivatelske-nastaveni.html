@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uživatelské Nastavení</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="css/uzivatelske-nastaveni.css?v=1.4">
+    <link rel="stylesheet" href="css/ramecky.css?v=5.0">
+    <link rel="stylesheet" href="css/admin-modal.css?v=2.0">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="settings-container">
+        <header class="settings-header">
+            <h1>Uživatelské Nastavení</h1>
+            <p>Zde si můžete přizpůsobit svůj profil a spravovat svůj účet.</p>
+            <a href="vyber-postavy.html" class="back-to-game-btn"><i class="fas fa-arrow-left"></i> Zpět do hry</a>
+        </header>
+
+        <main>
+            <!-- Sekce Vzhled Profilu -->
+            <section class="settings-section">
+                <h2 class="section-title"><i class="fas fa-paint-brush"></i> Vzhled profilu</h2>
+                <div class="profile-customization-grid">
+                    <div class="avatar-preview-wrapper">
+                        <h3>Živý náhled</h3>
+                        <div id="avatar-preview-container" class="avatar-container large-avatar">
+                            <div id="avatar-image-preview" class="avatar-image">
+                                <span id="avatar-initial-preview">?</span>
+                            </div>
+                            <div id="avatar-frame-preview" class="avatar-frame"></div>
+                        </div>
+                    </div>
+                    <div class="appearance-options">
+                         <div class="form-group-vertical">
+                            <h3>URL Adresa Avatara</h3>
+                            <label for="avatar-url-input">Vložte URL obrázku pro váš avatar.</label>
+                            <input type="url" id="avatar-url-input" placeholder="https://example.com/vas-obrazek.png">
+                        </div>
+                        <div class="form-group-vertical">
+                            <h3>Výběr Rámečku</h3>
+                            <label for="frame-selection-grid">Vyberte si rámeček, který se bude zobrazovat kolem vašeho avatara.</label>
+                            <div id="frame-selection-grid" class="frame-grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sekce Správa Účtu -->
+            <section class="settings-section">
+                <h2 class="section-title"><i class="fas fa-user-cog"></i> Správa účtu</h2>
+                <div class="account-management-grid">
+                    <div class="form-group-vertical">
+                        <h3>Zobrazit profil</h3>
+                        <p>Podívejte se, jak váš profil vidí ostatní hráči.</p>
+                        <button id="view-profile-btn" class="action-btn-new"><i class="fas fa-eye"></i> Zobrazit můj profil</button>
+                    </div>
+                    <div class="form-group-vertical">
+                        <h3>Změna herního jména</h3>
+                        <div class="input-with-button">
+                            <input type="text" id="nickname-input" placeholder="Nové herní jméno">
+                            <button id="save-nickname-btn">Změnit</button>
+                        </div>
+                    </div>
+                    <div class="form-group-vertical">
+                        <h3>Datum narození</h3>
+                        <label for="birthdate-input">Vaše narozeniny se zobrazí na profilu.</label>
+                        <input type="date" id="birthdate-input">
+                        <button id="save-birthdate-btn">Uložit datum</button>
+                    </div>
+                    <div class="form-group-vertical">
+                        <h3>Změna hesla</h3>
+                        <input type="password" id="new-password-input" placeholder="Nové heslo">
+                        <input type="password" id="confirm-password-input" placeholder="Potvrďte nové heslo">
+                        <button id="change-password-btn" class="action-btn-new wide-btn">Změnit heslo</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sekce Správa Postav -->
+            <section class="settings-section">
+                <h2 class="section-title"><i class="fas fa-users-cog"></i> Správa postav</h2>
+                <p>Zde můžete spravovat své herní postavy.</p>
+                <div id="character-list-container" class="character-list-container">
+                    <!-- Seznam postav bude dynamicky vložen zde -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="js/firebase-config.js?v=1.1"></script>
+    <script src="js/avatar-hrace-zobraz.js?v=1.1"></script>
+    <script src="js/uzivatelske-nastaveni.js?v=1.8"></script>
+    <script src="js/admin-modal.js?v=1.1"></script>
+</body>
+</html>

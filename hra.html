@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kruval Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/hra.css?v=1.4">
+</head>
+<body>
+    <header class="game-header">
+        <h1>KRUVAL ONLINE</h1>
+        <div id="game-time-header">Pátek 3. října 2025 | 15:15:40</div>
+        <button id="logout-btn-hra" class="logout-btn">Odhlásit <i class="fas fa-sign-out-alt"></i></button>
+    </header>
+
+    <main class="game-container">
+
+        <!-- ========= LEVÝ PANEL ========= -->
+        <aside class="left-panel">
+            <div class="panel-section" id="character-info">
+                <h3>POSTAVA</h3>
+                <div id="character-info-content"><p>Načítám...</p></div>
+            </div>
+
+            <div class="panel-section" id="account-info">
+                <h3>MŮJ ÚČET</h3>
+                <div id="account-info-content"><p>Načítám...</p></div>
+                 <button onclick="window.location.href='uzivatelske-nastaveni.html'" id="settings-btn" class="menu-btn">NASTAVENÍ</button>
+                <button onclick="window.location.href='vyber-postavy.html'" id="admin-menu-btn" class="menu-btn admin-btn">ZPĚT NA VÝBĚR POSTAV</button>
+            </div>
+        </aside>
+
+        <!-- ========= STŘEDNÍ PANEL (HLAVNÍ OBSAH) ========= -->
+        <section class="main-content-panel">
+            <div class="main-content-header">
+                <h2 id="content-title">Velká síň</h2>
+                <p id="content-description">Srdce hradu, kde se studenti setkávají a stolují.</p>
+            </div>
+            <div id="main-content-area" class="main-content-area">
+                <p>Jsi ve Velké síni. Kolem tebe je rušno, studenti všech kolejí spolu živě diskutují. Co uděláš?</p>
+                <!-- Zde se bude dynamicky načítat obsah lokace, interakce atd. -->
+            </div>
+        </section>
+
+
+        <!-- ========= PRAVÝ PANEL ========= -->
+        <aside class="right-panel">
+            <div class="panel-section" id="game-menu">
+                <h3>HLAVNÍ MENU</h3>
+                <nav>
+                    <a href="seznam-postav-a-hracu.html">Seznam hráčů a postav</a>
+                    <a href="letax.html">Letaxová Síť</a>
+                    <a href="#" id="menu-nastenka">Nástěnka <span id="nastenka-counter">(0)</span></a>
+                    <a href="sprava-mazlicku.html">Správa mazlíčků</a>
+                    <a href="kvizova-mistnost.html">Místnost kvízů</a>
+                </nav>
+            </div>
+
+            <div class="panel-section" id="online-players">
+                 <h3 class="panel-title-with-icon">
+                    <span>ONLINE HRÁČI</span>
+                    <a href="sovi-posta.html" id="mail-icon-link" class="mail-icon" title="Sovi pošta">
+                        <i class="fas fa-envelope"></i>
+                        <span id="mail-notification-count" class="notification-badge" style="display: none;"></span>
+                    </a>
+                </h3>
+                <div id="online-players-list"></div>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Firebase a vlastní skripty -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script src="js/firebase-config.js?v=1.1"></script>
+    <script src="js/avatar-renderer.js?v=1.1"></script>
+    <script src="js/hra.js?v=1.4"></script> <!-- Zvýšená verze skriptu -->
+</body>
+</html>

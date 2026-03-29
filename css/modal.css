@@ -1,0 +1,82 @@
+/* === Styly pro Modální Okna === */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 5px;
+    border: 1px solid #4a0e0e;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #4a0e0e;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    color: #f0e6d2;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: #f0e6d2;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* === Styly pro formulář v modálním okně (např. přezdívka) === */
+
+.modal-content form p {
+    color: #a0a0a0;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #f0e6d2;
+}
+
+.modal-content form button {
+    width: 100%;
+    padding: 0.9rem;
+    background: #6a2e2e;
+    border: none;
+    border-radius: 4px;
+    color: #f0e6d2;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content form button:hover {
+    background: #8c3f3f;
+}

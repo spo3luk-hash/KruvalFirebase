@@ -1,0 +1,55 @@
+/* Styly pro stránku Správa Zverimexu */
+
+#raven-owners-container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+#raven-owners-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#raven-owners-table th, #raven-owners-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+#raven-owners-table th {
+    background-color: #e9e1d6;
+    color: #4a3d2b;
+    font-weight: bold;
+}
+
+#raven-owners-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#raven-owners-table tr:hover {
+    background-color: #e5dccf;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #4a3d2b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #6d5b42;
+}

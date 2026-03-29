@@ -1,0 +1,40 @@
+/* ===================================== */
+/*   Centrální styly pro role hráčů    */
+/*         Verze 1.0                   */
+/* ===================================== */
+
+/* Základní styl pro jméno autora/hráče, který má specifickou roli */
+.role-admin,
+.role-moderator {
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Administrátor */
+.role-admin {
+    color: #E53935; /* Zářivá červená */
+}
+
+.role-admin:hover {
+    color: #F44336;
+}
+
+/* Moderátor */
+.role-moderator {
+    color: #1E88E5; /* Jasná modrá */
+}
+
+.role-moderator:hover {
+    color: #42A5F5;
+}
+
+/* Budoucí role pro inspiraci... */
+/*
+.role-vip {
+    color: #FB8C00; 
+}
+
+.role-ucitel {
+    color: #8E24AA; 
+}
+*/

@@ -1,0 +1,387 @@
+/* === ZÁKLADNÍ STYLY (IZOLOVANÉ) === */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #0c0c0f;
+    background-image: url('https://www.transparenttextures.com/patterns/black-felt.png');
+    color: #c5c8d3;
+    margin: 0;
+    padding-top: 60px; /* Vytvoříme prostor pro připnutou zprávu */
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #3a415a;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box; /* Zabrání paddingu ovlivnit šířku */
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    color: #ebeef5;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(150, 180, 255, 0.3), 0 0 20px rgba(150, 180, 255, 0.2);
+}
+
+header nav a {
+    font-family: 'Cinzel', serif;
+    color: #98a2c2;
+    text-decoration: none;
+    margin: 10px 10px 0;
+    font-size: 1em;
+    transition: color 0.3s, text-shadow 0.3s;
+    display: inline-block;
+}
+
+header nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(200, 220, 255, 0.5);
+}
+
+main {
+    width: 95%;
+    max-width: 900px; /* Užší layout pro konverzaci */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.custom-button {
+    font-family: 'Cinzel', serif;
+    font-size: 1em;
+    color: #ebeef5;
+    background-color: #3a415a;
+    border: 1px solid #5c678c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-button:hover {
+    background-color: #4f5875;
+    box-shadow: 0 0 10px rgba(150, 180, 255, 0.3);
+}
+
+.date-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #8b93b0;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85em;
+    margin: 20px 0;
+}
+
+.date-separator::before,
+.date-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #3a415a;
+}
+
+.date-separator:not(:empty)::before {
+    margin-right: .75em;
+}
+
+.date-separator:not(:empty)::after {
+    margin-left: .75em;
+}
+
+/* === STYLY PRO PŘIPNUTOU ZPRÁVU === */
+#pinned-message-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: linear-gradient(145deg, #2a221a, #4d3c2a);
+    border-bottom: 2px solid #b8860b;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+}
+
+#pinned-message-bar.visible {
+    transform: translateY(0);
+}
+
+#pinned-message-bar .pinned-icon { flex-shrink: 0; margin-right: 15px; }
+#pinned-message-bar .pinned-icon svg { width: 20px; height: 20px; fill: #f0e68c; }
+#pinned-message-content { flex-grow: 1; color: #f0e68c; font-size: 0.9em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#pinned-message-content strong { color: #ffffff; font-family: 'Cinzel', serif; }
+.unpin-button { background: none; border: none; cursor: pointer; padding: 5px; margin-left: 15px; }
+.unpin-button svg { width: 18px; height: 18px; stroke: #f0e68c; transition: stroke 0.2s; }
+.unpin-button:hover svg { stroke: #ff6b6b; }
+
+/* === UPRAVENÉ STYLY ZOBRAZENÍ KONVERZACE === */
+
+header #recipient-name { color: #b8860b; }
+
+#messages-container {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.message-bubble-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+
+.message-bubble-wrapper.recipient { align-self: flex-start; }
+.message-bubble-wrapper.sender { align-self: flex-end; flex-direction: row-reverse; }
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #3a415a;
+    flex-shrink: 0;
+}
+
+.message-bubble-wrapper.sender .message-avatar { border-color: #4f5875; }
+
+.bubble-and-name-container { display: flex; flex-direction: column; flex-grow: 1; min-width: 0; }
+.message-sender-name { font-family: 'Cinzel', serif; font-size: 0.8em; color: #8b93b0; margin-bottom: 4px; padding: 0 5px; }
+.message-bubble-wrapper.sender .bubble-and-name-container { align-items: flex-end; }
+.message-bubble-wrapper.recipient .bubble-and-name-container { align-items: flex-start; }
+
+.message-bubble {
+    border-radius: 12px;
+    padding: 12px 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.message-bubble-wrapper.highlight .message-bubble {
+    background-color: rgba(184, 134, 11, 0.3);
+    animation: highlight-anim 1.5s ease-out;
+}
+
+@keyframes highlight-anim {
+    0% { background-color: rgba(184, 134, 11, 0.4); }
+    100% { background-color: rgba(184, 134, 11, 0.1); }
+}
+
+.message-bubble.recipient { background-color: rgba(30, 34, 45, 0.8); border: 1px solid #2a3045; border-top-left-radius: 2px; }
+.message-bubble.sender { background-color: rgba(58, 65, 90, 0.8); border: 1px solid #4f5875; color: #e0e2ec; border-top-right-radius: 2px; }
+
+.message-content { font-family: 'Lora', serif; font-size: 1em; color: #c5c8d3; padding-bottom: 8px; }
+.message-content p { margin: 0; }
+
+.message-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(128, 128, 128, 0.2); padding-top: 8px; margin-top: 8px; }
+.message-timestamp { font-size: 0.75em; color: #8b93b0; }
+.message-bubble.sender .message-timestamp { color: #a9b1d6; }
+.edited-indicator { font-style: italic; color: #8b93b0; font-size: 0.9em; margin-left: 8px; }
+
+.message-controls { display: flex; align-items: center; gap: 6px; }
+.message-control-btn { background: none; border: none; cursor: pointer; padding: 3px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background-color 0.2s; }
+.message-control-btn svg { stroke: #a9b1d6; transition: stroke 0.2s; width: 16px; height: 16px; }
+.message-control-btn:hover { background-color: rgba(92, 103, 140, 0.4); }
+.message-control-btn:hover svg { stroke: #e0e2ec; }
+.message-control-btn[data-action="delete"]:hover { background-color: rgba(255, 107, 107, 0.2); }
+.message-control-btn[data-action="delete"]:hover svg { stroke: #ff6b6b; }
+.message-control-btn[data-action="pin"]:hover { background-color: rgba(240, 230, 140, 0.3); }
+.message-control-btn[data-action="pin"]:hover svg { stroke: #f0e68c; fill: #f0e68c; }
+
+.message-edit-container { width: 100%; display: flex; flex-direction: column; }
+.message-edit-area { min-height: 80px; border: 1px solid #3a415a; border-radius: 6px; padding: 10px; background-color: rgba(25, 28, 36, 0.9); color: #c5c8d3; font-family: 'Lora', serif; font-size: 1em; margin-bottom: 8px; }
+.message-edit-area:focus { outline: none; border-color: #5c678c; }
+.message-edit-controls { display: flex; justify-content: flex-end; gap: 8px; }
+.message-edit-save, .message-edit-cancel { border: 1px solid #5c678c; color: #a9b1d6; padding: 4px 10px; font-size: 0.85em; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.message-edit-save:hover, .message-edit-cancel:hover { background-color: #4f5875; border-color: #7a85a9; color: #e0e2ec; }
+
+#reply-form-container {
+    background-color: #1a1a2e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+#message-reply-form h3 {
+    font-family: 'Cinzel', serif;
+    color: #e0e4f4;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+#message-reply-form .custom-button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* === STYLY PRO PŘÍMÝ VZKAZ (MENTION) === */
+
+.members-list-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #3a415a;
+    background-color: #0c0c0f;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.member-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.member-item:hover {
+    background-color: #3a415a;
+}
+
+.member-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.member-item img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#mention-message-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+    background-color: #1a1e2d;
+    border: 1px solid #3a415a;
+    color: #c5c8d3;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Lora', serif;
+    resize: vertical;
+}
+
+/* Zobrazení vzkazu v chatu */
+.direct-mention-block {
+    background-color: rgba(184, 134, 11, 0.1);
+    border: 1px solid #b8860b;
+    border-left: 3px solid #b8860b;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.direct-mention-header {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9em;
+    color: #b8860b;
+    margin-bottom: 8px;
+}
+
+.direct-mention-header .recipient-list {
+    font-weight: bold;
+}
+
+.direct-mention-message {
+    font-style: italic;
+    color: #dcdcdc;
+    padding-left: 10px;
+    border-left: 2px solid rgba(184, 134, 11, 0.3);
+}
+
+/* === ROZŠÍŘENÁ RESPONZIVITA PRO MOBILNÍ ZAŘÍZENÍ === */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        padding-top: 50px;
+    }
+
+    main {
+        width: 100%;
+        padding: 0;
+    }
+
+    header h1 {
+        font-size: 1.6em;
+    }
+
+    header nav a {
+        font-size: 0.9em;
+    }
+
+    #messages-container {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .message-bubble-wrapper {
+        max-width: 95%;
+        gap: 8px;
+    }
+
+    .message-avatar {
+        width: 35px;
+        height: 35px;
+        margin-top: 0; /* Odstraněno pro lepší zarovnání se jménem */
+    }
+
+    .message-sender-name {
+        font-size: 0.8em;
+    }
+
+    .message-bubble {
+        padding: 10px 15px;
+    }
+
+    #reply-form-container {
+        padding: 15px;
+        margin: 0;
+        border-top: 1px solid #3a415a;
+        border-radius: 0;
+        background-color: #11111b; /* Trochu tmavší pro odlišení */
+    }
+
+    #message-reply-form h3 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    #editor-wrapper {
+        border-radius: 5px; /* Lehké zaoblení i na mobilu */
+    }
+
+    .editor-toolbar {
+        padding: 6px;
+    }
+
+    .editor-toolbar .editor-button {
+        padding: 6px 8px;
+        min-width: 30px;
+        height: 30px;
+        font-size: 0.9em;
+    }
+
+    #pinned-message-bar {
+        padding: 8px 15px;
+    }
+
+    #pinned-message-content {
+        font-size: 0.8em;
+    }
+}

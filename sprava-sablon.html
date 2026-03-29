@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kancelář pro oběžníky - Správa šablon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Dancing+Script&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/admin-styles.css">
+    <link rel="stylesheet" href="css/custom-select.css">
+    <link rel="stylesheet" href="css/sprava-sablon.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Admin Centrum</h1>
+            <h2><i class="fas fa-file-alt fa-fw"></i> Šablony a Oběžníky</h2>
+            <div class="admin-header-actions">
+                <a href="admin-centrum.html" class="action-btn"><i class="fas fa-arrow-left"></i> Zpět do centra</a>
+            </div>
+        </header>
+
+        <main class="admin-main-content">
+
+            <!-- Sekce 1: Seznam existujících šablon -->
+            <section class="module-section">
+                <h3 class="section-title">Uložené šablony</h3>
+                <div id="template-list-container" class="table-container">
+                    <p>Načítám šablony...</p>
+                    <!-- Zde se dynamicky vygeneruje seznam šablon -->
+                </div>
+            </section>
+
+            <!-- Sekce 2: Editor/tvorba šablon -->
+            <section class="module-section">
+                <h3 class="section-title" id="editor-title">Vytvořit novou šablonu</h3>
+                <div id="template-editor" class="form-container parchment-bg">
+                    <input type="hidden" id="template-id">
+
+                    <div class="form-group">
+                        <label for="template-name">Interní název šablony</label>
+                        <input type="text" id="template-name" placeholder="Např. Varování před trollem v jeskyních">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="template-subject">Předmět oběžníku</label>
+                        <input type="text" id="template-subject" placeholder="Oficiální varování ředitele školy">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="template-content">Obsah</label>
+                        <textarea id="template-content" rows="12" placeholder="Vážený/á {JMENO_POSTAVY}, chtěl bych Vás varovat..."></textarea>
+                        <p class="placeholder-info">Dostupné zástupné symboly: <code>{JMENO_POSTAVY}</code></p>
+                    </div>
+
+                    <div class="signature-grid">
+                        <div class="form-group">
+                            <label for="template-sender">Výchozí odesílatel</label>
+                             <div class="custom-select">
+                                <select id="template-sender">
+                                    <option value="Kruval">Kruval</option>
+                                    <option value="Ministerstvo kouzel">Ministerstvo kouzel</option>
+                                    <option value="Nemocnice sv. Munga">Nemocnice sv. Munga</option>
+                                    <option value="Redakce Denního věštce">Redakce Denního věštce</option>
+                                    <option value="Anonymní zdroj">Anonymní zdroj</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="template-signature">Výchozí podpis</label>
+                            <input type="text" id="template-signature" placeholder="Albus Brumbál, Ředitel">
+                        </div>
+                    </div>
+                   
+
+                    <div class="form-actions">
+                        <button id="save-template-btn" class="action-btn primary"><i class="fas fa-save"></i> Uložit šablonu</button>
+                        <button id="clear-editor-btn" class="action-btn secondary hidden"><i class="fas fa-times"></i> Zrušit úpravy</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sekce 3: Nástroj pro hromadné rozeslání -->
+            <section id="mass-send-tool" class="module-section hidden">
+                <h3 class="section-title">Hromadné rozeslání</h3>
+                <div class="form-container">
+                    <p>Použít šablonu: <strong id="mass-send-template-name"></strong></p>
+                    
+                    <div class="recipient-selection">
+                        <h4>Výběr příjemců</h4>
+                        <div class="recipient-actions">
+                            <button id="select-all-btn" class="action-btn">Vybrat všechny</button>
+                            <button id="deselect-all-btn" class="action-btn">Zrušit výběr</button>
+                            <!-- Další filtry zde -->
+                        </div>
+                        <div id="recipient-list-container" class="character-list">
+                            <p>Načítám postavy...</p>
+                            <!-- Zde se dynamicky vygeneruje seznam postav s checkboxy -->
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="send-mass-mail-btn" class="action-btn danger"><i class="fas fa-paper-plane"></i> Rozeslat oběžník</button>
+                         <button id="cancel-mass-send-btn" class="action-btn secondary"><i class="fas fa-times"></i> Zrušit</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/sprava-sablon.js"></script>
+    <script src="js/custom-select.js"></script>
+</body>
+</html>

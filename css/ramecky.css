@@ -1,0 +1,54 @@
+/* ramecky.css - verze 5.0 - Odstranění 15 elitních rámečků */
+
+/* --- Kontejner pro výběr rámečku (v nastavení) --- */
+.frame-item {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 5px;
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+.frame-item:hover {
+    transform: scale(1.05);
+}
+
+.frame-item.selected {
+    border-color: #00aaff;
+    box-shadow: 0 0 10px #00aaff;
+    transform: scale(1.05);
+}
+
+/* --- Obecná třída pro zobrazení rámečku KDEKOLI v aplikaci --- */
+.avatar-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* === Stávající rámečky (1-54) === */
+.frame-1 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="47" fill="none" stroke="silver" stroke-width="6"/></svg>'); }
+.frame-7 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="none" stroke="cyan" stroke-width="3" /><circle cx="50" cy="50" r="40" fill="none" stroke="lightblue" stroke-width="5" stroke-dasharray="1 7" /></svg>'); }
+.frame-10 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="92" height="92" rx="50" ry="50" fill="none" stroke="darkorange" stroke-width="8"/></svg>'); }
+.frame-17 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" fill="none" stroke="purple" stroke-width="4"><animate attributeName="stroke" values="purple;violet;purple" dur="3s" repeatCount="indefinite" /></circle></svg>'); }
+.frame-19 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M2,50 a48,48 0 1,0 96,0 a48,48 0 1,0 -96,0" fill="none" stroke="green" stroke-width="4" stroke-dasharray="8 8" /></svg>'); }
+.frame-20 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" stroke="orange" stroke-width="4" fill="none" stroke-linecap="round"><animate attributeName="stroke-dasharray" from="0, 302" to="302, 0" dur="5s" repeatCount="indefinite" /></circle></svg>'); }
+.frame-50 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" fill="none" stroke="mediumpurple" stroke-width="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite" /></circle></svg>'); }
+.frame-51 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><circle cx="50" cy="50" r="48" fill="none" stroke="darkorange" stroke-width="5" stroke-dasharray="15 10" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="12s" repeatCount="indefinite"/></circle><circle cx="50" cy="50" r="42" fill="none" stroke="red" stroke-width="3" stroke-dasharray="1 10" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="10s" repeatCount="indefinite"/></circle></g></svg>'); }
+.frame-52 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="47" fill="none" stroke="saddlebrown" stroke-width="6" stroke-dasharray="25 10" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s" repeatCount="indefinite"/></circle></svg>'); }
+.frame-53 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><circle cx="50" cy="50" r="46" fill="none" stroke="cyan" stroke-width="8"><animate attributeName="stroke-width" values="6;10;6" dur="3s" repeatCount="indefinite"/></circle><circle cx="50" cy="50" r="46" fill="none" stroke="lightcyan" stroke-width="6"><animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/></circle></g></svg>'); }
+.frame-54 { background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><circle cx="50" cy="50" r="48" fill="none" stroke="darkviolet" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 10"><animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="25s" repeatCount="indefinite"/></circle><circle cx="50" cy="50" r="42" fill="none" stroke="magenta" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 15"><animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="22s" repeatCount="indefinite"/></circle></g></svg>'); }

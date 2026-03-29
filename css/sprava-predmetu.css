@@ -1,0 +1,234 @@
+/* Přepracovaný styl pro správu předmětů, ladící s admin centrem */
+
+:root {
+    --primary-color: #6D2828; /* Tmavě červená */
+    --secondary-color: #A02C2C; /* Světlejší červená */
+    --text-color: #E0CFCF; /* Světlejší text */
+    --background-color: #1A0000; /* Tmavé pozadí */
+    --input-bg-color: #2A0F0F;
+}
+
+body {
+    background-color: #121212; /* Tmavé pozadí pro celou stránku */
+    color: var(--text-color);
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- Základní layout a hlavička ----- */
+
+.admin-main-content {
+    padding: 1.5rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+/* ----- Stylování pro sekce kategorií ----- */
+.item-category-section {
+    margin-bottom: 2.5rem; /* Větší mezera mezi kategoriemi */
+    padding-bottom: 1.5rem; /* Vnitřní odsazení pro čáru */
+    border-bottom: 1px solid var(--primary-color); /* Oddělovací čára */
+}
+
+.item-category-section:last-child {
+    border-bottom: none; /* Poslední kategorie nebude mít čáru */
+    margin-bottom: 0;
+}
+
+.item-category-section h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+    margin-bottom: 1rem; /* Mezera mezi nadpisem kategorie a tabulkou */
+}
+
+
+/* ----- Tabulka/Seznam předmětů ----- */
+
+.table-container {
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.master-items-table th:nth-child(2), .master-items-table td:nth-child(2) {
+    width: 150px; /* Šířka pro sloupec kategorie */
+    text-align: center;
+}
+
+
+/* Styly pro samotnou tabulku budou přidány v JS, ale základ je zde */
+
+/* ----- Modální okno ----- */
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px; /* Větší modální okno */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.modal-header h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: var(--secondary-color);
+}
+
+#master-item-form {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dvousloupcový layout */
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1; /* Zabere celou šířku */
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group textarea,
+.form-group select {
+    background-color: #1A0000; /* Ještě tmavší pro kontrast */
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 0.8rem;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.effect-fieldset {
+    grid-column: 1 / -1;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.effect-fieldset legend {
+    font-family: 'Cinzel Decorative', cursive;
+    color: var(--secondary-color);
+    padding: 0 0.5rem;
+}
+
+#effect-details-container {
+    margin-top: 1rem;
+    /* Zde se budou dynamicky přidávat další pole */
+}
+
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--primary-color);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ----- Tlačítka ----- */
+
+.action-btn {
+    font-family: 'Cinzel Decorative', cursive;
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn i {
+    margin-right: 0.5rem;
+}
+
+.action-btn.primary {
+    background-color: var(--primary-color);
+}
+
+.action-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+}

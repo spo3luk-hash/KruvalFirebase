@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vstupní Brána - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/vstupni-brana.css">
+    <link rel="stylesheet" href="css/roles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box" id="auth-box">
+            <!-- Login Form -->
+            <div class="form-container" id="login-container">
+                <form id="login-form">
+                    <h1>Přihlášení</h1>
+                    <p>Vstupte do světa plného magie a temných tajemství.</p>
+                    <div class="input-group">
+                        <label for="login-identifier">Herní Nick nebo Email</label>
+                        <input type="text" id="login-identifier" name="identifier" required placeholder="Zadejte nick nebo email...">
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Heslo</label>
+                        <input type="password" id="login-password" name="password" required placeholder="Zadejte své heslo...">
+                    </div>
+                    <button type="submit">Vstoupit do Hry</button>
+                    <p class="toggle-text">Ještě nemáš účet? <a href="#" id="show-register">Vytvoř si ho!</a></p>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div class="form-container" id="register-container" style="display: none;">
+                <form id="register-form">
+                    <h1>Registrace</h1>
+                    <p>Vytvořte si svůj účet a ponořte se do hry.</p>
+                    <div class="input-group">
+                        <label for="register-nick">Herní Nick</label>
+                        <input type="text" id="register-nick" name="nickname" required placeholder="Zvolte si svůj herní nick...">
+                    </div>
+                    <div class="input-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" required placeholder="Zadejte svůj email...">
+                    </div>
+                    <div class="input-group">
+                        <label for="register-password">Heslo</label>
+                        <input type="password" id="register-password" name="password" required placeholder="Zvolte si bezpečné heslo...">
+                    </div>
+                    <button type="submit">Zaregistrovat se</button>
+                    <p class="toggle-text">Už máš účet? <a href="#" id="show-login">Přihlaš se!</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase a vlastní skripty -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

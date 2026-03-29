@@ -1,0 +1,104 @@
+/* Přesun globálních proměnných pro lepší údržbu */
+:root {
+    --primary-bg-color: #0c0a10;
+    --secondary-bg-color: #1a1622;
+    --text-color: #e0ddeb;
+    --border-color: #403858;
+    --accent-color: #a484e9;
+    --font-headings: 'Cinzel', serif;
+    --font-text: 'Roboto', sans-serif;
+    --font-script: 'Dancing Script', cursive; /* Nový font pro podpisy */
+}
+
+body {
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    font-family: var(--font-text);
+}
+
+.form-container {
+    max-width: 850px;
+    margin: 2rem auto;
+    /* Vzhled pergamenu */
+    background-image: url('../img/pergamen-background.png');
+    background-size: cover;
+    background-position: center;
+    color: #4a4a4a; /* Tmavý text na papíře */
+    padding: 2.5rem 3rem;
+    border: 1px solid #c9a877;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-headings);
+    color: #5a3a1a; /* Hnědá barva pro nadpisy na pergamenu */
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.custom-select .select-selected {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.5); /* Lehce průsvitné bílé pozadí */
+    border: 1px solid #c9a877; /* Okraj v barvě pergamenu */
+    border-radius: 3px;
+    color: #333;
+    font-family: var(--font-text);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.form-actions {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+/* Přizpůsobení custom selectu pro tmavý podklad a světlý text */
+.custom-select .select-items div {
+    color: var(--text-color);
+    background-color: var(--secondary-bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.custom-select .select-items div:hover {
+    background-color: var(--tertiary-bg-color, #2a2438);
+}
+
+/* Úprava action buttonu pro lepší kontrast na tmavém pozadí */
+.admin-header .action-btn {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.admin-header .action-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-bg-color);
+}
+
+.form-actions .action-btn.primary {
+    background-color: #5a3a1a; /* Hnědé tlačítko ladící s pergamenem */
+    color: #fdfaf4; /* Barva textu na tlačítku */
+    border: none;
+}
+
+.form-actions .action-btn.primary:hover {
+    background-color: #795548;
+}
+
+/* Grid pro podpis a pečeť */
+.signature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}

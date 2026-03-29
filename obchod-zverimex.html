@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velkoprodejna Mžourov - Zverimex</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/obchod-zverimex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Hlavní strana</a></li>
+                <li><a href="forum.html">Fórum</a></li>
+                <li><a href="profil-hrace.html">Profil</a></li>
+                <li><a href="#" id="logout-btn">Odhlásit se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="obchod-zverimex-main">
+        <h1>Velkoprodejna Mžourov</h1>
+        <p class="uvodni-text">Vítejte ve Velkoprodejně Mžourov, nejlepším místě pro pořízení kouzelnického mazlíčka!</p>
+        
+        <div id="character-info-content">
+            <!-- Informace o postavě se načtou zde -->
+        </div>
+
+        <div id="message-area"></div>
+        
+        <div id="shop-items-container" class="nabidka-container">
+            <!-- Nabídka mazlíčků se načte zde -->
+        </div>
+        
+        <a href="pricnaulice-obchody.html" class="back-button">Zpět na seznam obchodů</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kruval RPG Online. Všechna práva vyhrazena.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/obchod-zverimex.js"></script>
+</body>
+</html>

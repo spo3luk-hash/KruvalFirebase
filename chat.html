@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Načítání místnosti...</title>
+    <link rel="stylesheet" href="/css/style-pricna-ulice-base.css">
+    <link rel="stylesheet" href="/css/deravy-kotel.css">
+    <link rel="stylesheet" href="/css/deravy-kotel-avatars.css">
+    <link rel="stylesheet" href="/css/kouzla.css">
+    <link rel="stylesheet" href="/css/inventar.css">
+    <link rel="stylesheet" href="/css/inventar-grid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div class="container main-content-grid" id="chat-container">
+        <!-- LEVÝ PANEL -->
+        <aside class="left-panel">
+            <div class="panel-section" id="character-info-container">
+                 <h2>Postava</h2>
+                <div id="character-info" class="character-info-wrapper">
+                    <div class="char-main-info user-list-item">
+                        <div class="chat-avatar-container">
+                            <img src="/img/avatars/char_placeholder.png" alt="Avatar" class="chat-avatar" id="current-char-avatar">
+                            <div class="status-bubble" id="current-char-status">Načítám...</div>
+                        </div>
+                        <div class="char-details">
+                            <span class="online-user-name" id="current-char-name">Načítám...</span>
+                            <div class="bar-container health-bar-container" title="Zdraví">
+                                <div class="bar" id="current-char-health-bar"></div>
+                            </div>
+                            <div class="bar-container mana-bar-container" title="Mana">
+                                <div class="bar" id="current-char-mana-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="char-illness-status" class="char-status-text hidden"></div>
+                    <div class="char-stats-grid">
+                        <div class="char-stat">
+                            <strong>Level:</strong> <span id="current-char-level">1</span>
+                        </div>
+                        <div class="char-stat xp-stat">
+                            <strong>XP:</strong>
+                            <div class="bar-container xp-bar-container">
+                                <div class="bar" id="current-char-xp-bar"></div>
+                                <span id="current-char-xp-text">0/100</span>
+                            </div>
+                        </div>
+                        <div class="char-stat">
+                            <strong>Role:</strong> <span id="current-char-role">Načítám...</span>
+                        </div>
+                        <div class="char-stat">
+                            <strong>Nálada:</strong> <span id="current-char-mood">Načítám...</span>
+                        </div>
+                    </div>
+                    <div class="char-needs-container">
+                        <div class="need-indicator" id="hunger-indicator" title="Hlad">
+                            <i class="fas fa-utensils"></i>
+                            <div class="bar-container need-bar-container">
+                                <div class="bar" id="current-char-hunger-bar"></div>
+                            </div>
+                        </div>
+                        <div class="need-indicator" id="thirst-indicator" title="Žízeň">
+                            <i class="fas fa-wine-glass"></i>
+                            <div class="bar-container need-bar-container">
+                                <div class="bar" id="current-char-thirst-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-section" id="active-users-container">
+                <h2>Aktivní v rozhovoru</h2>
+                <ul id="active-users-list"></ul>
+            </div>
+            <div class="panel-section action-buttons-wrapper">
+                <button id="wand-btn" class="btn-secondary" title="Použít hůlku"><i class="fas fa-wand-magic-sparkles"></i> Mávnout hůlkou</button>
+                <button id="inventory-btn" class="btn-secondary" title="Otevřít inventář"><i class="fas fa-briefcase"></i> Inventář</button>
+                <button id="spells-btn" class="btn-secondary" title="Seslat kouzlo"><i class="fas fa-hat-wizard"></i> Seslat kouzlo</button>
+                <button id="narrator-btn" class="btn-secondary admin-only-btn hidden" title="Hrát za vypravěče"><i class="fas fa-book-open"></i> Vypravěč</button>
+                <button id="npc-btn" class="btn-secondary admin-only-btn hidden" title="Hrát jako NPC"><i class="fas fa-theater-masks"></i> Hrát NPC</button>
+                <button id="alert-btn" class="btn-secondary admin-only-btn hidden" title="Poslat RPG upozornění"><i class="fas fa-bullhorn"></i> Upozornění</button>
+                <button id="admin-chat-btn" class="btn-secondary admin-only-btn hidden" title="Spravovat chat"><i class="fas fa-cog"></i> Správa</button>
+            </div>
+            <button id="leave-focus-mode-btn" class="btn-secondary full-width hidden"><i class="fas fa-compress-alt"></i> Zpět na náhled</button>
+            <a href="/seznam-chatu.html" id="leave-button" class="btn-secondary full-width">Opustit místnost</a>
+        </aside>
+
+        <!-- HLAVNÍ OBSAH - CHAT -->
+        <main class="main-content chat-main">
+            <header class="page-header">
+                <h1 id="chat-title">Načítání...</h1>
+            </header>
+            
+            <div id="location-description-container">
+                <p id="location-description-text">Načítám popis místnosti...</p>
+                <button id="edit-desc-btn" class="btn-secondary btn-small admin-only-btn hidden"><i class="fas fa-pencil-alt"></i> Upravit</button>
+            </div>
+
+            <div id="chat-window" class="chat-window">
+                <div id="chat-preview-overlay"></div>
+            </div>
+
+            <div id="focus-mode-entry">
+                <p>Nacházíš se u vstupu...</p>
+                <button id="enter-focus-mode-btn" class="btn-primary btn-large"><i class="fas fa-door-open"></i> Vstoupit do centra dění</button>
+            </div>
+
+            <div id="chat-input-area" class="chat-input-area hidden">
+                <div class="message-input-wrapper">
+                    <input type="text" id="chat-message-input" placeholder="Napiš zprávu..." autocomplete="off">
+                    <button id="send-message-btn" class="btn-primary"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODÁLNÍ OKNO PRO INVENTÁŘ -->
+    <div id="inventory-modal" class="modal hidden">
+        <div class="modal-content large">
+            <span id="close-inventory-btn" class="close-button">&times;</span>
+            <h2 id="inventory-title">Inventář</h2>
+            
+            <div id="inventory-main-modal">
+                <div id="inventory-grid-container">
+                    <h3>Batoh</h3>
+                    <div id="inventory-grid">
+                        <!-- Sloty budou generovány pomocí JavaScriptu -->
+                    </div>
+                </div>
+    
+                <aside id="item-details-panel">
+                    <div id="item-details-content">
+                        <h3 id="item-name-detail">Vyber předmět</h3>
+                        <img id="item-image-detail" src="img/avatars/char_placeholder.png" alt="Detail předmětu">
+                        <p id="item-description-detail">Zde se zobrazí popis předmětu.</p>
+                        <div id="item-stats-detail"></div>
+                        <div id="item-actions">
+                            <button id="use-item-btn-modal" class="inventory-action-btn hidden"><i class="fas fa-hand-paper"></i> Použít</button>
+                            <button id="equip-item-btn-modal" class="inventory-action-btn hidden"><i class="fas fa-shield-alt"></i> Vybavit</button>
+                            <button id="drop-item-btn-modal" class="inventory-action-btn hidden"><i class="fas fa-trash"></i> Zahodit</button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ostatní modální okna -->
+    <div id="spells-modal" class="modal hidden">
+        <div class="modal-content large">
+            <span id="close-spells-btn" class="close-button">&times;</span>
+            <h2>Kniha kouzel</h2>
+            <div id="spells-list"></div>
+        </div>
+    </div>
+    <div id="train-spell-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-train-spell-btn" class="close-button">&times;</span>
+            <h2 id="train-spell-title">Trénovat kouzlo</h2>
+            <p id="train-spell-progress-text"></p>
+            <p id="train-spell-instructions"></p>
+            <textarea id="train-spell-input" class="modal-textarea" placeholder="Napiš příspěvek pro trénink..."></textarea>
+            <button id="submit-train-spell-btn" class="btn-primary full-width">Trénovat</button>
+        </div>
+    </div>
+    <div id="narrator-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-narrator-modal-btn" class="close-button">&times;</span>
+            <h2>Zpráva vypravěče</h2>
+            <textarea id="narrator-message-input" placeholder="Text, který se zobrazí jako zpráva od vypravěče..." class="modal-textarea"></textarea>
+            <button id="send-narrator-message-btn" class="btn-primary full-width">Odeslat zprávu vypravěče</button>
+        </div>
+    </div>
+    <div id="npc-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-npc-modal-btn" class="close-button">&times;</span>
+            <h2>Hrát jako NPC</h2>
+            <input type="text" id="npc-name-input" placeholder="Jméno NPC (např. Hostinský Tom)" class="modal-input">
+            <textarea id="npc-message-input" placeholder="Text zprávy NPC..." class="modal-textarea"></textarea>
+            <button id="send-npc-message-btn" class="btn-primary full-width">Odeslat zprávu jako NPC</button>
+        </div>
+    </div>
+    <div id="alert-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-alert-modal-btn" class="close-button">&times;</span>
+            <h2>Poslat RPG Upozornění</h2>
+            <textarea id="alert-message-input" placeholder="Text upozornění pro všechny v místnosti..." class="modal-textarea"></textarea>
+            <button id="send-alert-message-btn" class="btn-primary full-width">Odeslat upozornění</button>
+        </div>
+    </div>
+    <div id="admin-chat-modal" class="modal hidden">
+        <div class="modal-content large">
+            <span id="close-admin-chat-modal-btn" class="close-button">&times;</span>
+            <h2>Správa chatu</h2>
+            <div class="admin-section">
+                <h3>Popis místnosti</h3>
+                <textarea id="location-description-input" class="modal-textarea" placeholder="Zadejte nový popis místnosti..."></textarea>
+                <button id="save-desc-btn" class="btn-primary">Uložit popis</button>
+            </div>
+            <div class="admin-section">
+                <h3>Ovládání chatu</h3>
+                <div class="admin-chat-controls">
+                    <button id="lock-chat-btn" class="btn-secondary"><i class="fas fa-lock"></i> Uzamknout chat</button>
+                    <button id="unlock-chat-btn" class="btn-secondary"><i class="fas fa-lock-open"></i> Odemknout chat</button>
+                    <button id="clear-chat-btn" class="btn-danger"><i class="fas fa-trash-alt"></i> Vyčistit chat</button>
+                </div>
+            </div>
+            <div class="admin-section">
+                <h3>Historie chatu</h3>
+                <div id="chat-history-admin" class="chat-history-admin"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/chat.js"></script>
+    <script src="/js/kouzla.js"></script>
+</body>
+</html>

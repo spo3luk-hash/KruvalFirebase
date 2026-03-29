@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Příčná ulice - Vstup</title>
+    <link rel="stylesheet" href="/css/style-pricna-ulice-base.css">
+    <link rel="stylesheet" href="/css/style-pricna-ulice-vstup.css">
+    <link rel="stylesheet" href="/css/nastenka-pricnaulice.css"> <!-- Přejmenovaný styl pro nástěnku -->
+</head>
+<body>
+    <div class="container main-content-grid">
+        <aside class="left-panel">
+            <div class="panel-section" id="account-info-container">
+                <h2>Informace o účtu</h2>
+                <div id="player-account-details"><p>Načítám...</p></div>
+            </div>
+            <div class="panel-section" id="character-info-container">
+                <h2>Postava</h2>
+                <div id="character-info"><p>Načítám...</p></div>
+                <div id="character-inventory" class="inventory-section">
+                    <h3>Inventář</h3>
+                    <ul id="inventory-list">
+                        <li>Načítám...</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Vstupní Brána na Příčnou ulici</h1>
+                <p>Stojíš u kamenné brány... Kam se vydáš?</p>
+            </header>
+
+            <!-- Nový prvek pro nástěnku -->
+            <div id="nastenka-container" class="panel-section">
+                <h2>Nástěnka</h2>
+                <p>Na staré dřevěné nástěnce visí několik zažloutlých pergamenů. Možná se tu nabízí nějaká výpomoc?</p>
+                <button id="open-nastenka-btn" class="btn-secondary">Prohlédnout nástěnku</button>
+            </div>
+
+            <div class="action-buttons"></div>
+        </main>
+
+        <aside class="right-panel">
+            <div class="panel-section" id="online-users-container">
+                <h2>Online v lokaci</h2>
+                <ul id="online-users-list"></ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modální okno pro Nástěnku (zpočátku skryté) -->
+    <div id="nastenka-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-nastenka-btn" class="close-button">&times;</span>
+            <h2>Nástěnka Zakázek</h2>
+            <div id="dostupne-zakazky-container">
+                <!-- Obsah se načte dynamicky pomocí JS -->
+                <p>Načítám dostupné zakázky...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <a href="letax.html" class="btn-secondary">Zpět na letaxovou síť</a>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/pricna-ulice.js"></script>
+    <script src="/js/nastenka-pricnaulice.js"></script> <!-- Přejmenovaný skript pro logiku nástěnky -->
+</body>
+</html>

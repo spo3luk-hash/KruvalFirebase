@@ -1,0 +1,70 @@
+/*
+ * Soubor: css/spravce-roli-forum.css
+ * Účel: Styly pro novou sekci správy rolí na fóru.
+*/
+
+#role-definition-container .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+#existing-roles-list {
+    margin-top: 1.5rem;
+}
+
+.role-item {
+    background-color: #f8f9fa; /* Světlejší pozadí pro odlišení */
+    padding: 0.75rem 1rem;
+    border: 1px solid #dee2e6; /* Jemný okraj */
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.role-item .role-name {
+    font-weight: bold;
+    color: #343a40;
+}
+
+.role-item .role-description {
+    color: #6c757d; /* Tlumenější barva pro popis */
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    flex-grow: 1;
+}
+
+#user-role-assignment-container .table-responsive {
+    overflow-x: auto;
+}
+
+#user-role-assignment-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#user-role-assignment-container th,
+#user-role-assignment-container td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#user-role-assignment-container th {
+    background-color: #f2f2f2;
+}
+
+#user-role-assignment-container tr:hover {
+    background-color: #f5f5f5;
+}
+
+#user-role-assignment-container .role-select {
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    min-width: 150px; /* Zajistí dostatečnou šířku */
+}

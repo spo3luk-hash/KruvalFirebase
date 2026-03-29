@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skupinová Konverzace - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/zobrazeni-zpravy-forum.css">
+    <link rel="stylesheet" href="css/editor-forum.css">
+    <link rel="stylesheet" href="css/modalni-okna-forum.css">
+    <!-- Přidán nový styl pro správu skupiny -->
+    <link rel="stylesheet" href="css/sprava-skupiny.css">
+    <style>
+        #group-members-count-display {
+            text-align: center;
+            color: #8b93b0;
+            font-size: 0.8em;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Kontejner pro záhlaví, aby šla ikona vedle nadpisu */
+        .conversation-header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px; /* Velikost ikony */
+            color: #b0c4de; /* Barva ikony */
+            padding: 5px;
+            border-radius: 50%;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .icon-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="pinned-message-bar" style="display: none;">
+    </div>
+
+    <header>
+        <!-- Nový kontejner pro nadpis a ikonu -->
+        <div class="conversation-header-container">
+            <h1 id="conversation-with"><span id="recipient-name">Načítání skupiny...</span></h1>
+            <!-- Ikona pro správu skupiny, skrytá defaultně -->
+            <button id="manage-group-btn" class="icon-button" style="display: none;" title="Spravovat skupinu">&#9881;</button>
+        </div>
+        <div id="group-members-count-display"></div>
+        <nav>
+            <a href="soukrome-zpravy-forum.html">Zpět na všechny konverzace</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="messages-container">
+        </div>
+
+        <div id="reply-form-container">
+            <form id="message-reply-form">
+                <h3>Napsat odpověď</h3>
+                <div id="editor-wrapper">
+                    <div class="editor-toolbar">
+                    </div>
+                    <div id="reply-content" class="editable-content" contenteditable="true" data-placeholder="Zde napište svou zprávu..."></div>
+                </div>
+                <button type="submit" class="custom-button">Odeslat zprávu</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/editor-forum.js"></script>
+    <script src="js/forum-utils.js"></script>
+    <script src="js/modalniOknaForum.js"></script>
+    <script src="js/zobrazeni-skupinove-zpravy.js"></script>
+</body>
+</html>

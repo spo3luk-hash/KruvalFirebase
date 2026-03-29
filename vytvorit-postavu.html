@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tvorba Postavy - Svět Durmstrangu</title>
+    <!-- Změna: Přidán parametr pro zneplatnění mezipaměti -->
+    <link rel="stylesheet" href="css/vytvorit-postavu.css?v=1.1">
+</head>
+<body>
+    <div class="creation-container">
+        <h1>Vytvořit novou postavu studenta</h1>
+        <p class="subtitle">Polož základní kámen svého budoucího příběhu.</p>
+
+        <form id="create-char-form">
+            <div class="form-group">
+                <label for="char-name">Celé jméno</label>
+                <input type="text" id="char-name" name="char-name" required placeholder="Např. Ivan Volkov">
+            </div>
+
+            <div class="form-group">
+                <label for="birth-year">Rok narození</label>
+                <input type="number" id="birth-year" name="birth-year" required placeholder="Např. 2013">
+            </div>
+
+            <div class="form-group">
+                <label for="blood-origin">Původ krve</label>
+                <select id="blood-origin" name="blood-origin" required>
+                    <option value="" disabled selected>Vyber původ...</option>
+                    <option value="cistokrevny">Čistokrevný</option>
+                    <option value="smiseny">Smíšený</option>
+                    <option value="mudlovsky">Z mudlovské rodiny</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Krátký popis postavy (volitelné)</label>
+                <textarea id="description" name="description" rows="4" placeholder="Popiš vzhled, charakter, nebo minulost své postavy..."></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="submit-btn" disabled>Načítání profilu...</button>
+                <a href="vyber-postavy.html" class="back-link">Zpět na výběr postav</a>
+            </div>
+        </form>
+        <div id="error-message"></div>
+
+    </div>
+
+    <!-- Firebase a vlastní skripty -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <!-- Změna: Přidán parametr pro zneplatnění mezipaměti -->
+    <script src="js/vytvorit-postavu.js?v=1.1"></script> 
+</body>
+</html>

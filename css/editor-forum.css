@@ -1,0 +1,86 @@
+/**
+ * editor-forum.css
+ * Styly pro editor zpráv na fóru.
+ */
+
+#editor-wrapper {
+    border: 1px solid #4a4a6e; /* Tmavě modro-šedá hranice */
+    border-radius: 5px;
+    overflow: hidden; /* Zajistí, že vnitřní prvky respektují zaoblené rohy */
+    background-color: #1e1e2f; /* Tmavě modré pozadí */
+}
+
+.editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    background-color: #2a2a44; /* Mírně světlejší pozadí pro lištu */
+    border-bottom: 1px solid #4a4a6e;
+}
+
+.editor-toolbar .editor-button {
+    font-family: 'Cinzel', serif; /* Tematický font */
+    background-color: transparent;
+    border: 1px solid transparent; /* Skrytý border pro zachování rozměrů */
+    color: #c0c8e7; /* Světlá barva textu/ikony */
+    cursor: pointer;
+    margin-right: 6px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.2s, border-color 0.2s;
+    display: inline-flex; /* Klíčové pro zarovnání obsahu */
+    align-items: center; /* Vertikální zarovnání */
+    justify-content: center; /* Horizontální zarovnání */
+    min-width: 32px; /* Minimální šířka pro jednotný vzhled */
+    height: 32px; /* Pevná výška */
+}
+
+.editor-toolbar .editor-button:hover {
+    background-color: #4a4a6e; /* Zvýraznění při najetí myší */
+    border-color: #6a6a8e;
+}
+
+/* Specifické styly pro SVG ikonu, aby se chovala správně */
+.editor-toolbar .editor-button svg {
+    width: 18px; 
+    height: 18px;
+    pointer-events: none; /* Zabrání SVG, aby "kradlo" kliknutí tlačítku */
+}
+
+
+.editable-content {
+    padding: 15px;
+    min-height: 120px;
+    color: #e0e4f4; /* Světlá barva textu pro dobrou čitelnost */
+    font-size: 1em;
+    line-height: 1.6;
+    outline: none; /* Odstraní výchozí outline při focusu */
+}
+
+.editable-content[data-placeholder]:not(:focus):not([data-text-entered="true"]) {
+    color: #777c9f; /* Barva placeholderu */
+}
+
+.editable-content.is-placeholder {
+    color: #777c9f; 
+}
+
+/* Styly pro mention blok, pokud jsou potřeba globálně */
+.direct-mention-block {
+    border-left: 3px solid #ffd700; /* Zlatá barva pro odlišení */
+    background-color: rgba(255, 215, 0, 0.05); /* Velmi jemné zlaté pozadí */
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.direct-mention-header {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+.direct-mention-message {
+    color: #c0c8e7; /* Normální barva textu */
+}

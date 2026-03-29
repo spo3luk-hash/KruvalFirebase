@@ -1,0 +1,34 @@
+/* Styly pro layout menu ve správě fóra */
+
+.admin-menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #4a4a68; /* Linka ladící s ostatními prvky */
+    padding-bottom: 10px; 
+}
+
+.admin-menu-button {
+    font-family: 'Cinzel Decorative', cursive; /* Použití zdobného písma */
+    background-color: transparent;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.4rem; /* Větší písmo */
+    cursor: pointer;
+    transition: all 0.4s ease;
+    color: #b0c4de; /* Stejná barva jako navigační linky */
+    border-bottom: 3px solid transparent;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.admin-menu-button.active {
+    color: #f7d874; /* Zlatavá barva pro aktivní tlačítko */
+    border-bottom-color: #f7d874;
+    text-shadow: 0 0 12px rgba(247, 216, 116, 0.6); /* Záře pro aktivní tlačítko */
+}
+
+.admin-menu-button:hover:not(.active) {
+    color: #dde1ea;
+    transform: translateY(-2px); /* Jemný posun nahoru */
+    text-shadow: 0 0 8px rgba(221, 225, 234, 0.4);
+}

@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond:wght@400;600&display=swap');
+
+:root {
+    --bg-color: #0d1a26;
+    --primary-text: #e0e0e0;
+    --secondary-text: #a0a0a0;
+    --content-bg: rgba(10, 20, 30, 0.7);
+    --menu-bg: #0a141f;
+    --border-color: #3a506b;
+    --gold-accent: #b38b00;
+    --hover-bg: #1c3a5e;
+    --danger-red: #e74c3c;
+    --font-title: 'Cinzel Decorative', cursive;
+    --font-main: 'EB Garamond', serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--primary-text);
+    margin: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === HLAVIČKA === */
+header {
+    padding: 2rem 2rem 1rem 2rem;
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-family: var(--font-title);
+    color: var(--primary-text);
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.back-to-admin {
+    color: var(--secondary-text);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+.back-to-admin:hover {
+    color: var(--gold-accent);
+}
+
+/* === ZÁKLADNÍ SEKCE === */
+#shops-list-container, .management-section {
+    background: var(--content-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.management-section h2, #standard-shop-name-header {
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--primary-text);
+    padding-bottom: 1rem;
+    margin: 0 0 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* === SEZNAM OBCHODŮ === */
+#shops-list .shop-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+#shops-list .shop-item:last-child { border-bottom: none; }
+#shops-list .shop-item:hover { background-color: var(--hover-bg); }
+#shops-list h3 {
+    margin: 0;
+    color: var(--primary-text);
+    font-size: 1.2rem;
+}
+#shops-list p {
+    margin: 0.25rem 0 0 0;
+    color: var(--secondary-text);
+}
+#shops-list h3 i { color: var(--gold-accent); margin-right: 0.5rem; }
+
+/* === TLAČÍTKA === */
+.action-btn, .manage-btn, .back-to-list-btn {
+    display: inline-block;
+    padding: 0.7rem 1.3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--content-bg);
+    color: var(--primary-text);
+}
+
+.action-btn:hover, .manage-btn:hover, .back-to-list-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--gold-accent);
+    color: var(--gold-accent);
+}
+
+.action-btn.save-btn, .action-btn.add-btn, .manage-btn {
+    background-color: var(--gold-accent);
+    color: var(--menu-bg);
+    border-color: var(--gold-accent);
+}
+
+.action-btn.save-btn:hover, .action-btn.add-btn:hover, .manage-btn:hover {
+    background-color: #cca300;
+    border-color: #cca300;
+    color: var(--menu-bg);
+}
+
+.action-btn.cancel-btn, .delete-wand-btn {
+    background-color: var(--danger-red);
+    color: var(--primary-text);
+    border-color: var(--danger-red);
+}
+
+.action-btn.cancel-btn:hover, .delete-wand-btn:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    color: var(--primary-text);
+}
+
+.back-to-list-btn { margin-bottom: 1.5rem; }
+
+/* === FORMULÁŘE === */
+.shop-details-form, #edit-item-form {
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--secondary-text);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--menu-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--primary-text);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold-accent);
+    box-shadow: 0 0 10px rgba(179, 139, 0, 0.3);
+}
+
+#edit-item-form h4 { margin-top: 0; font-size: 1.3rem; color: var(--primary-text);}
+
+/* === SEZNAM POLOŽEK & TABULKY === */
+#items-list .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+#items-list .item:hover { background-color: var(--hover-bg); }
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 1rem;
+    color: var(--gold-accent);
+    border-bottom: 2px solid var(--border-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table tbody tr:hover { background-color: var(--hover-bg); }
+.data-table td { padding: 1rem; vertical-align: middle; color: var(--primary-text); }
+
+/* === MODÁLNÍ OKNO === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+.modal.visible { display: flex; }
+
+.modal-content {
+    background-color: var(--menu-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-family: var(--font-title);
+    color: var(--gold-accent);
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: none; border: none;
+    color: var(--secondary-text);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0; line-height: 1;
+    transition: color 0.2s;
+}
+.close-button:hover { color: var(--primary-text); }
+
+.modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.wand-components-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.component-section {
+    background-color: var(--content-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.component-section h3 {
+    color: var(--primary-text);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.component-section ul {
+    list-style: none;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-top: 1rem;
+}
+
+.component-section li {
+    background-color: var(--menu-bg);
+    margin-bottom: 8px;
+    padding: 0.75rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color);
+}
+
+.delete-component-btn {
+    background: none; border: none;
+    color: var(--secondary-text);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.delete-component-btn:hover { color: var(--danger-red); }
+
+.add-item-form {
+    display: flex;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}

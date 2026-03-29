@@ -1,0 +1,128 @@
+/* Základní styly */
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1f1f1f;
+    border-bottom: 2px solid #a87332;
+}
+
+.game-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.back-button {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+/* Styly pro správu mazlíčků */
+#pet-details-container {
+    display: grid;
+    grid-template-areas:
+        "display stats"
+        "actions actions"
+        "rename messaging";
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.pet-display { grid-area: display; text-align: center; }
+.pet-stats { grid-area: stats; }
+.pet-actions { grid-area: actions; }
+.pet-rename { grid-area: rename; }
+.pet-messaging { grid-area: messaging; }
+
+#pet-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.stat-bar-container {
+    margin-bottom: 10px;
+}
+
+.stat-bar {
+    background-color: #555;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background-color: #4caf50; /* Zelená pro plný stav */
+    width: 100%;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+/* Různé barvy pro různé úrovně */
+.bar-fill[style*="width: 75%"] { background-color: #8bc34a; }
+.bar-fill[style*="width: 50%"] { background-color: #ffeb3b; }
+.bar-fill[style*="width: 25%"] { background-color: #ff9800; }
+.bar-fill[style*="width: 0%"] { background-color: #f44336; }
+
+
+input, textarea, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+button {
+    cursor: pointer;
+    background-color: #a87332;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c08d4f;
+}
+
+#no-pet-message {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Media query pro menší obrazovky */
+@media (max-width: 768px) {
+    #pet-details-container {
+        grid-template-areas:
+            "display"
+            "stats"
+            "actions"
+            "rename"
+            "messaging";
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,68 @@
+/* Styly pro výběr více adresátů a skupinové konverzace */
+
+/* Kontejner pro zadávání adresátů */
+#recipient-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #2c2c2c;
+    cursor: text; /* Vypadá jako textové pole */
+}
+
+#recipient-input-container:focus-within {
+    border-color: #7a7a7a;
+}
+
+/* Kontejner pro "pilulky" s adresáty */
+#recipient-pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Samotná pilulka s adresátem */
+.recipient-pill {
+    display: flex;
+    align-items: center;
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+/* Křížek pro odebrání pilulky */
+.remove-pill {
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1;
+    padding: 0 2px;
+}
+
+.remove-pill:hover {
+    color: #ff8a8a;
+}
+
+/* Vstupní pole pro vyhledávání, které se zmenšuje */
+#recipient-search {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 5px;
+    min-width: 150px; /* Minimální šířka, aby bylo vždy kam kliknout */
+}
+
+#recipient-search:focus {
+    outline: none;
+}
+
+/* Pole pro název skupiny - jen drobné úpravy */
+#group-name-input-container {
+    margin-top: 15px; /* Odsazení od pole s adresáty */
+}

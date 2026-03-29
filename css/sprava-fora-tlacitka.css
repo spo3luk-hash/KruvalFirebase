@@ -1,0 +1,66 @@
+/* Jednotný styl pro akční tlačítka */
+.action-btn {
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 8px;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Styl pro tlačítko "Upravit" */
+.edit-btn {
+    background-color: #3498db; /* Modrá */
+    color: white;
+    border-color: #2980b9;
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Styl pro tlačítko "Smazat" - výraznější a jasnější */
+.delete-btn {
+    background-color: #e74c3c; /* Červená */
+    color: white;
+    border-color: #c0392b;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Styl pro role */
+.delete-role-btn {
+     background: none;
+     border: none;
+     color: #e74c3c;
+     cursor: pointer;
+     padding: 0 5px;
+     font-size: 16px;
+     opacity: 0.7;
+     transition: opacity 0.2s;
+}
+.delete-role-btn:hover {
+    opacity: 1;
+}
+
+/* Kontejnery pro akce pro správné zarovnání */
+.category-actions, .forum-actions {
+    display: flex;
+    align-items: center;
+}
+
+.table-wrapper td .delete-btn {
+    padding: 6px 10px; /* Menší padding pro tabulky */
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Správa Kvízů</title>
+    <link rel="stylesheet" href="/css/sprava-kvizu.css">
+</head>
+<body>
+    <header class="game-header">
+        <a href="/kvizova-mistnost.html" class="back-button">Zpět do Místnosti kvízů</a>
+        <h1>Správa Kvízů</h1>
+    </header>
+
+    <main class="container">
+        <div class="toolbar">
+            <button id="add-quiz-btn">Vytvořit nový kvíz</button>
+        </div>
+
+        <div id="quiz-admin-list-container">
+            <p>Načítám seznam kvízů...</p>
+            <!-- Seznam kvízů pro administraci se načte sem -->
+        </div>
+    </main>
+
+    <!-- Modální okno pro přidání/editaci kvízu -->
+    <div id="quiz-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Nový kvíz</h2>
+            <form id="quiz-form">
+                <input type="hidden" id="quiz-id">
+                
+                <label for="quiz-name">Název kvízu:</label>
+                <input type="text" id="quiz-name" required>
+                
+                <label for="quiz-description">Popis:</label>
+                <textarea id="quiz-description" rows="3"></textarea>
+                
+                <label for="quiz-difficulty">Obtížnost:</label>
+                <select id="quiz-difficulty">
+                    <option value="lehky">Lehký</option>
+                    <option value="stredni">Střední</option>
+                    <option value="tezky">Těžký</option>
+                    <option value="expertni">Expertní</option>
+                </select>
+                
+                <label for="quiz-time-limit">Časový limit (v minutách, 0 pro neomezený):</label>
+                <input type="number" id="quiz-time-limit" min="0" value="0">
+
+                <label for="quiz-badge-url">URL obrázku odznaku (nepovinné):</label>
+                <input type="text" id="quiz-badge-url" placeholder="https://.../obrazek.png">
+                
+                <button type="submit" id="save-quiz-btn">Uložit kvíz</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/sprava-kvizu.js"></script>
+</body>
+</html>

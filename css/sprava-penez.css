@@ -1,0 +1,59 @@
+/* Styly pro sekci Správa Peněz */
+
+.finance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.finance-table th, .finance-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.finance-table th {
+    background-color: #f7f7f7;
+    text-align: left;
+}
+
+.finance-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.finance-actions input[type="number"] {
+    width: 100px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.finance-actions .action-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.action-btn.add {
+    background-color: #28a745; /* Zelená */
+}
+
+.action-btn.add:hover {
+    background-color: #218838;
+}
+
+.action-btn.remove {
+    background-color: #dc3545; /* Červená */
+}
+
+.action-btn.remove:hover {
+    background-color: #c82333;
+}
+
+.vault-status {
+    font-style: italic;
+    color: #666;
+}

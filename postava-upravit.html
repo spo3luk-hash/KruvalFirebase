@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upravit Postavu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="css/postava-upravit.css?v=1.2">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="edit-character-container">
+        <header class="character-header">
+            <a href="uzivatelske-nastaveni.html" class="back-button"><i class="fas fa-arrow-left"></i> Zpět</a>
+            <h1 id="character-name-header">Načítání...</h1>
+            <p>Spravujte detaily a vybavení vaší postavy.</p>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-link active" data-tab="info">
+                <i class="fas fa-user-edit"></i> Soukromá správa
+            </button>
+            <button class="tab-link" data-tab="public-profile">
+                <i class="fas fa-eye"></i> Veřejný profil
+            </button>
+        </nav>
+
+        <main class="tab-content">
+            <!-- === ZÁLOŽKA SOUKROMÁ SPRÁVA === -->
+            <section id="info" class="tab-pane active">
+                <div class="form-section">
+                    <h2 class="pane-title">Základní informace</h2>
+                    <div class="form-group">
+                        <label for="char-name">Jméno postavy</label>
+                        <input type="text" id="char-name" placeholder="Zadejte jméno postavy">
+                    </div>
+                </div>
+
+                <div class="form-section avatar-section">
+                    <h2 class="pane-title">Editor Avatara</h2>
+                    <div class="avatar-management">
+                        <!-- Left side: Editor -->
+                        <div class="avatar-editor-container">
+                            <div id="avatar-editor-bg" class="avatar-editor-bg">
+                                <!-- The draggable image will be a background-image here -->
+                            </div>
+                            <div class="avatar-editor-overlay"></div>
+                        </div>
+
+                        <!-- Right side: Controls and Final Preview -->
+                        <div class="avatar-controls-and-preview">
+                            <div class="form-group">
+                                <label for="char-avatar-url">URL adresa obrázku</label>
+                                <input type="text" id="char-avatar-url" placeholder="https://.../obrazek.png">
+                                <small>Vložte odkaz na obrázek a poté ho upravte v editoru vlevo.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="avatar-zoom-slider">Přiblížení</label>
+                                <input type="range" id="avatar-zoom-slider" min="1" max="3" step="0.05" value="1">
+                            </div>
+
+                            <div class="avatar-preview-wrapper">
+                                <label>Náhled</label>
+                                <div id="char-avatar-preview" class="char-avatar-preview">
+                                    <span id="char-avatar-initial" class="char-avatar-initial">?</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="pane-title">Popis postavy a Status</h2>
+                    <div class="form-group">
+                        <label for="char-public-bio">Veřejný profil (viditelný pro ostatní)</label>
+                        <textarea id="char-public-bio" rows="3" maxlength="300" placeholder="Krátký popis, motto nebo vzhled..."></textarea>
+                        <small>Krátký popis vaší postavy, který uvidí ostatní hráči. (Max. 300 znaků)</small>
+                    </div>
+                    
+                    <!-- NOVÉ POLE PRO STATUS -->
+                    <div class="form-group">
+                        <label for="char-status">Status postavy</label>
+                        <input type="text" id="char-status" maxlength="50" placeholder="Např. Popíjí máslový ležák...">
+                        <small>Krátký status, který se zobrazí nad vaším avatarem. (Max. 50 znaků)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char-private-notes">Soukromé poznámky (viditelné pouze pro vás)</label>
+                        <textarea id="char-private-notes" rows="8" placeholder="Zde si můžete psát poznámky o své postavě, jejím příběhu, vztazích..."></textarea>
+                    </div>
+                </div>
+                
+                <button id="save-all-btn" class="save-btn"><i class="fas fa-save"></i> Uložit vše</button>
+            </section>
+
+            <!-- === ZÁLOŽKA VEŘEJNÝ PROFIL (NÁHLED) === -->
+            <section id="public-profile" class="tab-pane">
+                <h2 class="pane-title">Veřejný profil</h2>
+                <div class="form-group">
+                    <p>Zde můžete přejít na veřejný profil vaší postavy.</p>
+                    <a href="#" id="view-profile-btn" class="action-btn" target="_blank"><i class="fas fa-eye"></i> Zobrazit profil</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js?v=1.1"></script>
+    <script src="js/postava-upravit.js?v=1.3"></script>
+</body>
+</html>

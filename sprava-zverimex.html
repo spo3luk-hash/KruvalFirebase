@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Správa Zverimexu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sprava-obchodu-dva.css">
+    <link rel="stylesheet" href="css/sprava-zverimex.css">
+
+</head>
+<body>
+    <header>
+        <h1>Správa Zverimexu</h1>
+        <a href="sprava-obchodu.html" class="back-to-admin"><i class="fas fa-arrow-left"></i> Zpět na správu obchodů</a>
+    </header>
+
+    <main>
+        <section id="zverimex-management-section">
+            <h2>Správa Zverimexu: Velkoprodejna Mžourov</h2>
+            
+            <div class="items-management">
+                <h3>Položky ve Zverimexu</h3>
+                <button id="add-pet-btn" class="action-btn add-btn"><i class="fas fa-plus"></i> Přidat nového mazlíčka</button>
+                <div id="zverimex-items-list-container" class="table-container">
+                    <!-- Seznam položek zverimexu se vygeneruje zde -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modální okno pro přidání/editaci MAZLICKA -->
+    <div id="pet-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="pet-modal-title">Přidat nového mazlíčka</h2>
+                <button class="close-button" id="close-pet-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="pet-form">
+                    <input type="hidden" id="edit-pet-id">
+                    <div class="form-group">
+                        <label for="pet-name">Název</label>
+                        <input type="text" id="pet-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-type">Druh</label>
+                        <input type="text" id="pet-type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-description">Popis</label>
+                        <textarea id="pet-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-image">URL obrázku</label>
+                        <input type="text" id="pet-image">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-price">Cena (v Galeonech)</label>
+                        <input type="number" id="pet-price" required>
+                    </div>
+                    <div id="havran-fields" class="form-group-row hidden">
+                        <div class="form-group">
+                            <label for="pet-delivery-value">Doba doručení</label>
+                            <input type="number" id="pet-delivery-value" placeholder="např. 10">
+                        </div>
+                        <div class="form-group">
+                            <label for="pet-delivery-unit">Jednotka</label>
+                            <select id="pet-delivery-unit">
+                                <option value="minutes">Minut</option>
+                                <option value="hours">Hodin</option>
+                                <option value="seconds">Sekund</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="action-btn save-btn">Uložit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/sprava-zverimex.js"></script>
+</body>
+</html>

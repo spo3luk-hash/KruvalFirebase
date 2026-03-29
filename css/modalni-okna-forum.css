@@ -1,0 +1,121 @@
+/* --- Moderní a robustní styl pro modální okna --- */
+
+/* Overlay - pozadí za modálním oknem */
+.modal-overlay {
+    display: flex; /* Použijeme flexbox pro snadné centrování */
+    align-items: center;
+    justify-content: center;
+
+    position: fixed; /* Klíčové: zůstane na místě i při scrollování */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.6); /* Tmavé, poloprůhledné pozadí */
+    z-index: 1000; /* Klíčové: zajistí, že je nad vším ostatním */
+
+    opacity: 0; /* Začínáme jako neviditelné */
+    animation: fadeIn 0.3s forwards; /* Plynulé zobrazení */
+}
+
+/* Obsah samotného modálního okna */
+.modal-content {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px; /* Maximální šířka, aby nebylo příliš roztažené */
+    text-align: center;
+
+    transform: scale(0.95); /* Začínáme mírně zmenšené */
+    animation: zoomIn 0.3s forwards cubic-bezier(0.18, 0.89, 0.32, 1.28); /* Efekt přiblížení */
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Skupina pro potvrzovací input */
+#confirm-input-group {
+    margin-top: 20px;
+    text-align: left;
+}
+#confirm-input-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+#confirm-modal-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Důležité pro správné rozměry */
+}
+#confirm-modal-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+
+/* Tlačítka v modálním okně */
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Mezera mezi tlačítky */
+    margin-top: 25px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+/* Specifické styly tlačítek */
+.admin-button-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+.admin-button-danger:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.admin-button-secondary {
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    border: 1px solid #bdc3c7;
+}
+.admin-button-secondary:hover {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+}
+
+/* Animace pro plynulé zobrazení */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+@keyframes zoomIn {
+    to { transform: scale(1); }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Hráče</title>
+    <link rel="stylesheet" href="css/profil-hrace.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="game-header">
+        <div class="header-left"></div>
+        <div class="header-center">Profil Hráče</div>
+        <div class="header-right">
+            <a href="seznam-postav-a-hracu.html" class="back-button"><i class="fas fa-arrow-left"></i> Zpět</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="profil-loading">
+            <p class="error-message">Načítání profilu...</p>
+        </div>
+        
+        <div id="profil-container" style="display: none;">
+            <div class="profile-tabs">
+                <button class="tab-link active" data-tab="overview">Přehled</button>
+                <button class="tab-link" data-tab="characters">Postavy</button>
+                <button class="tab-link" data-tab="achievements">Úspěchy</button>
+                <button class="tab-link" data-tab="friends">Přátelé</button>
+            </div>
+
+            <div id="overview" class="tab-pane active">
+                <div class="overview-grid">
+                    <div class="avatar-rect-container">
+                        <div class="avatar-rect" id="player-avatar-rect">
+                            <span class="avatar-initial-rect" id="player-avatar-initial">?</span>
+                        </div>
+                    </div>
+                    <div class="main-info-column">
+                        <h1 id="player-name"></h1>
+                        <p class="player-title" id="player-title"></p>
+                        <div class="info-blocks">
+                            <div class="info-block">
+                                <h3>Věk</h3>
+                                <p id="player-age"></p>
+                                <p id="player-birthdate"></p>
+                            </div>
+                            <div class="info-block">
+                                <h3>Pohlaví</h3>
+                                <p id="player-gender"></p>
+                            </div>
+                            <div class="info-block">
+                                <h3>Aktivita</h3>
+                                <p id="player-activity"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="characters" class="tab-pane">
+                <h2>Vlastněné postavy</h2>
+                <div id="characters-list" class="characters-grid"></div>
+            </div>
+            <div id="achievements" class="tab-pane">
+                <h2>Síň úspěchů</h2>
+                <div id="badges-list" class="badges-grid"></div>
+            </div>
+            <div id="friends" class="tab-pane">
+                <h2>Přátelé</h2>
+                <div id="friends-list" class="friends-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/profil-hrace.js"></script> 
+</body>
+</html>

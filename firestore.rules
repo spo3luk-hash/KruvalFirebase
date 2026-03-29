@@ -1,0 +1,103 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Pomocné funkce ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(docData) {
+      return request.auth.uid == docData.owner;
+    }
+
+    function isAuthor(docData) {
+        return request.auth.uid == docData.autorId;
+    }
+
+    function isParticipant(conversation) {
+        return request.auth.uid in conversation.ucastnici;
+    }
+
+    function isAdmin() {
+      let userDocPath = /databases/$(database)/documents/hraci/$(request.auth.uid);
+      return isSignedIn() && exists(userDocPath) && get(userDocPath).data.role in ['Admin', 'superadmin'];
+    }
+
+    // --- Pravidla pro specifické kolekce ---
+    
+    // Hráči - uživatel může číst data ostatních, ale měnit jen svoje
+    match /hraci/{userId} {
+      allow read: if isSignedIn();
+      allow update: if request.auth.uid == userId;
+    }
+
+    // Postavy jako podkolekce hráčů - plný přístup jen pro vlastníka
+    match /hraci/{userId}/postavy/{postavaId} {
+      allow read, create, update, delete: if isSignedIn() && request.auth.uid == userId;
+    }
+
+    match /status/{userId} {
+      allow write: if request.auth.uid == userId;
+    }
+
+    match /forum_kategorie/{kategorieId} {
+      allow read: if isSignedIn();
+    }
+
+    match /forum_fora/{forumId} {
+      allow read: if isSignedIn();
+    }
+
+    match /forum_temata/{temaId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+    }
+
+    match /forum_temata/{temaId}/uvodni_prispevek/{prispevekId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isAuthor(request.resource.data);
+      allow update: if isSignedIn() && isAuthor(resource.data);
+    }
+
+    match /forum_temata/{temaId}/odpovedi/{odpovedId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isAuthor(request.resource.data);
+      allow update, delete: if isSignedIn() && isAuthor(resource.data);
+    }
+
+    match /soukromeZpravyForum/{konverzaceId} {
+      allow read, update: if isSignedIn() && isParticipant(resource.data);
+      allow create: if isSignedIn() && isParticipant(request.resource.data);
+
+      match /zpravy/{zpravaId} {
+        allow read, create: if isSignedIn() && isParticipant(get(/databases/$(database)/documents/soukromeZpravyForum/$(konverzaceId)).data);
+        allow update: if false;
+        allow delete: if isSignedIn() && isAuthor(resource.data);
+      }
+    }
+
+    // Pravidlo pro aktivní přítomnost v lokacích
+    match /location_active_presence/{locationId}/characters/{characterId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // Pravidla pro chatovací místnosti
+    match /chat_mistnosti/{roomId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin(); // Jen admin může měnit info o místnosti (zamknutí, popis)
+
+      // Pravidla pro zprávy v chatu
+      match /zpravy/{zpravaId} {
+        allow read, create: if isSignedIn();
+        allow delete: if isAdmin();
+      }
+    }
+
+    // --- Globální pravidlo pro administrátory ---
+    match /{document=**} {
+        allow read, write: if isAdmin();
+    }
+  }
+}

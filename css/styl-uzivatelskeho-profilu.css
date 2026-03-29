@@ -1,0 +1,186 @@
+/* GLOBAL USER PROFILE STYLES - CENTRALIZED */
+/* VERZE 2.0 - Responzivní tloušťka pro různé velikosti avatarů */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+:root {
+    --gold-accent: #b38b00;
+    --runic-glow: #00e5ff;
+    --magic-glow: #c55cff;
+    --font-title: 'Cinzel Decorative', cursive;
+}
+
+/* Base Avatar Structure */
+.avatar-container {
+    position: relative;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.avatar-frame svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Avatar Sizing */
+.large-avatar { 
+    width: 220px; 
+    height: 220px; 
+}
+.medium-avatar {
+    width: 120px;
+    height: 120px;
+}
+.small-avatar {
+    width: 75px;
+    height: 75px;
+}
+
+/* Initials inside avatar */
+.avatar-image .avatar-initial {
+    font-family: var(--font-title);
+    font-size: 2.5rem; 
+    line-height: 1;
+}
+.medium-avatar .avatar-image .avatar-initial {
+    font-size: 4rem;
+}
+.large-avatar .avatar-image .avatar-initial {
+    font-size: 7rem;
+}
+
+/* === CUSTOM FRAME DEFINITIONS === */
+
+/* Frame 1: Gold Circle */
+.small-avatar[data-frame-id='frame-svg-1'] .avatar-frame svg circle { stroke-width: 4; }
+.medium-avatar[data-frame-id='frame-svg-1'] .avatar-frame svg circle { stroke-width: 6; }
+.large-avatar[data-frame-id='frame-svg-1'] .avatar-frame svg circle { stroke-width: 8; }
+.avatar-container[data-frame-id='frame-svg-1'] .avatar-frame svg circle {
+    fill: none;
+    stroke: var(--gold-accent);
+}
+
+/* Frame 2: Silver Circle */
+.small-avatar[data-frame-id='frame-svg-2'] .avatar-frame svg circle { stroke-width: 2; }
+.medium-avatar[data-frame-id='frame-svg-2'] .avatar-frame svg circle { stroke-width: 3; }
+.large-avatar[data-frame-id='frame-svg-2'] .avatar-frame svg circle { stroke-width: 4; }
+.avatar-container[data-frame-id='frame-svg-2'] .avatar-frame svg circle {
+    fill: none;
+    stroke: #c0c0c0;
+}
+
+/* Frame 3: Double Circle */
+.small-avatar[data-frame-id='frame-svg-3'] .avatar-frame svg .outer-circle { stroke-width: 3; }
+.small-avatar[data-frame-id='frame-svg-3'] .avatar-frame svg .inner-circle { stroke-width: 1.5; }
+.medium-avatar[data-frame-id='frame-svg-3'] .avatar-frame svg .outer-circle { stroke-width: 5; }
+.medium-avatar[data-frame-id='frame-svg-3'] .avatar-frame svg .inner-circle { stroke-width: 2.5; }
+.large-avatar[data-frame-id='frame-svg-3'] .avatar-frame svg .outer-circle { stroke-width: 6; }
+.large-avatar[data-frame-id='frame-svg-3'] .avatar-frame svg .inner-circle { stroke-width: 3; }
+.avatar-container[data-frame-id='frame-svg-3'] .avatar-frame svg .outer-circle {
+    fill: none;
+    stroke: var(--gold-accent);
+}
+.avatar-container[data-frame-id='frame-svg-3'] .avatar-frame svg .inner-circle {
+    fill: none;
+    stroke: #c0c0c0;
+}
+
+/* Frame 4: Runic Circle */
+.avatar-container[data-frame-id='frame-svg-4'] .avatar-frame { animation: rotate 30s linear infinite; }
+.small-avatar[data-frame-id='frame-svg-4'] .avatar-frame svg .runic-circle { stroke-width: 5; stroke-dasharray: 8 12; }
+.medium-avatar[data-frame-id='frame-svg-4'] .avatar-frame svg .runic-circle { stroke-width: 8; stroke-dasharray: 10 15; }
+.large-avatar[data-frame-id='frame-svg-4'] .avatar-frame svg .runic-circle { stroke-width: 10; stroke-dasharray: 12 18; }
+.avatar-container[data-frame-id='frame-svg-4'] .avatar-frame svg .runic-circle {
+    fill: none;
+    stroke: var(--runic-glow);
+}
+
+/* --- Frame 5: Magic Glow (CSS-based) --- */
+.small-avatar[data-frame-id='frame-svg-5'] .avatar-frame { filter: drop-shadow(0 0 3px var(--magic-glow)); }
+.small-avatar[data-frame-id='frame-svg-5'] .avatar-frame svg .glow-circle { stroke-width: 2; }
+.small-avatar[data-frame-id='frame-svg-5'] .avatar-frame svg .thin-border-circle { stroke-width: 1; }
+
+.medium-avatar[data-frame-id='frame-svg-5'] .avatar-frame { filter: drop-shadow(0 0 4px var(--magic-glow)); }
+.medium-avatar[data-frame-id='frame-svg-5'] .avatar-frame svg .glow-circle { stroke-width: 3; }
+.medium-avatar[data-frame-id='frame-svg-5'] .avatar-frame svg .thin-border-circle { stroke-width: 1.5; }
+
+.large-avatar[data-frame-id='frame-svg-5'] .avatar-frame { filter: drop-shadow(0 0 6px var(--magic-glow)); }
+.large-avatar[data-frame-id='frame-svg-5'] .avatar-frame svg .glow-circle { stroke-width: 4; }
+.large-avatar[data-frame-id='frame-svg-5'] .avatar-frame svg .thin-border-circle { stroke-width: 2; }
+
+.avatar-container[data-frame-id='frame-svg-5'] .avatar-frame svg .glow-circle {
+  stroke: var(--magic-glow);
+  fill: none;
+}
+.avatar-container[data-frame-id='frame-svg-5'] .avatar-frame svg .thin-border-circle {
+  stroke: rgba(229, 172, 255, 0.5);
+  fill: none;
+}
+
+
+/* Frame 6: Forged Metal */
+.small-avatar[data-frame-id='frame-svg-6'] .avatar-frame svg circle { stroke-width: 6; stroke-dasharray: 1 10; }
+.medium-avatar[data-frame-id='frame-svg-6'] .avatar-frame svg circle { stroke-width: 10; stroke-dasharray: 1 12; }
+.large-avatar[data-frame-id='frame-svg-6'] .avatar-frame svg circle { stroke-width: 12; stroke-dasharray: 1 15; }
+.avatar-container[data-frame-id='frame-svg-6'] .avatar-frame svg circle {
+    fill: none;
+    stroke: url(#forged-gradient);
+    stroke-linecap: round;
+}
+
+/* Frame 7: Dashed Gold */
+.small-avatar[data-frame-id='frame-svg-7'] .avatar-frame svg circle { stroke-width: 3; stroke-dasharray: 30 10; }
+.medium-avatar[data-frame-id='frame-svg-7'] .avatar-frame svg circle { stroke-width: 5; stroke-dasharray: 40 12; }
+.large-avatar[data-frame-id='frame-svg-7'] .avatar-frame svg circle { stroke-width: 7; stroke-dasharray: 50 15; }
+.avatar-container[data-frame-id='frame-svg-7'] .avatar-frame svg circle {
+    fill: none;
+    stroke: var(--gold-accent);
+    stroke-linecap: round;
+}
+
+/* Frame 8: Ice Circle */
+.small-avatar[data-frame-id='frame-svg-8'] { box-shadow: 0 0 4px #a0e9ff, inset 0 0 3px #a0e9ff; }
+.small-avatar[data-frame-id='frame-svg-8'] .avatar-frame svg circle { stroke-width: 2.5; }
+
+.medium-avatar[data-frame-id='frame-svg-8'] { box-shadow: 0 0 8px #a0e9ff, inset 0 0 5px #a0e9ff; }
+.medium-avatar[data-frame-id='frame-svg-8'] .avatar-frame svg circle { stroke-width: 4; }
+
+.large-avatar[data-frame-id='frame-svg-8'] { box-shadow: 0 0 12px #a0e9ff, inset 0 0 8px #a0e9ff; }
+.large-avatar[data-frame-id='frame-svg-8'] .avatar-frame svg circle { stroke-width: 5; }
+
+.avatar-container[data-frame-id='frame-svg-8'] .avatar-frame svg circle {
+    fill: none;
+    stroke: #a0e9ff;
+}
+
+/* Keyframe for rotation */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

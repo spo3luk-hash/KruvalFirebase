@@ -1,0 +1,107 @@
+/* === Styl pro kontejner nástěnky na hlavní stránce === */
+#nastenka-container {
+    background-color: #2e2620; /* Tmavě hnědé pozadí */
+    border: 2px solid #4a3f35;  /* O něco světlejší okraj */
+    padding: 20px;
+    margin-top: 25px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Výraznější stín */
+}
+
+#nastenka-container h2 {
+    color: #e0ccaf; /* Béžová barva pro nadpis */
+    margin-bottom: 10px;
+}
+
+#open-nastenka-btn {
+    margin-top: 15px;
+}
+
+/* === Styly pro modální okno (vyskakovací okno) === */
+
+.modal {
+    position: fixed; /* Zůstane na místě při scrollování */
+    z-index: 1000; /* Bude nad vším ostatním */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Povolí scrollování, pokud je obsah větší */
+    background-color: rgba(0, 0, 0, 0.7); /* Tmavé, poloprůhledné pozadí */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hidden {
+    display: none; /* Skryje modální okno */
+}
+
+.modal-content {
+    background-color: #1a1410; /* Velmi tmavé pozadí pro obsah */
+    margin: auto;
+    padding: 30px;
+    border: 3px solid #5c4e42; /* Výrazný okraj */
+    width: 80%;
+    max-width: 900px; /* Maximální šířka okna */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative;
+    color: #c7b8a3;
+}
+
+/* === Zavírací tlačítko (křížek) === */
+.close-button {
+    color: #a08c70;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* === Styly pro obsah nástěnky (seznam zakázek) === */
+#dostupne-zakazky-container {
+    max-height: 60vh; /* Omezení výšky, aby se vešlo na obrazovku */
+    overflow-y: auto; /* Scrollování pouze pro seznam zakázek */
+    padding-right: 15px; /* Prostor pro scrollbar */
+}
+
+.zakazka-item {
+    border: 1px solid #4a3f35;
+    background-color: #251e18;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.zakazka-item:hover {
+    background-color: #312821;
+}
+
+.zakazka-details h4 {
+    margin: 0 0 10px 0;
+    color: #e0ccaf;
+}
+
+.zakazka-details p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #a08c70;
+}
+
+.zakazka-actions .btn-primary,
+.zakazka-actions .btn-secondary {
+    min-width: 120px; /* Minimální šířka pro tlačítka */
+    text-align: center;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výsledky Kvízu</title>
+    <link rel="stylesheet" href="/css/vysledky-kvizu.css">
+</head>
+<body>
+    <div class="result-container">
+        <h1 id="result-title">Výsledek kvízu</h1>
+        
+        <div id="result-summary">
+            <p>Vaše skóre:</p>
+            <h2 id="score-display">Načítám...</h2>
+        </div>
+
+        <div id="badge-award-section" style="display: none;">
+            <h3>Získal jsi odznak!</h3>
+            <img id="badge-image" src="" alt="Získaný odznak">
+            <p id="badge-message">Tento odznak byl přidán do tvé sbírky.</p>
+        </div>
+
+        <div id="feedback-message">
+            <p>Načítám hodnocení...</p>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="/kvizova-mistnost.html" class="nav-btn">Zpět do Místnosti kvízů</a>
+            <a href="/hra.html" class="nav-btn">Zpět do hry</a>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/vysledky-kvizu.js"></script>
+</body>
+</html>

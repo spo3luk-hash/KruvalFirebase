@@ -1,0 +1,31 @@
+/* Temně červený styl pro správu chatů */
+
+.admin-menu-chatu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #6D2828; /* Tmavě červená linka */
+    padding-bottom: 10px;
+}
+
+.admin-menu-button-chatu {
+    font-family: 'Cinzel Decorative', cursive;
+    background-color: transparent;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    color: #E0CFCF; /* Světlejší červeno-šedá */
+    border-bottom: 3px solid transparent;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.admin-menu-button-chatu.active,
+.admin-menu-button-chatu:hover {
+    color: #FF6B6B; /* Zářivější červená pro aktivní/hover stav */
+    border-bottom-color: #FF6B6B;
+    text-shadow: 0 0 12px rgba(255, 107, 107, 0.7); /* Červená záře */
+}
+
+/* Další specifické styly pro správu chatů mohou následovat zde... */

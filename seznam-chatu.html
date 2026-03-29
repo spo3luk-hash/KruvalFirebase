@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veřejné místnosti</title>
+    <link rel="stylesheet" href="/css/style-pricna-ulice-base.css">
+    <style>
+        .room-list-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .room-card {
+            background-color: var(--background-color-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            text-decoration: none;
+            color: var(--text-color-primary);
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .room-card-image {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--background-color-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .room-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .room-card h3 {
+            margin-top: 0;
+            color: var(--header-color);
+        }
+
+        .room-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        .loading-text {
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Veřejné místnosti</h1>
+            <p>Vyber si, kam se chceš vydat a s kým si chceš promluvit.</p>
+        </header>
+
+        <main id="room-list-container" class="room-list-container">
+            <p class="loading-text">Načítám seznam dostupných místností...</p>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/seznam-chatu.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* === DEKORACE PRO: Rozcestí obchodů na Příčné ulici === */
+
+body {
+    background-image: url('/img/bg-pricna-ulice-rozcesti.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}

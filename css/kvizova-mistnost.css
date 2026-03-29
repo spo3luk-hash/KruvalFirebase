@@ -1,0 +1,142 @@
+/* Základní styly */
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1f1f1f;
+    border-bottom: 2px solid #a87332;
+}
+
+.game-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.back-button, #admin-quiz-btn {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1em;
+    background-color: #a87332;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover, #admin-quiz-btn:hover {
+    background-color: #c08d4f;
+}
+
+/* Seznam kvízů */
+#quiz-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.quiz-card {
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.quiz-card h2 {
+    margin-top: 0;
+    color: #a87332;
+}
+
+.quiz-card p {
+    flex-grow: 1; /* Popis zabere dostupné místo */
+}
+
+.quiz-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.quiz-difficulty {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Obtížnosti */
+.difficulty-lehky { background-color: #4CAF50; color: white; }
+.difficulty-stredni { background-color: #FFC107; color: #1a1a1a; }
+.difficulty-tezky { background-color: #F44336; color: white; }
+.difficulty-expertni { background-color: #673AB7; color: white; }
+
+
+.start-quiz-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #a87332;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-quiz-btn:hover {
+    background-color: #c08d4f;
+}
+
+/* Styly pro dokončené kvízy a odznaky */
+
+.completed-card {
+    opacity: 0.6;
+    background-color: #242424;
+    border: 1px solid #444;
+}
+
+.start-quiz-btn.completed {
+    background-color: #555;
+    cursor: not-allowed;
+    color: #aaa;
+}
+
+.start-quiz-btn.completed:hover {
+    background-color: #555;
+}
+
+.quiz-badge {
+    color: #ffd700; /* Zlatá barva pro trofej */
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.1em;
+}

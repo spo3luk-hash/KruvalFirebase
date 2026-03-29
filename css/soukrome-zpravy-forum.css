@@ -1,0 +1,385 @@
+/* === ZÁKLADNÍ STYLY (IZOLOVANÉ) === */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #0c0c0f;
+    background-image: url('https://www.transparenttextures.com/patterns/black-felt.png');
+    color: #c5c8d3;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #3a415a;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    color: #ebeef5;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(150, 180, 255, 0.3), 0 0 20px rgba(150, 180, 255, 0.2);
+}
+
+header nav a {
+    font-family: 'Cinzel', serif;
+    color: #98a2c2;
+    text-decoration: none;
+    margin: 10px 10px 0;
+    font-size: 1em;
+    transition: color 0.3s, text-shadow 0.3s;
+    display: inline-block;
+}
+
+header nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(200, 220, 255, 0.5);
+}
+
+main {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.custom-button {
+    font-family: 'Cinzel', serif;
+    font-size: 1em;
+    color: #ebeef5;
+    background-color: #3a415a;
+    border: 1px solid #5c678c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-button:hover {
+    background-color: #4f5875;
+    box-shadow: 0 0 10px rgba(150, 180, 255, 0.3);
+}
+
+/* === SPECIFICKÉ STYLY PRO SOUKROMÉ ZPRÁVY === */
+
+#messages-layout-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.conversations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #3a415a;
+    padding-bottom: 15px;
+}
+
+.conversations-header h2 {
+    font-family: 'Cinzel', serif;
+    color: #dde1ea;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+#conversations-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.conversation-item {
+    display: flex;
+    align-items: center; /* Zarovnání pro DESKTOP */
+    background-color: rgba(22, 25, 32, 0.7);
+    border: 1px solid #2a3045;
+    border-radius: 8px;
+    padding: 15px;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.conversation-item:hover {
+    background-color: rgba(30, 34, 45, 0.8);
+    border-color: #4f5875;
+}
+
+.conversation-item.unread {
+    border-left: 4px solid #b8860b;
+    background-color: rgba(35, 38, 48, 0.7);
+}
+
+.conversation-avatar {
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.conversation-avatar img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #5c678c;
+    object-fit: cover;
+}
+
+.conversation-summary {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.conversation-recipient {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: #dde1ea;
+    font-size: 1.15em;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.conversation-last-message {
+    font-family: 'Lora', serif;
+    font-size: 0.95em;
+    color: #8b93b0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.conversation-item.unread .conversation-last-message {
+    color: #c5c8d3;
+    font-weight: 500;
+}
+
+.conversation-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+
+.conversation-timestamp {
+    font-family: 'Lora', serif;
+    font-size: 0.85em;
+    color: #8b93b0;
+    white-space: nowrap;
+}
+
+.pinned-indicator-list {
+    color: #f0e68c;
+    margin-bottom: 5px;
+}
+
+.pinned-indicator-list svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+
+#no-conversations-message {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: rgba(22, 25, 32, 0.7);
+    border: 1px solid #2a3045;
+    border-radius: 8px;
+    color: #a9b1d6;
+    font-family: 'Lora', serif;
+    font-size: 1.1em;
+}
+
+/* === STYLY PRO MODÁLNÍ OKNO NOVÉ ZPRÁVY === */
+.modal-backdrop { display: none; } /* Skryto defaultně */
+
+#new-message-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(8px);
+    display: none; /* Změněno z flex na none */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #1a1d25;
+    border: 1px solid #3a415a;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(30, 34, 45, 0.6);
+    padding: 15px 20px;
+    border-bottom: 1px solid #3a415a;
+}
+
+.modal-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4em;
+    color: #dde1ea;
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #8b93b0;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.close-button:hover {
+    color: #e0e2ec;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    color: #a9b1d6;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+#recipient-search, #new-message-content {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #3a415a;
+    border-radius: 5px;
+    background-color: rgba(25, 28, 36, 0.8);
+    color: #c5c8d3;
+    font-family: 'Lora', serif;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#recipient-search:focus, #new-message-content:focus {
+    outline: none;
+    border-color: #5c678c;
+    box-shadow: 0 0 8px rgba(150, 180, 255, 0.1);
+}
+
+#new-message-content {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#search-results-container {
+    position: relative;
+}
+
+.search-result-item {
+    padding: 10px;
+    background-color: rgba(35, 38, 48, 0.9);
+    border-bottom: 1px solid #2a3045;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #c5c8d3;
+}
+
+.search-result-item:hover {
+    background-color: #4f5875;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* === RESPONZIVNÍ DESIGN === */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    .conversations-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .conversations-header h2 {
+        font-size: 1.5em;
+    }
+    .modal-content {
+        width: 95%;
+    }
+    
+    /* OPRAVA MOBILNÍHO ZOBRAZENÍ - FINÁLNÍ VERZE */
+    .conversation-item {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    .conversation-summary {
+        width: 100%; /* Zajistí plnou šířku */
+    }
+    .conversation-recipient, .conversation-last-message {
+        white-space: normal; /* Umožní zalamování textu */
+    }
+    .conversation-avatar {
+        margin-right: 0; 
+        margin-bottom: 10px;
+    }
+    .conversation-meta {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .pinned-indicator-list {
+        margin-bottom: 0;
+    }
+}
+
+/* === STYLY PRO INDIKÁTORY STAVU ZPRÁV === */
+
+.message-status-indicator {
+    margin-left: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.message-status-indicator.sent {
+    color: var(--text-color-light, #8a8a8a);
+}
+
+.message-status-indicator.read {
+    color: var(--primary-color, #4d90fe);
+}
+.conversation-type {
+    font-size: 0.8em;
+    color: #8b93b0;
+    margin-left: 5px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soví Pošta - Kruval Online</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Pro globální proměnné a styly -->
+    <link rel="stylesheet" href="css/sovi-posta.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div class="post-office-container">
+        <header class="post-office-header">
+            <h1><i class="fas fa-envelope-open-text"></i> Soví Pošta</h1>
+            <p>Tvá osobní schránka pro havraní poštu.</p>
+            <a href="hra.html" class="back-to-game-btn"><i class="fas fa-arrow-left"></i> Zpět do hry</a>
+        </header>
+
+        <main class="post-office-layout">
+            <aside id="mail-list-container" class="mail-list-panel">
+                <!-- Seznam zpráv se načte zde -->
+                <div class="loader">Načítám poštu...</div>
+            </aside>
+
+            <section id="mail-detail-container" class="mail-detail-panel">
+                <div id="placeholder-message">
+                    <i class="fas fa-feather-alt"></i>
+                    <p>Vyber zprávu ze seznamu, abys sis ji mohl přečíst.</p>
+                </div>
+                <article id="mail-content" style="display: none;">
+                    <header class="mail-header">
+                        <div>
+                            <strong id="mail-sender"></strong>
+                            <span id="mail-date" class="mail-meta"></span>
+                        </div>
+                    </header>
+                    <div id="mail-body" class="mail-body"></div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/sovi-posta.js"></script>
+</body>
+</html>

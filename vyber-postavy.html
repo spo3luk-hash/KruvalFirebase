@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výběr Postavy - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/vyber-postavy.css?v=2.0">
+    <link rel="stylesheet" href="css/nastenka-vyber.css">
+    <link rel="stylesheet" href="css/novinky-notifications.css">
+    <link rel="stylesheet" href="css/ramecky.css?v=2.0">
+</head>
+<body>
+    <header class="game-header">
+        <div class="header-left">
+            <div id="user-panel" class="user-panel" style="display: none;">
+                <div class="avatar-container small-avatar">
+                    <div id="user-avatar-img" class="avatar-image"><span id="user-avatar-initial">?</span></div>
+                    <div id="user-frame-img" class="avatar-frame"></div>
+                </div>
+                <div class="user-details">
+                    <span id="username-display">Uživatel</span>
+                    <span id="user-role-display">Nováček</span>
+                </div>
+                <div class="user-panel-actions">
+                    <a href="zobrazeni-upozorneni.html" id="notifications-btn" class="panel-icon" title="Upozornění">
+                        <i class="fas fa-bell"></i>
+                        <span id="general-notification-badge" class="notification-badge hidden"></span>
+                    </a>
+                    <a href="uzivatelske-nastaveni.html" id="settings-btn" class="panel-icon" title="Nastavení"><i class="fas fa-cog"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-center">KRUVAL ONLINE</div>
+        <div class="header-right">
+            <div id="admin-controls">
+                <a href="admin-centrum.html" id="admin-button" class="admin-button" style="display: none;">
+                    <i class="fas fa-user-shield"></i> Admin Centrum
+                </a>
+            </div>
+            <button id="logout-btn">Odhlásit se</button>
+        </div>
+    </header>
+
+    <div class="sub-header-actions">
+        <button id="forum-link-btn"><i class="fas fa-comments"></i> Herní Fórum</button>
+        <button id="open-nastenka-btn"><i class="fas fa-bullhorn"></i> Novinky <span id="news-notification-badge" class="notification-badge hidden"></span></button> 
+    </div>
+
+    <div class="char-selection-container">
+        <h1>Vyber si svou postavu</h1>
+        <div class="create-char-container">
+            <button id="create-new-char-btn"><i class="fas fa-plus-circle"></i> Vytvořit novou postavu</button>
+        </div>
+        <div id="char-list" class="char-list">
+            <p>Načítám postavy...</p>
+        </div>
+    </div>
+
+    <div id="nastenka-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="bulletin-board-header">
+                <h3>Nástěnka</h3>
+                <button id="close-nastenka-btn" class="close-btn" title="Zavřít"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="nastenka-content">
+                <!-- Obsah se načte dynamicky -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="js/firebase-config.js?v=1.1"></script>
+    <script src="js/avatar-hrace-zobraz.js?v=1.1"></script>
+    <script src="js/vyber-postavy.js?v=1.5"></script>
+    <script src="js/nastenka-vyber.js"></script>
+</body>
+</html>

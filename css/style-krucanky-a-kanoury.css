@@ -1,0 +1,8 @@
+/* === DEKORACE PRO: Knihkupectví Krucánky a kaňoury === */
+
+body {
+    background-image: url('/img/bg-krucanky-a-kanoury.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}

@@ -1,0 +1,84 @@
+/* === FANTASY CUSTOM SELECT STYLES === */
+
+.custom-select-wrapper {
+    position: relative;
+    font-family: 'Georgia', serif;
+    color: #4b3a26;
+}
+
+.custom-select-wrapper select {
+    display: none; /* Skryjeme původní select */
+}
+
+.select-selected {
+    background-color: #f4ead5;
+    border: 1px solid #c8b796;
+    padding: 12px 40px 12px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.select-selected:hover {
+    border-color: #b08a55;
+}
+
+.select-selected.select-arrow-active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: #b08a55;
+    box-shadow: 0 0 8px rgba(176, 138, 85, 0.4);
+}
+
+.select-selected::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #8a6d3b; /* Barva šipky */
+    transition: all 0.3s ease;
+}
+
+.select-arrow-active::after {
+    transform: rotate(180deg);
+    margin-top: -9px;
+}
+
+.select-items {
+    position: absolute;
+    background-color: #fdf6e3;
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1010; /* Musí být nad obsahem modalu */
+    border: 1px solid #c8b796;
+    border-top: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* TŘÍDA PRO SKRYTÍ, KTERÁ CHYBĚLA */
+.select-hide {
+    display: none;
+}
+
+.select-items div {
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(138, 3, 3, 0.1); /* Lehké červené pozadí při najetí */
+    color: #8a0303;
+}

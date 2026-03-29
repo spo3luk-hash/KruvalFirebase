@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zobrazení tématu - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/forum.css">
+    <link rel="stylesheet" href="css/thread-view.css">
+    <link rel="stylesheet" href="css/modalni-okna-forum.css">
+    <link rel="stylesheet" href="css/ankety-forum.css"> <!-- Přidán styl pro ankety -->
+    <link rel="stylesheet" href="css/editor-forum.css"> <!-- ✨ PŘIDÁN STYL PRO EDITOR -->
+</head>
+<body>
+    <header>
+        <h1 id="thread-title">Načítání tématu...</h1>
+        <nav class="thread-navigation">
+            <a id="back-to-forum-link" href="#">Zpět na přehled témat</a>
+            <a href="forum.html">Zpět na hlavní stránku fóra</a>
+        </nav>
+        <div id="thread-controls-container">
+            <!-- Kontejner pro tlačítka Sledovat a Zamknout -->
+        </div>
+        <p id="sledovani-stav"></p>
+    </header>
+
+    <main>
+        <div id="poll-container"></div> <!-- Kontejner pro anketu -->
+        <div id="initial-post-container">
+            <!-- Úvodní příspěvek se načte sem -->
+        </div>
+
+        <div class="oddelovac-sekce">
+            <h2>Odpovědi</h2>
+        </div>
+
+        <div id="posts-container">
+            <!-- Odpovědi se budou načítat sem -->
+        </div>
+
+        <div id="reply-container">
+            <!-- Formulář pro odpověď se zobrazí zde, pokud je uživatel přihlášen -->
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/forum-utils.js"></script>
+    <script src="js/modalniOknaForum.js"></script>
+    <script src="js/uzamceni-temat-forum.js"></script>
+    <script src="js/sledovani-temat-forum.js"></script>
+    <script src="js/ankety-forum.js"></script>
+    <script src="js/editor-forum.js"></script> <!-- ✨ PŘIDÁN SKRIPT PRO EDITOR -->
+    <script src="js/citace-forum.js"></script> 
+    <script src="js/thread-view.js?v=1.8"></script> 
+</body>
+</html>

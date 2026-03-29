@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"IDX.agenticWorkspace": true,
+		"IDX.aI.showChatInEditorTab": false
+	}
+}

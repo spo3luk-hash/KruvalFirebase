@@ -1,0 +1,74 @@
+#obchod-hulky-main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--color-background-panel);
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+}
+
+.shop-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1.5rem;
+}
+
+.shop-header h1 {
+    font-family: var(--font-headings);
+    color: var(--color-primary);
+    font-size: 2.8rem;
+}
+
+.shop-description {
+    font-style: italic;
+    color: var(--color-text-secondary);
+}
+
+#quiz-container {
+    text-align: center;
+}
+
+#quiz-intro h2, #quiz-question h2, #quiz-result h2 {
+    margin-bottom: 1.5rem;
+    font-family: var(--font-headings);
+}
+
+#start-quiz-btn, .answer-btn {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem auto;
+    padding: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: 1px solid var(--color-border-hover);
+    background-color: transparent;
+    color: var(--color-text-primary);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+#start-quiz-btn:hover, .answer-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background-main);
+}
+
+#answers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.wand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px dashed var(--color-primary);
+    background-color: rgba(204, 170, 102, 0.1);
+}

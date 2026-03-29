@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnostika Fórní Identity</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #222; color: #eee; padding: 2rem; }
+        .info { border: 1px solid #444; padding: 1rem; margin-bottom: 1rem; background: #333; }
+        .identita { border-left: 3px solid orange; padding-left: 1rem; margin-top: 1rem; }
+        .success { color: lightgreen; }
+        .error { color: lightcoral; }
+    </style>
+</head>
+<body>
+    <h1>Diagnostika Fórní Identity</h1>
+    
+    <div id="auth-status" class="info">
+        <h2>Stav přihlášení</h2>
+        <p>Načítám...</p>
+    </div>
+
+    <div id="owned-identities" class="info">
+        <h2>Identity vlastněné tímto účtem</h2>
+        <p>Načítám...</p>
+    </div>
+
+    <div id="max-identity" class="info">
+        <h2>Pátrání po identitě 'Max'</h2>
+        <p>Načítám...</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const authStatusEl = document.querySelector('#auth-status p');
+            const ownedIdentitiesEl = document.querySelector('#owned-identities p');
+            const maxIdentityEl = document.querySelector('#max-identity p');
+
+            firebase.auth().onAuthStateChanged(async (user) => {
+                if (user) {
+                    authStatusEl.innerHTML = `<span class="success">Přihlášen</span><br>Email: ${user.email}<br>UID: ${user.uid}`;
+
+                    // Najít identity vlastněné uživatelem
+                    try {
+                        const query = await firebase.firestore().collection('forum_identities').where('ownerId', '==', user.uid).get();
+                        if (query.empty) {
+                            ownedIdentitiesEl.innerHTML = `<span class="error">Pro tento účet nebyly nalezeny žádné fórní identity.</span>`;
+                        } else {
+                            let html = 'Nalezeny následující identity:<br>';
+                            query.forEach(doc => {
+                                const data = doc.data();
+                                html += `<div class="identita"><strong>Přezdívka: ${data.nick}</strong><br>Role: ${data.forumRole || 'neuvedena'}<br>ID Dokumentu: ${doc.id}</div>`;
+                            });
+                            ownedIdentitiesEl.innerHTML = html;
+                        }
+                    } catch (e) {
+                        ownedIdentitiesEl.innerHTML = `<span class="error">Chyba při dotazování na vlastněné identity: ${e.message}</span>`;
+                    }
+
+                } else {
+                    authStatusEl.innerHTML = `<span class="error">Nejste přihlášen.</span> Přihlaste se prosím a obnovte stránku.`;
+                    ownedIdentitiesEl.innerHTML = 'Čeká se na přihlášení...';
+                    maxIdentityEl.innerHTML = 'Čeká se na přihlášení...';
+                }
+            }); // <-- ZDE JE KRITICKÁ OPRAVA (PŘIDÁN STŘEDNÍK)
+
+            // Najít identitu 'Max' bez ohledu na vlastníka
+            (async () => {
+                 try {
+                    const query = await firebase.firestore().collection('forum_identities').where('nick', '==', 'Max').get();
+                    if (query.empty) {
+                        maxIdentityEl.innerHTML = `<span class="error">Identita s přezdívkou 'Max' nebyla v databázi vůbec nalezena.</span>`;
+                    } else {
+                        let html = 'Nalezena identita \'Max\'. Její skutečné údaje:<br>';
+                        query.forEach(doc => {
+                            const data = doc.data();
+                            html += `<div class="identita"><strong>Vlastník (ownerId): ${data.ownerId}</strong><br>Role: ${data.forumRole || 'neuvedena'}<br>ID Dokumentu: ${doc.id}</div>`;
+                        });
+                        maxIdentityEl.innerHTML = html;
+                    }
+                } catch (e) {
+                    maxIdentityEl.innerHTML = `<span class="error">Chyba při dotazování na identitu 'Max': ${e.message}</span>`;
+                }
+            })();
+        });
+    </script>
+</body>
+</html>

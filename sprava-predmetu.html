@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Správa Předmětů - Admin Centrum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-styles.css">
+    <link rel="stylesheet" href="css/sprava-predmetu.css">
+    <link rel="stylesheet" href="css/custom-select.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Admin Centrum</h1>
+            <h2>Správa Předmětů</h2>
+            <div class="admin-header-actions">
+                <a href="admin-centrum.html" class="action-btn"><i class="fas fa-arrow-left"></i> Zpět do centra</a>
+            </div>
+        </header>
+
+        <main class="admin-main-content">
+            <section id="master-items-section">
+                <div class="section-header">
+                    <h3>Knihovna předmětů</h3>
+                    <button id="add-master-item-btn" class="action-btn primary"><i class="fas fa-plus"></i> Vytvořit nový předmět</button>
+                </div>
+                <div id="master-items-list-container" class="table-container">
+                    <!-- Seznam master předmětů se vygeneruje zde -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modální okno pro vytvoření/úpravu master předmětu -->
+    <div id="master-item-modal" class="modal hidden">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="master-item-modal-title">Nový předmět</h3>
+                <button class="close-button">&times;</button>
+            </div>
+            <form id="master-item-form">
+                <input type="hidden" id="master-item-id-input">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="item-name-input">Název předmětu</label>
+                        <input type="text" id="item-name-input" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="item-category-select">Kategorie</label>
+                        <div class="custom-select">
+                           <select id="item-category-select">
+                                <option value="Ostatní">Ostatní</option>
+                                <option value="Lektvar">Lektvar</option>
+                                <option value="Surovina">Surovina</option>
+                                <option value="Kniha">Kniha</option>
+                                <option value="Vybavení">Vybavení</option>
+                                <option value="Kouzelný předmět">Kouzelný předmět</option>
+                                <option value="Jídlo">Jídlo</option>
+                                <option value="Hůlka">Hůlka</option>
+                                <option value="Psací potřeby">Psací potřeby</option>
+                                <optgroup label="Oblečení">
+                                    <option value="Oblečení (Hlava)">Oblečení (Hlava)</option>
+                                    <option value="Oblečení (Krk)">Oblečení (Krk)</option>
+                                    <option value="Oblečení (Ramena)">Oblečení (Ramena)</option>
+                                    <option value="Oblečení (Hruď)">Oblečení (Hruď)</option>
+                                    <option value="Oblečení (Ruce)">Oblečení (Ruce)</option>
+                                    <option value="Oblečení (Pas)">Oblečení (Pas)</option>
+                                    <option value="Oblečení (Nohy)">Oblečení (Nohy)</option>
+                                    <option value="Oblečení (Chodidla)">Oblečení (Chodidla)</option>
+                                    <option value="Oblečení (Záda)">Oblečení (Záda)</option>
+                                </optgroup>
+                           </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-image-url-input">URL obrázku</label>
+                        <input type="url" id="item-image-url-input" placeholder="https://...">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="item-description-input">Popis</label>
+                        <textarea id="item-description-input" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="action-btn primary">Uložit předmět</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modální okno pro přidělení PŘEDMĚTU hráči -->
+    <div id="give-item-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Dát předmět postavě</h3>
+                <button class="close-button">&times;</button>
+            </div>
+            <form id="give-item-form">
+                <div class="form-group">
+                    <label for="character-select">Vyberte postavu</label>
+                    <div class="custom-select">
+                        <select id="character-select" required></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="item-quantity">Množství</label>
+                    <input type="number" id="item-quantity" value="1" min="1" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="action-btn primary">Přidat do inventáře</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modální okno pro EFEKTY PŘEDMĚTU -->
+    <div id="item-effects-modal" class="modal hidden">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="item-effects-modal-title">Nastavení efektů předmětu</h3>
+                <button class="close-button">&times;</button>
+            </div>
+            <form id="item-effects-form">
+                <input type="hidden" id="effect-item-id-input">
+                <div class="form-group">
+                    <label for="effect-type-select">Typ Efektu po Použití</label>
+                    <div class="custom-select">
+                        <select id="effect-type-select">
+                            <option value="none">Žádný</option>
+                            <option value="chat_message">Zpráva v chatu po použití</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="effect-details-container" class="hidden">
+                    <fieldset>
+                        <legend>Detaily Zprávy v Chatu</legend>
+                        <div class="form-group">
+                            <label for="effect-message-textarea">Text zprávy od vypravěče</label>
+                            <textarea id="effect-message-textarea" rows="4" placeholder="Např. {characterName} použil předmět a ..."></textarea>
+                            <small>Můžete použít zástupné symboly: <code>{characterName}</code> pro jméno postavy.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="effect-consume-checkbox" checked>
+                                <span>Předmět se po použití spotřebuje</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="action-btn primary">Uložit efekty</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/sprava-predmetu.js"></script>
+    <script src="js/custom-select.js"></script>
+</body>
+</html>

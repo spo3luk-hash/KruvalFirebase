@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Londýn - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/londyn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="location-container">
+        <header class="location-header">
+            <h1>Londýn</h1>
+            <p>Magické srdce Anglie</p>
+            <a href="letaxova-sit.html" class="back-link"><i class="fas fa-arrow-left"></i> Zpět na Letaxovou síť</a>
+        </header>
+
+        <main class="location-content">
+            <div class="description">
+                <p>Vítej v kouzelnickém Londýně. Zde se nachází Ministerstvo kouzel, Příčná ulice a mnoho dalších skrytých i známých míst. Prozkoumej zákoutí, navštiv obchody nebo se jen tak toulej po ulicích.</p>
+            </div>
+
+            <div class="actions-grid">
+                <!-- Akce a interaktivní prvky pro Londýn přijdou sem -->
+                <div class="action-card">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Ministerstvo Kouzel</h3>
+                    <p>Vstup do centra britské kouzelnické byrokracie.</p>
+                    <button disabled>Vstoupit (již brzy)</button>
+                </div>
+                <div class="action-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Příčná ulice</h3>
+                    <p>Nakup si vše potřebné pro své studium i dobrodružství.</p>
+                    <button disabled>Nakupovat (již brzy)</button>
+                </div>
+                 <div class="action-card">
+                    <i class="fas fa-gringotts"></i>
+                    <h3>Gringottova banka</h3>
+                    <p>Bezpečně ulož nebo vyber své galeony.</p>
+                    <button disabled>Navštívit (již brzy)</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase a vlastní skripty -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script> <!-- Ochrana stránky -->
+    <script src="js/londyn.js"></script>
+</body>
+</html>

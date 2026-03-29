@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upravit Profil Fóra - Svět Durmstrangu</title>
+    <link rel="stylesheet" href="css/upravit-profil-forum.css?v=1.3">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="profile-container">
+        <header class="profile-header">
+            <h1>Úprava Profilu Fóra</h1>
+            <p>Zde si můžete přizpůsobit, jak vás ostatní uvidí na fóru.</p>
+        </header>
+
+        <main>
+            <form id="profile-form">
+                <div class="form-section">
+                    <h2>Veřejný Profil</h2>
+                    <div class="form-group">
+                        <label for="forum-nickname">Jméno na fóru</label>
+                        <input type="text" id="forum-nickname" name="nickname" placeholder="Vaše jedinečné jméno na fóru">
+                        <p class="current-data-display">Aktuální jméno: <span id="current-nickname-display">Načítání...</span></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="forum-avatar">URL adresa avatara</label>
+                        <input type="url" id="forum-avatar" name="avatar" placeholder="https://example.com/obrazek.png">
+                        <div class="avatar-preview-container" style="margin-top: 15px; text-align: center;">
+                            <p style="margin-bottom: 5px;"><strong>Náhled avatara:</strong></p>
+                            <img id="avatar-preview" src="images/silhouettes/placeholder.png" alt="Náhled avatara" style="max-width: 150px; max-height: 150px; border-radius: 50%; border: 2px solid #ccc;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="forum-signature">Podpis na fóru</label>
+                        <textarea id="forum-signature" name="signature" placeholder="Napište něco o sobě..."></textarea>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="forum.html" class="btn btn-secondary">Zrušit</a>
+                    <button type="submit" class="btn btn-primary">Uložit změny</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/upravit-profil-forum.js?v=1.3"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upozornění a Vyhlášky</title>
+    <link rel="stylesheet" href="css/main.css"> 
+    <link rel="stylesheet" href="css/upozorneni.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="game-header">
+        <div class="header-left">
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Zpět na rozcestník</a>
+        </div>
+        <div class="header-center">Upozornění</div>
+        <div class="header-right"></div>
+    </header>
+
+    <div class="main-content">
+        <h1 class="page-title">Centrum zpráv</h1>
+
+        <!-- Záložky pro přepínání -->
+        <div class="notification-tabs">
+            <button class="tab-button active" data-tab="inbox">Doručená pošta</button>
+            <button class="tab-button" data-tab="trash">Koš</button>
+        </div>
+
+        <!-- Obsah pro Doručenou poštu -->
+        <div id="inbox" class="tab-content active">
+            <h2>Globální vyhlášky</h2>
+            <div id="global-notifications-container" class="notifications-list"></div>
+            <hr style="margin: 2rem 0; border-color: #4a5c70;">
+            <h2>Soukromá upozornění</h2>
+            <div id="private-notifications-container" class="notifications-list"></div>
+        </div>
+
+        <!-- Obsah pro Koš -->
+        <div id="trash" class="tab-content" style="display: none;">
+            <div class="trash-header">
+                <span id="trash-info">Koš je prázdný.</span>
+                <button id="empty-trash-btn" disabled>Vysypat koš</button>
+            </div>
+            <div id="trash-notifications-container" class="notifications-list"></div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/zobrazeni-upozorneni.js"></script>
+</body>
+</html>

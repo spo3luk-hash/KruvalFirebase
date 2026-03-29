@@ -1,0 +1,7 @@
+/* === DEKORACE PRO LOKACI: Vstup na Příčnou ulici === */
+/* Tento styl doplňuje globální téma Durmstrang specifickým pozadím pro tuto lokaci. */
+
+body {
+    /* Specifické pozadí pro vstupní bránu - kamenný, temný průchod */
+    background-image: url('https://i.imgur.com/O6G1A3p.jpeg'); 
+}

@@ -1,0 +1,73 @@
+
+.form-container {
+    background-color: rgba(18, 20, 25, 0.6);
+    padding: 30px;
+    border: 1px solid #2a3045;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2em;
+    color: #dde1ea;
+    margin-bottom: 10px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #3a415a;
+    border-radius: 5px;
+    background-color: rgba(25, 28, 36, 0.8);
+    color: #c5c8d3;
+    font-family: 'Lora', serif;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #5c678c;
+    box-shadow: 0 0 8px rgba(150, 180, 255, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-group button[type="submit"] {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    color: #ebeef5;
+    background-color: #3a415a;
+    border: 1px solid #5c678c;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    float: right; /* Zarovnání tlačítka doprava */
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #4f5875;
+    box-shadow: 0 0 10px rgba(150, 180, 255, 0.3);
+}
+
+.error-message {
+    color: #ff6b6b;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1em;
+}

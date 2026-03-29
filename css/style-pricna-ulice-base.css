@@ -1,0 +1,236 @@
+/* === DURMSTRANG THEME - PŘEPRACOVANÝ GLOBÁLNÍ STYL === */
+/* Původní soubor: style-pricna-ulice-base.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans:wght@300;400&display=swap');
+
+/* -- Reset a základní nastavení -- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #CBD5E0; /* Chladně šedá pro běžný text */
+    line-height: 1.8;
+    background-color: #081221;
+    background-image: url('https://i.imgur.com/kSct98s.jpeg'); /* Mlžná, temná ulice */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* -- Typografie -- */
+h1, h2, h3, h4, .penize strong {
+    font-family: 'Uncial Antiqua', cursive; /* Runový, starobylý font */
+    color: #E0E6EB;
+    text-shadow: 0 0 12px rgba(135, 206, 250, 0.5), 0 0 3px rgba(255, 255, 255, 0.8);
+    letter-spacing: 1.5px;
+    font-weight: 400;
+}
+
+h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+h2 { font-size: 1.7rem; color: #87CEFA; margin-bottom: 1.5rem; } 
+p {
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+}
+
+/* -- Hlavní rozložení -- */
+.container, .main-content-grid {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(17, 25, 40, 0.85);
+    backdrop-filter: blur(8px) saturate(120%);
+    border-radius: 12px;
+    border: 1px solid rgba(135, 206, 250, 0.2);
+    box-shadow: 0 8px 32px rgba(2, 3, 4, 0.5);
+}
+
+/* -- Postranní panely a jejich sekce -- */
+.left-panel, .right-panel, .main-content {
+    background: transparent;
+}
+
+.panel-section {
+    background: rgba(10, 20, 35, 0.75);
+    border: 1px solid rgba(135, 206, 250, 0.15);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* -- Tlačítka s efektem magické runy -- */
+.btn-primary, .btn-secondary, .action-btn, .btn-buy, #logout-button {
+    font-family: 'Uncial Antiqua', cursive;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(145deg, #1A273A, #28354A);
+    color: #87CEFA;
+    border: 1px solid #2A4866;
+    padding: 16px 32px;
+    margin: 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .action-btn:hover, .btn-buy:hover, #logout-button:hover {
+    color: #FFFFFF;
+    border-color: #87CEFA;
+    background: linear-gradient(145deg, #2A3A50, #3C4D65);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 25px rgba(135, 206, 250, 0.4);
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* ... (zbytek stylů tlačítek) ... */
+
+/* -- Specifické komponenty -- */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(90deg, transparent, rgba(135, 206, 250, 0.3), transparent) 1;
+}
+
+#online-users-list li {
+    list-style: none;
+    padding: 0.7rem 0.5rem;
+    border-bottom: 1px solid rgba(45, 55, 72, 0.5);
+}
+
+/* === STYLY PRO PENĚŽENKU === */
+.penize {
+    padding: 1rem 1.5rem;
+    background: rgba(0,0,0,0.6);
+    border-radius: 6px;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(135, 206, 250, 0.2);
+    box-shadow: inset 0 1px 15px rgba(0,0,0,0.5);
+}
+
+.penize strong {
+    display: block;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    color: #87CEFA;
+    text-align: center;
+}
+
+.penize strong .fa-coins {
+    margin-right: 10px;
+    color: #FFD700;
+    text-shadow: 0 0 10px #FFD700;
+}
+
+.penize .currency-values {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.penize span[data-currency] {
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+}
+
+.penize span[data-currency="G"] { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
+.penize span[data-currency="S"] { color: #C0C0C0; text-shadow: 0 0 8px #C0C0C0; }
+.penize span[data-currency="K"] { color: #CD7F32; text-shadow: 0 0 8px #CD7F32; }
+
+/* === STYLY PRO INVENTÁŘ === */
+.inventory-section {
+    margin-top: 2rem;
+}
+
+.inventory-section h3 {
+    font-family: 'Uncial Antiqua', cursive;
+    color: #A0AEC0; /* Světlejší šedá */
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(135, 206, 250, 0.2);
+}
+
+#inventory-list {
+    list-style: none;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    min-height: 50px;
+}
+
+#inventory-list li {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid rgba(45, 55, 72, 0.4);
+    color: #CBD5E0;
+    font-size: 0.95rem;
+}
+
+#inventory-list li:last-child {
+    border-bottom: none;
+}
+
+#inventory-list li.error {
+    color: #E53E3E; /* Červená pro chyby */
+    font-style: italic;
+}
+
+/* ... (zbytek stylů) ... */
+
+
+/* === RESPONZIVNÍ STYLY PRO MALÁ ZAŘÍZENÍ === */
+@media (max-width: 768px) {
+    body {
+        line-height: 1.6;
+    }
+
+    .container, .main-content-grid {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+
+    .panel-section {
+        padding: 1.5rem;
+    }
+
+    /* -- Zjednodušené styly pro peněženku na mobilu -- */
+    .penize {
+        padding: 0.8rem;
+    }
+    
+    .penize strong {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .penize .currency-values {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .penize span[data-currency] {
+        font-size: 1rem;
+        padding: 2px 5px;
+        text-shadow: none; /* Vypneme stín na mobilu pro lepší čitelnost */
+    }
+}

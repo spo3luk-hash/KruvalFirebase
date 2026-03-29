@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Místnost Kvízů</title>
+    <link rel="stylesheet" href="/css/kvizova-mistnost.css">
+</head>
+<body>
+    <header class="game-header">
+        <a href="/hra.html" class="back-button">Zpět do hry</a>
+        <h1>Místnost Kvízů</h1>
+        <button id="admin-quiz-btn" style="display:none;">Spravovat Kvízy</button>
+    </header>
+
+    <main class="container">
+        <div id="quiz-list-container">
+            <!-- Kvízy se načtou sem pomocí JS -->
+            <p>Načítám seznam dostupných kvízů...</p>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/kvizova-mistnost.js"></script>
+</body>
+</html>

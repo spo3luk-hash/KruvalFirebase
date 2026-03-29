@@ -1,0 +1,169 @@
+
+body {
+    background-color: #1a1a1a;
+    color: #f0e6d2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#inventory-container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #242424;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+#inventory-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #444;
+    margin-bottom: 20px;
+}
+
+#inventory-title {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+#inventory-owner {
+    margin: 5px 0 0 0;
+    font-size: 1.2em;
+    color: #a99a7e;
+    font-weight: normal;
+}
+
+#inventory-main {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    gap: 20px;
+}
+
+/* Styling for the equipment, currency, and backpack sections */
+h3 {
+    color: #f0e6d2;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+#equipment-and-gold, #inventory-grid-container, #item-details-panel {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Equipment Slots */
+#equipment-slots {
+    margin-bottom: 20px;
+}
+
+.equip-slot {
+    height: 60px;
+    background-color: #3a3a3a;
+    border: 2px dashed #555;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.equip-slot::before {
+    content: attr(data-slot-name);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #777;
+    font-size: 0.9em;
+}
+
+#equip-wand {
+    border-color: #a99a7e; /* Zvýraznění slotu pro hůlku */
+}
+
+/* Currency */
+#character-currency p {
+    font-size: 1.1em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#character-currency .fa-coins {
+    color: #ffd700;
+}
+
+/* Item Details Panel */
+#item-details-content {
+    text-align: center;
+    position: sticky;
+    top: 20px;
+}
+
+#item-image-detail {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 15px 0;
+    background-color: #242424;
+    border: 2px solid #444;
+    border-radius: 6px;
+}
+
+#item-name-detail {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    min-height: 25px;
+}
+
+#item-description-detail {
+    font-size: 0.95em;
+    color: #b0a89a;
+    min-height: 60px;
+    margin-bottom: 20px;
+}
+
+#item-stats-detail {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+#item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inventory-action-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a4a4a;
+    color: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.inventory-action-btn:hover {
+    background-color: #5a5a5a;
+    color: white;
+}
+
+.inventory-action-btn.hidden {
+    display: none;
+}
+

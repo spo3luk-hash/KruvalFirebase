@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obchod</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/obecny-obchod.css">
+</head>
+<body>
+    <header>
+        <h1 id="shop-name-header">Načítám obchod...</h1>
+        <a href="pricnaulice-obchody.html" class="back-to-street"><i class="fas fa-arrow-left"></i> Zpět na Příčnou ulici</a>
+    </header>
+
+    <main>
+        <section id="shop-info">
+            <p id="shop-description"></p>
+        </section>
+
+        <section id="items-section">
+            <h2>Nabídka zboží</h2>
+            <div id="items-container" class="items-grid">
+                <!-- Položky obchodu se vygenerují zde -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modální okno pro detail položky -->
+    <div id="item-detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="item-modal-name"></h2>
+                <button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="item-modal-image" src="" alt="Obrázek položky" class="modal-item-image">
+                <p id="item-modal-description"></p>
+                <div class="modal-footer">
+                    <span id="item-modal-price" class="item-price"></span>
+                    <!-- PŘIDÁNO: Pole pro zadání množství -->
+                    <div class="quantity-selector">
+                        <label for="item-quantity-input">Počet:</label>
+                        <input type="number" id="item-quantity-input" value="1" min="1" max="99">
+                    </div>
+                    <button id="buy-item-btn" class="action-btn"><i class="fas fa-shopping-cart"></i> Koupit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/obecny-obchod.js?v=1.1"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+/* CSS pro Správu Fóra - Téma Kancléř */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Sorts+Mill+Goudy&display=swap');
+
+body {
+    font-family: 'Sorts Mill Goudy', serif;
+    background-color: #080a0f;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+    color: #d1d5db;
+    margin: 0;
+}
+
+#admin-view-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.admin-form-section, .admin-list-section {
+    background-color: rgba(10, 12, 17, 0.7);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #35394d;
+    margin-bottom: 40px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #e8c96b;
+    margin-top: 0;
+    border-bottom: 1px solid #555a70;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.form-group { display: flex; flex-direction: column; }
+.form-group label { font-family: 'Cinzel', serif; margin-bottom: 8px; color: #b0c4de; font-size: 1.1em; }
+.form-group input, .form-group textarea, .form-group select {
+    background-color: #1c202b;
+    border: 1px solid #3a415a;
+    color: #d1d5db;
+    padding: 12px;
+    border-radius: 5px;
+    font-family: 'Sorts Mill Goudy', serif;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none;
+    border-color: #f7d874;
+    box-shadow: 0 0 8px rgba(247, 216, 116, 0.3);
+}
+
+.admin-button, .admin-button-danger, .admin-button.cancel-btn {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.1em;
+    color: #080a0f;
+    background: linear-gradient(145deg, #f7d874, #d6b65a);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.admin-button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(247, 216, 116, 0.3); }
+
+.admin-button-danger {
+    background: transparent;
+    border: 1px solid #a92824;
+    color: #ff8a8a;
+    text-shadow: 0 0 5px rgba(255, 138, 138, 0.4);
+}
+.admin-button-danger:hover {
+    background: linear-gradient(145deg, rgba(201, 48, 44, 0.2), rgba(169, 40, 36, 0.3));
+    color: #fff;
+    border-color: #c9302c;
+    box-shadow: 0 4px 12px rgba(201, 48, 44, 0.4);
+}
+
+.admin-button.cancel-btn {
+    background: linear-gradient(145deg, #6c757d, #5a6268);
+    color: #fff;
+}
+.admin-button.cancel-btn:hover {
+    box-shadow: 0 6px 15px rgba(108, 117, 125, 0.4);
+}
+
+/* Seznam kategorií a fór */
+.admin-category {
+    background-color: rgba(15, 17, 22, 0.6);
+    margin-bottom: 20px;
+    border: 1px solid #35394d;
+    border-radius: 8px;
+}
+.admin-category-header { padding: 15px 20px; background-color: rgba(25, 28, 36, 0.7); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #4a4a68; }
+.admin-category-header h3 { font-family: 'Cinzel', serif; margin: 0; font-size: 1.5em; color: #dde1ea; }
+.admin-actions button { background: none; border: 1px solid transparent; color: #98a2c2; margin-left: 10px; cursor: pointer; font-size: 1.2em; transition: color 0.3s, transform 0.2s; }
+.admin-actions button:hover { color: #f7d874; transform: scale(1.1); }
+.admin-forum-list { padding: 10px; }
+.admin-forum-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid #2a3045; }
+.admin-forum-item:last-child { border-bottom: none; }
+.admin-forum-info p { margin: 0; color: #a8b2d1; }
+.admin-forum-info span { font-size: 0.85em; color: #767e99; font-style: italic; }
+
+/* Grid pro karty témat, odpovědí a úvodních příspěvků */
+.threads-grid, .replies-grid, .initial-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.thread-card, .reply-card, .initial-post-card {
+    background: linear-gradient(145deg, rgba(28, 32, 43, 0.8), rgba(20, 23, 30, 0.9));
+    border: 1px solid #4a4a68;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.thread-card-header, .reply-card-header, .initial-post-header { padding: 15px 20px; border-bottom: 1px solid rgba(74, 74, 104, 0.5); }
+.thread-card-header h4, .initial-post-header h4 { margin: 0; font-family: 'Cinzel', serif; font-size: 1.4em; color: #e8c96b; }
+
+.thread-card-body, .reply-card-body, .initial-post-body { padding: 15px 20px; flex-grow: 1; color: #b0c4de; }
+.thread-card-actions, .reply-card-footer, .initial-post-footer { padding: 10px 20px; background-color: rgba(15, 17, 22, 0.6); border-top: 1px solid #35394d; display: flex; justify-content: flex-end; align-items: center; }
+
+/* Specifické styly pro karty témat */
+.thread-card-body p { margin: 5px 0; }
+
+/* Specifické styly pro karty odpovědí */
+.reply-card-header p { margin: 0; font-size: 0.9em; color: #98a2c2; }
+.reply-card-header span { font-size: 1em; color: #c0c5d2; font-weight: bold; }
+.reply-card-footer .reply-timestamp { margin-right: auto; font-size: 0.9em; color: #767e99; }
+
+/* Specifické styly pro karty úvodních příspěvků */
+.initial-post-header span { font-size: 1em; color: #c0c5d2; }
+.initial-post-footer .post-stats { margin-right: auto; font-size: 0.9em; color: #767e99; }
+
+/* Styly pro tabulky (Role, Identity) */
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+thead { background-color: rgba(25, 28, 36, 0.7); }
+th, td { padding: 12px 15px; border: 1px solid #35394d; text-align: left; }
+th { font-family: 'Cinzel', serif; }
+.role-item { display: flex; justify-content: space-between; align-items: center; padding: 8px; border-bottom: 1px solid #35394d; }
+.custom-checkbox input { display: none; }
+.custom-checkbox .checkmark { height: 20px; width: 20px; background-color: #2a3045; border: 1px solid #4a4a68; display: inline-block; position: relative; cursor: pointer; }
+.custom-checkbox input:checked + .checkmark { background-color: #f7d874; }
+.custom-checkbox .checkmark:after { content: ""; position: absolute; display: none; left: 6px; top: 2px; width: 5px; height: 10px; border: solid #1c202b; border-width: 0 3px 3px 0; transform: rotate(45deg); }
+.custom-checkbox input:checked + .checkmark:after { display: block; }
+
+.error-message { color: #ff8a8a; background-color: rgba(201, 48, 44, 0.15); border: 1px solid #a92824; padding: 15px; border-radius: 5px; }

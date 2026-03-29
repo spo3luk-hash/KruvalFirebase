@@ -1,0 +1,192 @@
+/* SELECTION.CSS - Styly POUZE pro stránku pro výběr postavy (game.html) */
+
+/* Fonty specifické pro tuto scénu */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'IM Fell English', serif;
+    background-color: #0c0a1a;
+    color: #e0e0e0;
+    background: linear-gradient(rgba(12, 10, 26, 0.8), rgba(12, 10, 26, 1)), radial-gradient(circle, #1a1433 0%, #0c0a1a 100%);
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/crissxcross.png');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.selection-scene-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.game-header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    z-index: 10;
+    margin-bottom: 2rem; /* Odsazení od obsahu */
+}
+
+.game-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2em;
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    margin: 0;
+}
+
+.game-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-button {
+    background-color: #ffd700;
+    color: #0c0a1a;
+    padding: 10px 20px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #fff;
+    box-shadow: 0 0 20px #fff;
+    color: #000;
+}
+
+.hero-carousel-container {
+    text-align: center;
+    width: 100%;
+    z-index: 5;
+}
+
+.char-selection-intro {
+    font-style: italic;
+    color: #c0c0c0;
+    margin: 0 0 2rem 0;
+    font-size: 1.2em;
+}
+
+.hero-carousel {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hero-carousel::-webkit-scrollbar { display: none; }
+
+.postava-karta, .new-char-card {
+    flex: 0 0 320px;
+    height: 480px;
+    background: #110e24 no-repeat center center;
+    background-size: cover;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.postava-karta:hover, .new-char-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+}
+
+.postava-karta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(12, 10, 26, 1) 20%, rgba(12, 10, 26, 0.1) 60%);
+}
+
+.card-content { padding: 1.5rem; position: relative; z-index: 2; text-align: left; }
+.karta-header h3 { font-family: 'Cinzel', serif; font-size: 1.8em; margin: 0; color: #fff; text-shadow: 0 2px 5px #000; }
+.char-level { background-color: rgba(255, 215, 0, 0.8); color: #0c0a1a; padding: 4px 10px; border-radius: 5px; font-size: 0.8em; font-weight: bold; position: absolute; top: 1.5rem; right: 1.5rem; }
+.karta-details p { margin: 0.3rem 0; color: #c0c0c0; font-size: 0.9em; }
+.karta-details p strong { color: #e0e0e0; font-weight: bold; }
+
+.vybrat-postavu-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    background-color: #ffd700;
+    color: #0c0a1a;
+    padding: 12px 25px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vybrat-postavu-btn:hover { background-color: #fff; box-shadow: 0 0 20px #fff; color: #000; }
+
+.new-char-card {
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-style: dashed;
+    background: rgba(17, 14, 36, 0.5);
+}
+
+.new-char-content { text-align: center; color: rgba(255, 215, 0, 0.7); }
+.new-char-content i { font-size: 4em; margin-bottom: 1rem; }
+.new-char-content h3 { font-family: 'Cinzel', serif; font-size: 1.5em; margin: 0; }
+
+/* === RESPONZIVNÍ PRAVIDLA POUZE PRO SELECTION.CSS === */
+@media (max-width: 768px) {
+    .selection-scene-wrapper { padding: 1rem; justify-content: flex-start; }
+    .game-header {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .hero-carousel { 
+        justify-content: flex-start;
+        padding: 1rem; /* Menší padding na mobilu */
+    }
+    .postava-karta, .new-char-card {
+        flex: 0 0 260px; /* Menší karty na mobilu */
+        height: 400px;
+    }
+    .game-header h1 { font-size: 1.8em; }
+    .char-selection-intro { font-size: 1em; text-align: center; }
+}

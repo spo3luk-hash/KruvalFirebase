@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Správa hůlek</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/hulky-sprava.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Hlavní strana</a></li>
+                <li><a href="admin-centrum.html">Admin Centrála</a></li>
+                <li><a href="#" id="logout-btn">Odhlásit se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Správa hůlek</h1>
+
+        <div id="admin-check" class="hidden">
+            <section id="add-wand-section">
+                <h2>Přidat novou hůlku</h2>
+                <form id="add-wand-form">
+                    <input type="text" id="wand-wood" placeholder="Dřevo" required>
+                    <input type="text" id="wand-core" placeholder="Jádro" required>
+                    <input type="number" id="wand-length" placeholder="Délka (v palcích)" step="0.25" required>
+                    <input type="text" id="wand-flexibility" placeholder="Pružnost" required>
+                    <button type="submit">Přidat hůlku</button>
+                </form>
+                <button id="generate-random-wands-btn" class="secondary-action-btn">Náhodně vygenerovat 10 hůlek</button>
+            </section>
+
+            <section id="wand-list-section">
+                <h2>Seznam dostupných hůlek</h2>
+                <table id="wand-list-table">
+                    <thead>
+                        <tr>
+                            <th>Dřevo</th>
+                            <th>Jádro</th>
+                            <th>Délka</th>
+                            <th>Pružnost</th>
+                            <th>Akce</th>
+                        </tr>
+                    </thead>
+                    <tbody id="wand-list">
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="character-wands-section">
+                <h2>Hůlky postav</h2>
+                <table id="character-wands-table">
+                    <thead>
+                        <tr>
+                            <th>Postava (Hráč)</th>
+                            <th>Hůlka</th>
+                            <th>Akce</th>
+                        </tr>
+                    </thead>
+                    <tbody id="character-wands-list">
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div id="loading-message">
+            <p>Načítání a ověřování...</p>
+        </div>
+        <div id="error-message" class="hidden">
+            <p>Přístup odepřen. Tuto stránku mohou zobrazit pouze administrátoři.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kruval RPG Online. Všechna práva vyhrazena.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/wandGenerator.js"></script> <!-- Přidáno -->
+    <script src="/js/hulky-sprava.js"></script>
+</body>
+</html>

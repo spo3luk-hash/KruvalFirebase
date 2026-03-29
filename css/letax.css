@@ -1,0 +1,153 @@
+/* --- Základní nastavení a fonty --- */
+body {
+    background-color: #0c0a09; /* Velmi tmavě hnědá, téměř černá */
+    color: #c8c8c8; /* Světle šedá pro základní text */
+    font-family: 'Lora', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.letax-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: rgba(18, 16, 15, 0.8); /* Průsvitné pozadí */
+    border: 1px solid #3a2e28;
+    box-shadow: 0 0 25px rgba(255, 165, 0, 0.15); /* Jemná oranžová záře */
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+/* --- Hlavička --- */
+.letax-header {
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 1px solid #3a2e28;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
+}
+
+.letax-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5em;
+    color: #e6a800; /* Zlatá barva */
+    text-shadow: 0 0 10px #e6a800, 0 0 20px #e6a800;
+    margin: 0;
+}
+
+.letax-subtitle {
+    font-style: italic;
+    color: #a0a0a0;
+    font-size: 1.2em;
+}
+
+/* --- Seznam destinací --- */
+.destination-list {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr; /* Jeden sloupec na mobilu */
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .destination-list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Více sloupců na větších obrazovkách */
+    }
+}
+
+.destination-item {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid #2c221e;
+    border-radius: 8px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.destination-item:hover {
+    background: rgba(0,0,0,0.5);
+    border-color: #e6a800;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.destination-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8em;
+    color: #d4b262;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #4a3e38;
+    padding-bottom: 10px;
+}
+
+.destination-description {
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #b0b0b0;
+}
+
+/* --- Status destinace --- */
+.destination-status {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.status-dot.active {
+    background-color: #28a745; /* Zelená */
+    box-shadow: 0 0 8px #28a745;
+}
+
+.status-dot.inactive {
+    background-color: #dc3545; /* Červená */
+}
+
+.destination-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(80%);
+}
+
+.destination-item.disabled:hover {
+    transform: none;
+    border-color: #2c221e;
+    box-shadow: none;
+}
+
+/* --- Patička a tlačítko zpět --- */
+.letax-footer {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #3a2e28;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #3a2e28;
+    color: #c8c8c8;
+    border: 1px solid #5a4a40;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #e6a800;
+    color: #0c0a09;
+    border-color: #e6a800;
+    box-shadow: 0 0 15px rgba(230, 168, 0, 0.5);
+}

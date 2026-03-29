@@ -1,0 +1,35 @@
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #1a1a1a;
+    color: #f0e6d2;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #111;
+    border-bottom: 1px solid #444;
+}
+
+.container {
+    padding: 2rem;
+}
+
+#inventory-section {
+    margin-top: 2rem;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.inventory-item {
+    border: 1px solid #444;
+    padding: 1rem;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+}

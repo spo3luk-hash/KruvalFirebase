@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventář postavy</title>
+    <link rel="stylesheet" href="css/inventar.css">
+    <link rel="stylesheet" href="css/inventar-grid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div id="inventory-container">
+        <header id="inventory-header">
+            <h1 id="inventory-title">Inventář</h1>
+            <h2 id="inventory-owner"></h2>
+        </header>
+
+        <main id="inventory-main">
+            <div id="equipment-and-gold">
+                <div id="equipment-slots">
+                    <h3>Vybavení</h3>
+                    <div class="equip-slot" id="equip-head" data-slot-name="Hlava"></div>
+                    <div class="equip-slot" id="equip-body" data-slot-name="Tělo"></div>
+                    <div class="equip-slot" id="equip-legs" data-slot-name="Nohy"></div>
+                    <div class="equip-slot" id="equip-feet" data-slot-name="Chodidla"></div>
+                    <div class="equip-slot" id="equip-main-hand" data-slot-name="Pravá ruka"></div>
+                    <div class="equip-slot" id="equip-off-hand" data-slot-name="Levá ruka"></div>
+                    <div class="equip-slot" id="equip-wand" data-slot-name="Hůlka"></div>
+                </div>
+                <div id="character-currency">
+                    <h3>Měšec</h3>
+                    <p><span id="character-gold">0</span> <i class="fas fa-coins"></i> Zlaťáků</p>
+                </div>
+            </div>
+            
+            <div id="inventory-grid-container">
+                <h3>Batoh</h3>
+                <div id="inventory-grid">
+                    <!-- Sloty budou generovány pomocí JavaScriptu -->
+                </div>
+            </div>
+
+            <aside id="item-details-panel">
+                <div id="item-details-content">
+                    <h3 id="item-name-detail">Vyber předmět</h3>
+                    <img id="item-image-detail" src="img/avatars/char_placeholder.png" alt="Detail předmětu">
+                    <p id="item-description-detail">Zde se zobrazí popis předmětu po najetí myší.</p>
+                    <div id="item-stats-detail"></div>
+                    <div id="item-actions">
+                        <button id="use-item-btn" class="inventory-action-btn hidden"><i class="fas fa-magic"></i> Použít</button>
+                        <button id="equip-item-btn" class="inventory-action-btn hidden"><i class="fas fa-shield-alt"></i> Vybavit</button>
+                        <button id="drop-item-btn" class="inventory-action-btn hidden"><i class="fas fa-trash"></i> Zahodit</button>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/inventar.js"></script>
+</body>
+</html>

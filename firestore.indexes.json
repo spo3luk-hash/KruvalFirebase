@@ -1,0 +1,43 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "forum_vlakna",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "kategorieId", "order": "ASCENDING" },
+        { "fieldPath": "posledniPrispevek", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "forum_prispevky",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "vlaknoId", "order": "ASCENDING" },
+        { "fieldPath": "vytvoreno", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "characters",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "last_active", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "postavy",
+      "fieldPath": "datumVytvoreni",
+      "indexes": [
+        {
+          "order": "DESCENDING",
+          "queryScope": "COLLECTION"
+        },
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION"
+        }
+      ]
+    }
+  ]
+}

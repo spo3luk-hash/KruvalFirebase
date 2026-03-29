@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Správa Chatovacích Místností</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/sprava-chatu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Správa Chatovacích Místností</h1>
+            <p>Vytvářejte a spravujte veřejné herní lokace.</p>
+        </header>
+
+        <main class="admin-main">
+            <div class="admin-section">
+                <h2 id="form-title">Vytvořit novou místnost</h2>
+                <form id="chat-form" class="admin-form">
+                    <input type="hidden" id="chat-id-hidden">
+                    
+                    <div class="form-group">
+                        <label for="chat-id">ID Místnosti (pouze malá písmena, bez diakritiky, např. 'stodola-u-cesty')</label>
+                        <input type="text" id="chat-id" placeholder="jedinecne-id-mistnosti" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chat-name">Zobrazovaný název</label>
+                        <input type="text" id="chat-name" placeholder="Stodola u cesty" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chat-description">Popis místnosti</label>
+                        <textarea id="chat-description" placeholder="Krátký popis, který se zobrazí v místnosti a v seznamu."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chat-background">URL Obrázku na pozadí</label>
+                        <input type="url" id="chat-background" placeholder="https://example.com/obrazek.jpg">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="save-chat-btn" class="btn-primary">Uložit místnost</button>
+                        <button type="button" id="cancel-edit-btn" class="btn-secondary hidden">Zrušit úpravu</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="admin-section">
+                <h2>Existující místnosti</h2>
+                <div id="chat-list-container" class="list-container">
+                    <p>Načítám seznam místností...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/sprava-chatu.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trolí Pokladnice</title>
+    <link rel="stylesheet" href="css/style-troli-pokladnice.css">
+    <!-- Font Awesome pro ikony zámků -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Trolí Pokladnice</h1>
+            <p>Nevstupuješ do budovy, ale sestupuješ do útrob hory. Vzduch je ledový a páchne vlhkou skálou a ozvěnou síry. Jediným světlem jsou praskající pochodně, jejichž mihotavé plameny tančí po hrubě otesaných stěnách z černého čediče a odhalují primitivní runy vytesané přímo do kamene. Tady se neobchoduje s úsměvem. Tady se demonstruje síla.</p>
+        </header>
+
+        <main class="g-main-content">
+            <!-- Kontejner pro dynamický příběh -->
+            <div id="dynamic-content-container">
+                <div id="narrative-text" class="narrative-text">Načítání...</div>
+                <div id="action-buttons" class="action-buttons"></div>
+            </div>
+
+            <!-- Kontejner pro seznam trezorů (zpočátku skrytý) -->
+            <div id="vaults-list-container" class="hidden">
+                <h2 class="counter-title">Seznam Existujících Trezorů</h2>
+                <div id="vaults-list" class="vaults-list"></div>
+                <div class="action-buttons" style="margin-top: 20px;">
+                    <button id="back-to-teller-btn" class="btn-secondary">Zpět k přepážce</button>
+                </div>
+            </div>
+
+            <!-- Rozhraní pro správu trezoru (zpočátku skryté) -->
+            <div id="vault-interface" class="hidden">
+                <!-- SEKCE FINANCÍ -->
+                <div class="counter-section">
+                    <h2 class="counter-title">Správa Financí</h2>
+                    <div class="account-subsection">
+                        <h3>Peněženka</h3>
+                        <div id="wallet-balance" class="balance-display">
+                            <p>Galeonů: <span id="wallet-galleons">...</span></p>
+                            <p>Srpů: <span id="wallet-sickles">...</span></p>
+                            <p>Svrčků: <span id="wallet-knuts">...</span></p>
+                        </div>
+                    </div>
+                    <div class="account-subsection">
+                        <h3>Finance v Trezoru</h3>
+                        <div id="vault-balance" class="balance-display">
+                            <p>Galeonů: <span id="vault-galleons">...</span></p>
+                            <p>Srpů: <span id="vault-sickles">...</span></p>
+                            <p>Svrčků: <span id="vault-knuts">...</span></p>
+                        </div>
+                    </div>
+                    <div id="transfer-transactions" class="transactions">
+                        <div class="transaction-form">
+                            <h4>Uložit do trezoru</h4>
+                            <input type="number" placeholder="Galeony">
+                            <input type="number" placeholder="Srpce">
+                            <input type="number" placeholder="Svrčci">
+                            <button>Uložit</button>
+                        </div>
+                        <div class="transaction-form">
+                            <h4>Vybrat z trezoru</h4>
+                            <input type="number" placeholder="Galeony">
+                            <input type="number" placeholder="Srpce">
+                            <input type="number" placeholder="Svrčci">
+                            <button>Vybrat</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEKCE ÚSCHOVY PŘEDMĚTŮ -->
+                <div id="item-management-section" class="counter-section">
+                    <h2 class="counter-title">Úschova Předmětů</h2>
+                    <div class="inventories-container">
+                        <div class="inventory-column">
+                            <h3>Tvůj Inventář</h3>
+                            <div id="player-inventory-list" class="inventory-list"></div>
+                        </div>
+                        <div class="inventory-column">
+                            <h3>Předměty v Trezoru</h3>
+                            <div id="vault-inventory-list" class="inventory-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons" style="margin-top: 20px;">
+                    <button id="back-to-vaults-list-btn" class="btn-secondary">Zpět na seznam trezorů</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="page-footer">
+            <a href="pricnaulice-obchody.html" class="btn-secondary">Zpět na seznam obchodů</a>
+        </footer>
+    </div>
+
+    <!-- Firebase a logika -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/trolli-pokladnice.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letaxová Síť - Kruval Online</title>
+    <link rel="stylesheet" href="css/letax.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="letax-container">
+        <header class="letax-header">
+            <h1 class="letax-title">Letaxová Síť</h1>
+            <p class="letax-subtitle">Plameny tě provedou skrytými cestami světa.</p>
+        </header>
+
+        <main class="destination-list">
+            <div class="destination-item" data-location-id="pricna-ulice">
+                <h2 class="destination-name">Příčná ulice</h2>
+                <p class="destination-description">Pulzující srdce kouzelnického obchodu a setkávání. Místo, kde seženete vše od kotlíků po kouzelnické hůlky.</p>
+                <div class="destination-status">
+                     <span class="status-dot active"></span> Aktivní
+                </div>
+            </div>
+
+            <div class="destination-item disabled" data-location-id="kruval">
+                <h2 class="destination-name">Kruval</h2>
+                <p class="destination-description">Prastaré a majestátní sídlo Durmstrangu, zahalené tajemstvím a obklopené drsnou severskou krajinou.</p>
+                <div class="destination-status">
+                    <span class="status-dot inactive"></span> Dočasně nedostupné
+                </div>
+            </div>
+
+             <div class="destination-item disabled" data-location-id="mudlovsky-svet">
+                <h2 class="destination-name">Mudlovský Londýn</h2>
+                <p class="destination-description">Rušné ulice a skryté uličky hlavního města, kde se magie skrývá za každým rohem.</p>
+                 <div class="destination-status">
+                    <span class="status-dot inactive"></span> Dočasně nedostupné
+                </div>
+            </div>
+        </main>
+
+        <footer class="letax-footer">
+             <a href="hra.html" class="back-button">Zpět do hry</a>
+        </footer>
+    </div>
+
+    <!-- Firebase a vlastní skripty -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js?v=1.1"></script>
+    <script src="js/letax.js?v=1.0"></script>
+</body>
+</html>

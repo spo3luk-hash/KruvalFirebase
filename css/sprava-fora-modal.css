@@ -1,0 +1,86 @@
+/* === Modal System - Správa Fóra (Durmstrang Theme) === */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Tmavší pozadí */
+    display: none; /* Skryto ve výchozím stavu */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #1a2a25, #111e1a);
+    color: #b0c4de; /* Světle ocelová modrá pro text */
+    border: 1px solid #3a5a40; /* Zmijozelsky zelený okraj */
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(58, 90, 64, 0.2);
+    width: 90%;
+    max-width: 550px;
+    animation: fadeInModal 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 18px 25px;
+    background-color: rgba(10, 20, 15, 0.5);
+    border-bottom: 1px solid #3a5a40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: #e8d5a3; /* Starobylá zlatá */
+    text-shadow: 0 0 10px rgba(232, 213, 163, 0.3), 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #7a8a85;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    color: #e8d5a3;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 25px 30px;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.modal-footer {
+    padding: 15px 25px;
+    background-color: rgba(10, 20, 15, 0.5);
+    border-top: 1px solid #3a5a40;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+/* Animace */
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
